@@ -1,6 +1,18 @@
+
+var App = require('./components/app.jsx');
+
+// data vis imports
+var schoolBubble = require('./charts/school_counts');
+
 var React = require('react');
 
-//components
-var view = require('./components/view.jsx');
+React.renderComponent(App(), document.getElementById('app'), function(){
 
-React.renderComponent(view(), document.getElementById('app'));
+
+  // ATTACH CHART HANDLERS HERE
+
+  // charts have the API (mount, data, width, height)
+  schoolBubble.run('#chart','assets/data/schools_counts.json', 940, 600);
+});
+
+

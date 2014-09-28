@@ -1,7 +1,15 @@
-  $(document).ready(function() {
-    d3.json("assets/data/schools_counts.json", function(data) {
-      custom_bubble_chart.init(data);
-      custom_bubble_chart.toggle_view('all');
+var d3 = require('d3');
+var $ = require('jquery');
+var _ = require('underscore');
+
+var CustomTooltip = require('../components/CustomTooltip');
+
+var chart = {};
+
+chart.run = function(mount, dataPath, width, height){
+  d3.json(dataPath, function(data) {
+    custom_bubble_chart.init(data, mount, width, height);
+    custom_bubble_chart.toggle_view('all');
 
  // create toggle buttons
  if(! $('.filter-row').length) {
@@ -35,18 +43,8 @@
     )
     );
 
-  $('#chart').prepend(filterRow);
-
-
-
-  // test stuff;
-  d3.xml('assets/capsule.svg',"image/svg+xml",  function(xml){
-    document.body.appendChild(xml.documentElement);
-  });
+  $(mount).prepend(filterRow);
 }
-
-
-
 
 $('.filter-row a').on('click', function(e) {
   var target = $(e.target);
@@ -56,23 +54,24 @@ $('.filter-row a').on('click', function(e) {
 
   custom_bubble_chart.toggle_view(filter);
   return false;
+
 });
 });
-});
 
+}
 
-  var custom_bubble_chart = (function(d3, CustomTooltip) {
-    "use strict";
+var custom_bubble_chart = (function(d3, CustomTooltip) {
+  "use strict";
 
-    var width = 940,
-    height = 600,
-    tooltip = CustomTooltip("school_tooltip", 240),
-    layout_gravity = -0.01,
-    damper = 0.1,
-    nodes = [],
-    vis, force, circles, radius_scale;
+  var width = 940,
+  height = 600,
+  tooltip = CustomTooltip("school_tooltip", 240),
+  layout_gravity = -0.01,
+  damper = 0.1,
+  nodes = [],
+  vis, force, circles, radius_scale;
 
-    var COLORS = ["#578E99", "#A1FFF0", "#FFE1E1", "#CC7183"];
+  var COLORS = ["#578E99", "#A1FFF0", "#FFE1E1", "#CC7183"];
     //var COLORS = ['#d7191c', '#fdae61', '#abd9e9', '#2c7bb6'];
 
     var MAX_RADIUS = 60;
@@ -97,7 +96,10 @@ $('.filter-row a').on('click', function(e) {
     .domain(["most", "hcplus", "hc", 'vcplus'])
     .range(COLORS);
 
-    function custom_chart(data) {
+    function custom_chart(data, mount, w, h) {
+      width = w ? w : width;
+      height = h ? height : height;
+
       var max_amount = d3.max(data, function(d) { return parseInt(d.count, 10); } );
       radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([MIN_RADIUS, MAX_RADIUS]);
 
@@ -121,8 +123,8 @@ $('.filter-row a').on('click', function(e) {
     });
 
     nodes.sort(function(a, b) {return b.value- a.value; });
-    $('#chart').empty();
-    vis = d3.select("#chart").append("svg")
+    $(mount).empty();
+    vis = d3.select(mount).append("svg")
     .attr("width", width)
     .attr("height", height)
     .attr("id", "svg_vis");
@@ -227,70 +229,73 @@ $('.filter-row a').on('click', function(e) {
     force.start();
     //hide_labels();
    // display_frequency();
-  }
+ }
 
-  function move_towards_frequency(alpha) {
-    return function(d) {
-      var target = frequency_centers[d.nyt_bin];
-      d.x = d.x + (target.x - d.x) * (damper + 0.07) * alpha * 1.1;
-      d.y = d.y + (target.y - d.y) * (damper + 0.07) * alpha * 1.1;
-    };
-  }
-
-  function display_frequency() {
-    var frequency_data = {"1": {width: 160, name : "Most Competitive"}, "2": {width: width / 2, name: "Highly Competitive Plus"}, "3": {width: width - 300, name: "Highly Competitive"}, '4' : {width: width-140, name: "Very Competitive Plus"}};
-    var frequency_cats = d3.keys(frequency_data);
-
-    var frequencies = vis.selectAll(".frequencies")
-    .data(frequency_cats);
-    frequencies.enter().append("text")
-    .attr("class", "frequencies")
-    .attr("x", function(d) { return frequency_data[d].width; }  )
-    .attr("y", 40)
-    .attr("text-anchor", "middle")
-    .text(function(d) { return frequency_data[d].name;});
-  }
-
-  function hide_frequencies() {
-    var frequencies = vis.selectAll(".frequencies").remove();
-  }
-
-
-  function show_details(data, i, element) {
-    d3.select(element).attr("stroke", "black");
-    var content = "<span class=\"name\">School:</span><span class=\"value\"> " + data.name + "</span><br/>";
-    content +="<span class=\"name\">Amount: </span><span class=\"value\">" + data.value + "</span><br/>";
-    tooltip.showTooltip(content, d3.event);
-  }
-
-  function hide_labels() {
-    hide_frequencies();
-    hide_rankings();
-  }
-
-  function hide_details(data, i, element) {
-    d3.select(element).attr("stroke", function(d) { return d3.rgb(fill_color(d.group)).darker();} );
-    tooltip.hideTooltip();
-  }
-
-  var my_mod = {};
-  my_mod.init = function (_data) {
-    custom_chart(_data);
-    start();
+ function move_towards_frequency(alpha) {
+  return function(d) {
+    var target = frequency_centers[d.nyt_bin];
+    d.x = d.x + (target.x - d.x) * (damper + 0.07) * alpha * 1.1;
+    d.y = d.y + (target.y - d.y) * (damper + 0.07) * alpha * 1.1;
   };
+}
 
-  my_mod.display_all = display_group_all;
-  my_mod.display_ranking = display_by_ranking;
-  my_mod.toggle_view = function(view_type) {
-    if (view_type === 'ranking') {
-      display_by_ranking();
-    }
-    else if (view_type === 'frequency') {
-      display_by_frequency();
-    } else {
-      display_group_all();
-    }
-  };
+function display_frequency() {
+  var frequency_data = {"1": {width: 160, name : "Most Competitive"}, "2": {width: width / 2, name: "Highly Competitive Plus"}, "3": {width: width - 300, name: "Highly Competitive"}, '4' : {width: width-140, name: "Very Competitive Plus"}};
+  var frequency_cats = d3.keys(frequency_data);
 
-  return my_mod;
+  var frequencies = vis.selectAll(".frequencies")
+  .data(frequency_cats);
+  frequencies.enter().append("text")
+  .attr("class", "frequencies")
+  .attr("x", function(d) { return frequency_data[d].width; }  )
+  .attr("y", 40)
+  .attr("text-anchor", "middle")
+  .text(function(d) { return frequency_data[d].name;});
+}
+
+function hide_frequencies() {
+  var frequencies = vis.selectAll(".frequencies").remove();
+}
+
+
+function show_details(data, i, element) {
+  d3.select(element).attr("stroke", "black");
+  var content = "<span class=\"name\">School:</span><span class=\"value\"> " + data.name + "</span><br/>";
+  content +="<span class=\"name\">Amount: </span><span class=\"value\">" + data.value + "</span><br/>";
+  tooltip.showTooltip(content, d3.event);
+}
+
+function hide_labels() {
+  hide_frequencies();
+  hide_rankings();
+}
+
+function hide_details(data, i, element) {
+  d3.select(element).attr("stroke", function(d) { return d3.rgb(fill_color(d.group)).darker();} );
+  tooltip.hideTooltip();
+}
+
+var my_mod = {};
+my_mod.init = function (_data, mount, width, height) {
+  custom_chart(_data, mount, width, height);
+  start();
+};
+
+my_mod.display_all = display_group_all;
+my_mod.display_ranking = display_by_ranking;
+my_mod.toggle_view = function(view_type) {
+  if (view_type === 'ranking') {
+    display_by_ranking();
+  }
+  else if (view_type === 'frequency') {
+    display_by_frequency();
+  } else {
+    display_group_all();
+  }
+};
+
+return my_mod;
 })(d3, CustomTooltip);
+
+
+module.exports = chart;

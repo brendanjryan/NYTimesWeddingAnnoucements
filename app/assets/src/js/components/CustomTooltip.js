@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 function CustomTooltip(tooltipId, width){
   var tooltipId = tooltipId;
   if (!$('#'+ tooltipId).length) {
@@ -49,3 +51,5 @@ function CustomTooltip(tooltipId, width){
     updatePosition: updatePosition
   }
 }
+
+module.exports = CustomTooltip;
