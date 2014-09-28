@@ -1,0 +1,35 @@
+{
+  "name": "nytimes-thesis",
+  "version": "1.0.0",
+  "description": "Brendan Ryan's thesis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjryan2/nytimes-wedding-thesis.git"
+  },
+  "author": "Brendan Ryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bjryan2/nytimes-wedding-thesis/issues"
+  },
+  "homepage": "https://github.com/bjryan2/nytimes-wedding-thesis",
+  "devDependencies": {
+    "browserify": "^5.12.1",
+    "d3": "^3.4.11",
+    "del": "^0.1.3",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-sass": "^1.0.0",
+    "gulp-util": "^3.0.1",
+    "gulp-watch": "^1.0.7",
+    "jquery": "^2.1.1",
+    "react": "^0.11.2",
+    "reactify": "^0.14.0",
+    "sass": "^0.5.0",
+    "underscore": "^1.7.0",
+    "vinyl-source-stream": "^1.0.0"
+  }
+}
