@@ -6,6 +6,7 @@ var Paragraph = require('./paragraph.jsx');
 var Text = require('./text.jsx');
 var CodeBlock = require('./code_block.jsx');
 var Content = require('./content.jsx');
+var headerMain = require('./header_main.jsx');
 
 var App = React.createClass({
 
@@ -13,7 +14,7 @@ var App = React.createClass({
     return (
       <div>
         <Content>
-          <CodeBlock />
+          <headerMain />
         </Content>
       </div>
     );
