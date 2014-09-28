@@ -1,0 +1,25 @@
+{% extends 'layouts/main.html' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="assets/styles/chart.css">
+{% endblock %}
+
+
+{% block title%}Charts - {{title}}{% endblock %}
+
+
+{% block content %}
+
+<header>
+    <h1 class="header'">{{title}}</h1>
+    <hr/>
+</header>
+
+<div class="chart" id="chart"></div>
+
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script src="assets/javascripts/{{static}}.js"></script>
+    <script src="assets/javascripts/{{static}}.js"></script>
+{% endblock %}

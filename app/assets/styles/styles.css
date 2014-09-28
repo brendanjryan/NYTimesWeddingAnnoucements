@@ -1,0 +1,68 @@
+html{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;
+}
+
+.data{
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.bar{
+  fill: steelblue;
+  fill-opacity: .9;
+}
+
+.container{
+    margin: 0 auto;
+}
+
+.content{
+    margin: 0 auto;
+    width: 90%;
+}
+
+header h1 {
+    margin-bottom: 0;
+    text-align: center;
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+header hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 30%;
+}
+.label {}
+.label-max{
+    font-weight: bold;
+}
+.axis {
+  font: 10px sans-serif;
+}
+
+.chart{
+    margin-top: 30px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
