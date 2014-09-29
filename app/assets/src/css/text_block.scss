@@ -2,6 +2,19 @@
 
 .text-block{
 
+  &.align-right{
+    text-align: right;
+  }
+
+  &.align-left {
+    text-align: left;
+
+  }
+
+  &.align-center {
+    text-align: center;
+  }
+
   p {
     letter-spacing: 0.01rem;
     font-style: normal;
