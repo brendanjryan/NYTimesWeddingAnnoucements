@@ -1,0 +1,23 @@
+.header-section {
+  text-align: left;
+
+  .title {
+    font-weight: 500;
+
+    &.large {
+      padding: 15px;
+      font-size: 3rem;
+    }
+
+    &.medium {
+      padding: 5px 15px;
+      font-size: 2.5rem;
+    }
+
+    &.small {
+      padding: 5px 15px;
+      font-size: 2rem;
+    }
+  }
+
+}

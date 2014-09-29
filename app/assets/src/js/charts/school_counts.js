@@ -179,7 +179,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   function display_by_ranking() {
     force.gravity(layout_gravity)
     .charge(charge)
-    .friction(0.9)
+    .friction(0.85)
     .on("tick", function(e) {
       circles.each(move_towards_ranking(e.alpha))
       .attr("cx", function(d) {return d.x;})
@@ -220,7 +220,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   function display_by_frequency() {
     force.gravity(layout_gravity)
     .charge(charge)
-    .friction(0.9)
+    .friction(0.85)
     .on("tick", function(e) {
       circles.each(move_towards_frequency(e.alpha))
       .attr("cx", function(d) {return d.x;})

@@ -7,8 +7,8 @@ var OverlayTrigger = require('react-bootstrap').OverlayTrigger;
 var Annotation = React.createClass({
   getDefaultProps: function() {
     return {
-      annotationTitle: "Annotation Title",
-      annotationContent: "Annotation Content"
+      title: "Annotation Title",
+      content: "Annotation Content"
     };
   },
 
@@ -23,13 +23,13 @@ var Annotation = React.createClass({
         overlay={
           <Popover
             className="pop-over"
-            title={this.props.annotationTitle}
+            title={this.props.title}
           >
-          {this.props.annotationContent}
+            {this.props.content}
           </Popover>
         }
       >
-      <span className="text">{this.props.children}</span>
+      <span className="annotation-text">{this.props.children}</span>
       </OverlayTrigger>
     );
   }
