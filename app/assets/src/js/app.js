@@ -12,7 +12,13 @@ React.renderComponent(App(), document.getElementById('app'), function(){
   // ATTACH CHART HANDLERS HERE
 
   // charts have the API (mount, data, width, height)
-  schoolBubble.run('#chart','assets/data/schools_counts.json', 940, 600);
+  schoolBubble.run(
+    '#schoolCounts',
+    'assets/data/schools_counts.json',
+     940,
+    600
+  );
+
 });
 
 

@@ -17,6 +17,7 @@ var BUILD_PATH = ASSET_PATH + 'build/';
 
 var PATHS = {
   css: [SRC_PATH + 'css/styles.scss'],
+  css_watch: [SRC_PATH + 'css/**/*.scss'],
   app_js: [SRC_PATH + 'js/app.js'],
   js: [SRC_PATH + 'js/**/*.js', SRC_PATH + 'js/**/*.jsx'],
 
@@ -43,7 +44,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(PATHS.css, ['css']);
+  gulp.watch(PATHS.css_watch, ['css']);
   gulp.watch(PATHS.js, ['js']);
 });
 

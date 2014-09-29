@@ -4,20 +4,19 @@ var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 
-var Text = React.createClass({
+var textBlock = React.createClass({
 
   getDefaultProps: function() {
     return {
-      content: "here is some fine young text",
     };
   },
 
   render: function() {
     return (
       <Grid>
-        <Row className="text">
+        <Row className="text-block">
           <Col md={8} mdOffset={2}>
-            {this.props.content}
+            {this.props.children}
           </Col>
         </Row>
       </Grid>
@@ -25,4 +24,4 @@ var Text = React.createClass({
   }
 });
 
-module.exports = Text;
+module.exports = textBlock;

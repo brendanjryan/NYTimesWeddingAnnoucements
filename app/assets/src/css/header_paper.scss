@@ -1,0 +1,30 @@
+//header_paper.scss
+
+.header-paper {
+  text-align: center;
+
+  .title {
+    text-align: center;
+    font-weight: 300;
+    font-size: 3.5rem;
+    margin: 25px;
+  }
+
+  hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: 75%;
+  }
+  .author-list {
+    font-size: 1.5rem;
+    color: $text-secondary;
+
+    li {
+      display: inline-block;
+      margin: 5px;
+      font-weight: normal;
+    }
+  }
+}

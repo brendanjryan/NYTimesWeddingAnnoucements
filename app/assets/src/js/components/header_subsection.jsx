@@ -17,7 +17,7 @@ var headerSubsection = React.createClass({
       <Row className="header-subsection">
         <Col md={8} mdOffset={2}>
           <header>
-             <h1 class="title">{this.props.title}</h1>
+             <h1 className="title">{this.props.title}</h1>
           </header>
         </Col>
       </Row>

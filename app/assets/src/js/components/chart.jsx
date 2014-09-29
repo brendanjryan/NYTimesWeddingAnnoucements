@@ -8,14 +8,15 @@ var Chart = React.createClass({
 
   getDefaultProps: function() {
     return {
-      chartId: 'chart'
+      chartId: 'chart',
       figureNum: '',
-      footer: ''
+      footer: '',
+      footerShown: false
     };
   },
 
   render: function() {
-    var id = '#' + this.props.chartId;
+    var id = this.props.chartId;
 
     var footerText =
       'Figure ' +
@@ -24,11 +25,15 @@ var Chart = React.createClass({
       this.props.footer
     ;
 
+    footer = this.props.footerShown ?
+    <p className='footer'>{footerText}</p> :
+    null;
+
     return (
       <Row className="chart">
-        <Col md={8} mdOffset={2}>
+        <Col md={10} mdOffset={1}>
           <div id={id} />
-          <p className='footer'>{footer}</p>
+          {footer}
         </Col>
       </Row>
     );

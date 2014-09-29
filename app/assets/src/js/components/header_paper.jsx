@@ -15,15 +15,16 @@ var headerPaper = React.createClass({
 
   render: function() {
     var authorList = this.props.authors.map(function(a){
-      return (<li class="author">a</li>);
+      return (<li className="author">{a}</li>);
     });
 
     return (
       <Row className="header-paper">
         <Col md={8} mdOffset={2}>
           <header>
-            <h1 class="title">{this.props.title}</h1>
-            <ul class="author-list">{authorList}</ul>
+            <h1 className="title">{this.props.title}</h1>
+            <ul className="author-list">{authorList}</ul>
+            <hr />
           </header>
         </Col>
       </Row>

@@ -4,9 +4,17 @@
 @import 'variables';
 @import 'colors';
 @import 'globals';
+@import 'bootstrap';
 
 //component specific imports
 @import 'main';
+@import 'app';
 @import 'chart';
 @import 'content';
+@import 'header_paper';
+@import 'text_block';
 @import 'header_main';
+@import 'header_subsection';
+@import 'content';
+@import 'code_block';
+@import 'annotation';
