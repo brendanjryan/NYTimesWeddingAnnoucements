@@ -2,7 +2,6 @@
 
 var React = require('react');
 
-var Paragraph = require('./paragraph.jsx');
 var CodeBlock = require('./code_block.jsx');
 var Content = require('./content.jsx');
 var Annotation = require('./annotation.jsx');
