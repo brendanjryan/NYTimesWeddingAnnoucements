@@ -6,14 +6,13 @@ var codeBlock = React.createClass({
 
   getDefaultProps: function() {
     return {
-      content: "console.log('hello, world!');"
     };
   },
 
   render: function() {
     return(
       <div className='code-block'>
-        <code>{this.props.content}</code>
+        <pre>{this.props.children}</pre>
       </div>
     );
   }
