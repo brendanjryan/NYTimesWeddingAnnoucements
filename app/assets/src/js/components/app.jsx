@@ -9,6 +9,7 @@ var TextBlock = require('./text_block.jsx');
 var PaperHeader = require('./header_paper.jsx')
 var SectionHeader = require('./header_section.jsx');
 var Chart = require('./chart.jsx');
+//var Tex = require('./tex.jsx');
 
 var App = React.createClass({
 
@@ -23,6 +24,7 @@ var App = React.createClass({
 
         <SectionHeader title={"First Header"} size={'large'}/>
         <TextBlock>
+        <Tex>"c = \\pm\\sqrt{a^2 + b^2}"</Tex>
           <p>
           Whatever deep v <Annotation title={"Yay! An annotation!"} content={"Here is some lovely annotation content. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}>DIY</Annotation> sustainable street art bespoke, <Annotation>scenester</Annotation> kitsch irony quinoa fixie pickled. Gluten-free Godard fanny pack readymade. Raw denim Tumblr shabby chic retro Brooklyn, Banksy fingerstache. Master cleanse Wes Anderson McSweeney's, before they sold out tofu ugh fingerstache scenester small batch artisan seitan pug chambray letterpress typewriter. Next level <Annotation>umami</Annotation> authentic actually pork belly. Before they sold out gentrify Schlitz, squid Williamsburg pickled Intelligentsia forage next level artisan swag. Leggings mumblecore iPhone, umami cred Helvetica flexitarian Carles DIY.
           </p>

@@ -2,6 +2,12 @@
 
 .text-block{
 
+  letter-spacing: 0.01rem;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 12.5px;
+  margin-top: 12.5px;
+
   &.align-right{
     text-align: right;
   }
@@ -15,12 +21,9 @@
     text-align: center;
   }
 
-  p {
-    letter-spacing: 0.01rem;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 12.5px;
-    margin-top: 12.5px;
+  &.text-block-quote {
+    border-left: 3px solid $text-default;
+    font-style: italic;
   }
+
 }

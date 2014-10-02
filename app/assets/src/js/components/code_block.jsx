@@ -12,7 +12,7 @@ var codeBlock = React.createClass({
 
   render: function() {
     return(
-      <div>
+      <div className='code-block'>
         <code>{this.props.content}</code>
       </div>
     );
