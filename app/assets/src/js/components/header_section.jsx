@@ -1,4 +1,6 @@
 var React = require('react');
+React.addons = require('react-addons');
+var cx = React.addons.classSet;
 
 var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
@@ -6,22 +8,36 @@ var Row = require('react-bootstrap').Row;
 
 var headerSubsection = React.createClass({
 
+  proptypes: {
+    title: React.PropTypes.string.isRequired,
+    size: React.PropTypes.oneOf(['small', 'medium', 'large']),
+    isSidebarShown: React.PropTypes.bool.isRequired
+  },
+
   getDefaultProps: function() {
     return {
-      title: 'Introduction',
       size: 'medium'
     };
   },
 
   render: function() {
+    var klass = cx({
+      'title': true,
+      'large': this.props.size === 'large',
+      'medium': this.props.size === 'medium',
+      'small': this.props.size === 'small'
+    });
 
+    var offset = this.props.isSidebarShown ?
+      0 :
+      2
+    ;
 
-    //var titleClass = 'title-' + {this.props.size};
     return (
       <Row className="header-section">
-        <Col md={8} mdOffset={2}>
+        <Col md={8} mdOffset={offset}>
           <header>
-             <h1 className={"title " +this.props.size }>
+             <h1 className={klass}>
               {this.props.title}
             </h1>
           </header>

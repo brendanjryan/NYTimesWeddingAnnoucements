@@ -5,18 +5,22 @@ var cx = React.addons.classSet;
 var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
+var CommentSidebar = require('./comment_sidebar.jsx');
 
 var textBlock = React.createClass({
 
   proptypes: {
     align: React.PropTypes.oneOf(['left', 'center', 'right']),
-    role: React.PropTypes.oneOf(['standard', 'quote'])
+    role: React.PropTypes.oneOf(['standard', 'quote']),
+    isSidebarShown: React.PropTypes.bool.isRequired,
+    sidebarToggleHandler: React.PropTypes.func,
+    key: React.PropTypes.string.isRequired
   },
 
   getDefaultProps: function() {
     return {
       align: 'left',
-      role: 'standard'
+      role: 'standard',
     };
   },
 
@@ -30,12 +34,22 @@ var textBlock = React.createClass({
       'text-block-quote': this.props.role === 'quote'
     });
 
+    var offset = this.props.isSidebarShown ?
+      0 :
+      2
+    ;
+    /*
+    var comments = this.props.isSidebarShown ?
+      : <CommentList key={this.props.key} />
+      : null
+    ;
+    */
+
     return (
       <Grid>
-        <Row>
-          <Col md={8} mdOffset={2} className={klass}>
-            {this.props.children}
-          </Col>
+        <Row className={klass}>
+          <Col md={8} mdOffset={offset}>{this.props.children}</Col>
+           <CommentSidebar key={this.props.key} toggleHandler={this.props.sidebarToggleHandler}/>
         </Row>
       </Grid>
     );

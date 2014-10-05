@@ -11,7 +11,8 @@ var Chart = React.createClass({
       chartId: 'chart',
       figureNum: '',
       footer: '',
-      footerShown: false
+      footerShown: false,
+      isSidebarShown: React.PropTypes.bool.isRequired
     };
   },
 
@@ -29,9 +30,14 @@ var Chart = React.createClass({
     <p className='footer'>{footerText}</p> :
     null;
 
+    var offset = this.props.isSidebarShown ?
+      0 :
+      1
+    ;
+
     return (
       <Row className="chart">
-        <Col md={10} mdOffset={1}>
+        <Col md={10} mdOffset={offset}>
           <div id={id} />
           {footer}
         </Col>

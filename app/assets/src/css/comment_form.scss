@@ -1,0 +1,53 @@
+.comment-form {
+  color: $text-secondary;
+
+  padding: 20px 0 10px 0;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+  .user-info {
+
+    * {
+      outline: none !important; //hard overwrite of browser outline
+    }
+
+    header {
+      font-weight: bold;
+    }
+
+    p {
+      color: $text-tertiary;
+    }
+
+  }
+
+
+  .controls {
+
+    & > a {
+      color: $link-blue;
+      padding-right: 5px;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+
+    }
+
+    .save {
+
+    }
+
+    .cancel {
+      color: $text-tertiary;
+
+      &:hover {
+        color: $link-blue;
+      }
+    }
+
+
+  }
+
+}

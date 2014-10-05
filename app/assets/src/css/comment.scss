@@ -1,0 +1,20 @@
+.comment {
+  display: block;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 10px 0 0px 0;
+  color: $text-secondary;
+  font-size: 1.5rem;
+
+  &:first-child {
+    margin-top: 25px;
+  }
+
+  .author {
+
+  }
+
+  .text {
+    font-size: 1.33rem;
+  }
+
+}

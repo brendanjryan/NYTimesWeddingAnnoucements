@@ -1,0 +1,18 @@
+.comment-sidebar {
+
+
+  &.hidden{
+    visibility: none;
+  }
+
+  .comment-icon {
+    color: $icon-primary;
+  }
+
+  &:hover {
+    .comment-icon {
+      color: $text-secondary;
+    }
+  }
+
+}

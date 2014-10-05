@@ -26,4 +26,14 @@
     font-style: italic;
   }
 
+
+  &:hover {
+
+    .comment-sidebar {
+      visibility: visible !important;
+      display: block !important;
+    }
+  }
+
+
 }
