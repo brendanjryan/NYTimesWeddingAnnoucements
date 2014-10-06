@@ -12,6 +12,7 @@ var CommentList = require('./comment_list.jsx');
 var CommentSidebar = React.createClass({
 
   proptypes: {
+    isSidebarShown: React.PropTypes.bool.isRequired,
     key: React.PropTypes.string.isRequired,
     toggleHandler: React.PropTypes.func,
   },
@@ -23,13 +24,18 @@ var CommentSidebar = React.createClass({
   },
 
   onSidebarClick: function() {
-    this.setState({'areCommentsShown': !this.state.areCommentsShown});
+    if (!this.props.isSidebarShown) {
+      this.setState({'areCommentsShown': true});
+    } else if (this.state.areCommentsShown && this.props.isSidebarShown) {
+      this.setState({'areCommentsShown': false});
+    }
+
     this.props.toggleHandler();
   },
 
   render: function(){
 
-    var content = this.state.areCommentsShown
+    var content = this.state.areCommentsShown && this.props.isSidebarShown
       ? <div>
         <CommentList dataKey={this.props.key} />
         <CommentForm dataKey={this.props.key} />
@@ -39,7 +45,7 @@ var CommentSidebar = React.createClass({
 
     var klass = cx({
       'comment-sidebar': true,
-      'hidden': !this.state.areCommentsShown,
+      'hidden': !this.state.areCommentsShown || !this.props.isSidebarShown,
     });
 
     return (

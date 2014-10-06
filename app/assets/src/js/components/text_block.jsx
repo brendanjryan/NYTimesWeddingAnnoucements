@@ -49,7 +49,11 @@ var textBlock = React.createClass({
       <Grid>
         <Row className={klass}>
           <Col md={8} mdOffset={offset}>{this.props.children}</Col>
-           <CommentSidebar key={this.props.key} toggleHandler={this.props.sidebarToggleHandler}/>
+           <CommentSidebar
+            key={this.props.key}
+            toggleHandler={this.props.sidebarToggleHandler}
+            isSidebarShown={this.props.isSidebarShown}
+          />
         </Row>
       </Grid>
     );
