@@ -5,55 +5,71 @@ var cx = React.addons.classSet;
 
 var CommentForm = React.createClass({
 
+  _defaultState: {
+    'commentName' : 'Name',
+    'commentText': 'leave a note',
+    'hidden' : false
+  },
+
+  _emptyState: {
+    'commentName': '',
+    'commentText': '',
+  },
+
   proptypes: {
     dataKey: React.PropTypes.string.required,
   },
 
   getInitialState: function() {
-    return {
-      'commentName' : 'Name',
-      'commentText': 'leave a note',
-    };
+    return this._defaultState;
   },
+
   componentWillMount: function() {
     this.firebaseRef = new Firebase("https://nytimesthesis.firebaseio.com/items/" + this.props.dataKey + '/');
   },
 
   onCancelButtonClick: function() {
-    this.setState({
-      'commentName': '',
-      'commentText': '',
-    });
+    this.setState(this._emptyState);
 
     // call parents helper here
   },
 
   onSaveButtonClick: function() {
-    this.firebaseRef.push({
-      name: this.state.commentName,
-      text: this.state.commentText
-    });
+    if (this.state.commentName && this.state.commentText) {
+      this.firebaseRef.push({
+        name: this.state.commentName,
+        text: this.state.commentText
+      });
 
-    this.setState({
-      'commentName': '',
-      'commentText': '',
-    });
+      this.setState(this._emptyState);
+      this.setState({'hidden': true});
+    }
 
 
   },
 
   emitChange: function() {
+    var commentName = this.refs.commentName.getDOMNode().innerText;
+    var commentText = this.refs.commentText.getDOMNode().innerText;
 
-    var commentName = this.refs.commentName.innerText;
-    var commentText = this.refs.commentText.innerText;
+    if(commentName && commentName === this._defaultState.commentName) {
+      this.setState({
+        'commentName': ''
+      });
+    }
 
-    if (commentName !== this.state.commentName) {
+    else if (commentText && commentText === this._defaultState.commentText){
+      this.setState({
+        'commentText': ''
+      });
+    }
+
+    else if (commentName && commentName !== this.state.commentName) {
       this.setState({
         'commentName' : commentName
       });
     }
-
-    if (commentText !== this.state.commentText) {
+    else if (commentText && commentText !== this.state.commentText) {
       this.setState({
         'commentText' : commentText
       });
@@ -64,6 +80,7 @@ var CommentForm = React.createClass({
   render: function() {
     var klass = cx({
       'comment-form': true,
+      'hidden': this.state.hidden,
     });
 
     return(
@@ -73,6 +90,7 @@ var CommentForm = React.createClass({
           ref={'commentName'}
           onInput={this.emitChange}
           onBlur={this.emitChange}
+          onFocus={this.emitChange}
           contentEditable={true}
         >
           {this.state.commentName}
@@ -82,6 +100,7 @@ var CommentForm = React.createClass({
           ref={'commentText'}
           onInput={this.emitChange}
           onBlur={this.emitChange}
+          onFocus={this.emitChange}
           contentEditable={true}
         >
           {this.state.commentText}
