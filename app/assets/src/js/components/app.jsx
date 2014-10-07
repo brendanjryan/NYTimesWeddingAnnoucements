@@ -59,9 +59,18 @@ var App = React.createClass({
 
         <TextBlock
           isSidebarShown={this.state.isSidebarShown}
-          sidebarToggleHandler={this.onSideBarToggle}>
+          sidebarToggleHandler={this.onSideBarToggle}
+          key={"second"}>
           <p>
           Gastropub seitan organic  <Annotation>mumblecore</Annotation>, vegan sartorial shabby chic meh pork belly aesthetic messenger bag pickled polaroid roof party. Synth mixtape gentrify Shoreditch. Biodiesel salvia aesthetic cardigan kitsch blog. Artisan pour-over sustainable,  <Annotation>Thundercats</Annotation>food truck tattooed sartorial hella. Intelligentsia literally fingerstache pop-up ennui, direct trade gastropub Pinterest trust fund forage banh mi. Post-ironic Marfa narwhal cred quinoa Cosby sweater try-hard. Yr DIY dreamcatcher, butcher organic vinyl retro pop-up VHS occupy.
+          </p>
+        </TextBlock>
+        <TextBlock
+          isSidebarShown={this.state.isSidebarShown}
+          sidebarToggleHandler={this.onSideBarToggle}
+          key={"third"}>
+          <p>
+           Flexitarian Wes Anderson food truck, ennui artisan flannel photo booth distillery pug literally ethical craft beer. Messenger bag organic master cleanse, 8-bit selfies hoodie Schlitz literally Echo Park tote bag asymmetrical pop-up cardigan stumptown. Chillwave hashtag Bushwick squid +1 street art 8-bit, yr authentic. Post-ironic vinyl try-hard slow-carb bitters, VHS wolf shabby chic. Brooklyn crucifix tilde Carles heirloom, pop-up distillery. Pickled authentic post-ironic Brooklyn, artisan hella cred deep v Vice forage leggings asymmetrical. Synth Carles master cleanse PBR&B Banksy, artisan 8-bit yr small batch street art Wes Anderson.
           </p>
         </TextBlock>
       </Content>
