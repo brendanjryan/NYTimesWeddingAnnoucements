@@ -1,8 +1,11 @@
 .comment-sidebar {
 
+  position: absolute;
+  right: 16.66667%;
 
   &.hidden{
     visibility: none;
+    position: static;
   }
 
   .comment-icon {

@@ -14,7 +14,7 @@ var Content = React.createClass({
 
   render: function() {
     return(
-      <Grid className="content">
+      <Grid className="content container-fluid">
         {this.props.children}
       </Grid>
     );

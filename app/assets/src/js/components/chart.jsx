@@ -37,7 +37,7 @@ var Chart = React.createClass({
 
     return (
       <Row className="chart">
-        <Col md={10} mdOffset={offset}>
+        <Col md={8} mdOffset={offset}>
           <div id={id} />
           {footer}
         </Col>
