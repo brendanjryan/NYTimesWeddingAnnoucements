@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('react/addons');
 
 var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;

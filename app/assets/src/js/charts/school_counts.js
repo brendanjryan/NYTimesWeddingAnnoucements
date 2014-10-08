@@ -62,7 +62,6 @@ $('.filter-row a').on('click', function(e) {
 
 var custom_bubble_chart = (function(d3, CustomTooltip) {
   "use strict";
-
   var width = 940,
   height = 600,
   tooltip = CustomTooltip("school_tooltip", 240),

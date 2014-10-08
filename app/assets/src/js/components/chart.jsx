@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('react/addons');
 
 var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
@@ -12,7 +12,7 @@ var Chart = React.createClass({
       figureNum: '',
       footer: '',
       footerShown: false,
-      isSidebarShown: React.PropTypes.bool.isRequired
+      isSidebarShown: React.PropTypes.bool.isRequired,
     };
   },
 
@@ -35,12 +35,21 @@ var Chart = React.createClass({
       1
     ;
 
+    var tooltip = this.props.tooltipId
+      ? <div
+        id={this.props.tooltipId} i
+        className={"chart-tooltip"}
+      />
+      : null
+    ;
+
     return (
       <Row className="chart">
         <Col md={8} mdOffset={offset}>
           <div id={id} />
           {footer}
         </Col>
+        {tooltip}
       </Row>
     );
   }

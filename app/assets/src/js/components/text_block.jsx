@@ -1,5 +1,4 @@
-var React = require('react');
-React.addons = require('react-addons');
+var React = require('react/addons');
 
 var cx = React.addons.classSet;
 var Col = require('react-bootstrap').Col;

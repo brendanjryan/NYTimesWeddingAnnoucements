@@ -13,6 +13,7 @@ function CustomTooltip(tooltipId, width){
   hideTooltip();
 
   function showTooltip(content, event){
+    //debugger;
     $("#"+tooltipId).html(content);
     $("#"+tooltipId).show();
 
