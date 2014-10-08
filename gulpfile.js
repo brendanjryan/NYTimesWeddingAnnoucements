@@ -48,4 +48,5 @@ gulp.task('watch', function() {
   gulp.watch(PATHS.js, ['js']);
 });
 
+gulp.task('assets', ['css', 'js']);
 gulp.task('default', ['watch', 'css', 'js']);

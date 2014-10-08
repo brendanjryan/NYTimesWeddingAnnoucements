@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node node_modules/.bin/gulp"
+    "postinstall": "node node_modules/.bin/gulp assets"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/bjryan2/nytimes-wedding-thesis",
   "devDependencies": {
-
+    
   },
   "dependencies": {
     "bootstrap-sass": "^3.2.0",
