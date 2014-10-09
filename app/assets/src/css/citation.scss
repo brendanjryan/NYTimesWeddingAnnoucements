@@ -1,0 +1,18 @@
+.citation {
+
+}
+
+.citation-holder {
+}
+
+.citation-icon {
+  position: relative;
+
+  i {
+    font-size: 1.25rem;
+    position: absolute;
+    right: -5px;
+    top: -7.5px;
+    color: $citation-blue;
+  }
+}

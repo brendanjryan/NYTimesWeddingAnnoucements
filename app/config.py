@@ -10,7 +10,6 @@ DEBUG = True
 # http://clsc.net/tools-old/random-string-generator.php
 SECRET_KEY = 'poop'
 
-
 JSONIFY_PRETTYPRINT_REGULAR = True
 # Connect to the database
 # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'database.db')

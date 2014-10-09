@@ -1,13 +1,16 @@
-
 var App = require('./components/app.jsx');
 
 // data vis imports
 var schoolBubble = require('./charts/school_counts');
 
 var React = require('react');
+var $ = require('jquery');
 
-React.renderComponent(App(), document.getElementById('app'), function(){
-
+//collect all data and then render compoenent with cortex
+$.get('/api/sources', function(data) {
+  var sources = data.sources;
+  React.renderComponent(App({sources: sources}), document.getElementById('app'), function(){
+});
 
   // ATTACH CHART HANDLERS HERE
 
