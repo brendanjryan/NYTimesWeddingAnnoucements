@@ -24,8 +24,7 @@ app.config.from_object('config')
 APP_PATH = './app/'
 DATA_PATH =  '_data/'
 
-SOURCES_PATH = DATA_PATH + 'sources.yml'
-
+SOURCES_PATH = APP_PATH + DATA_PATH + 'sources.yml'
 
 ## actions to run on load
 
