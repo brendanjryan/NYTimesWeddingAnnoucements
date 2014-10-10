@@ -10,6 +10,7 @@ var PaperHeader = require('./header_paper.jsx')
 var SectionHeader = require('./header_section.jsx');
 var Chart = require('./chart.jsx');
 var Citation = require('./citation.jsx');
+var Bibliography = require('./bibliography.jsx');
 
 var App = React.createClass({
   proptypes: {
@@ -81,6 +82,7 @@ var App = React.createClass({
           </p>
         </TextBlock>
 
+        <Bibliography />
       </Content>
       );
 }
