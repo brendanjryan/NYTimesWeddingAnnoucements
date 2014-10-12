@@ -62,20 +62,23 @@ def source(key):
       )
   return 500
 
+
 @app.route('/components/', methods=['GET'])
 def components():
   return render_template('pages/components.html')
 
-
+@app.route('/test')
+def test():
+  return render_template('pages/chart.html')
 
 # Error handlers.
 @app.errorhandler(500)
 def internal_error(error):
-    return render_template('errors/500.html'), 500
+  return render_template('errors/500.html'), 500
 
 @app.errorhandler(404)
 def internal_error(error):
-    return render_template('errors/404.html'), 404
+  return render_template('errors/404.html'), 404
 
 
 #----------------------------------------------------------------------------#

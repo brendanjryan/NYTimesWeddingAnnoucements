@@ -1,5 +1,5 @@
 var App = require('./components/app.jsx');
-
+var test = require('./charts/test.js');
 // data vis imports
 var schoolBubble = require('./charts/school_counts');
 
