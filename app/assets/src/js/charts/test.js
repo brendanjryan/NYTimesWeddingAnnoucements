@@ -69,7 +69,10 @@ var $ = require('jquery');
   .attr("width", w)
   .attr("height", h)
   .append("g")
-  .attr("transform", "translate(" + w/2 + "," + h/2 + ")");
+  .attr("transform", "translate(" + w/2 + "," + h/2 + ")")
+  .style('display', 'block')
+  .style('margin', '0 auto')
+  ;
 
   // g draw group paths
   var g = svg.selectAll('.group')

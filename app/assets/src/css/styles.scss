@@ -38,3 +38,10 @@ path.chord {
   stroke-width: .75;
   fill-opacity: .75;
 }
+
+#test {
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+}
