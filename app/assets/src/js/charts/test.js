@@ -6,27 +6,24 @@ var $ = require('jquery');
 
 
   d3.json('assets/data/schools_couples.json', function(data) {
-    var w = 480,
-    h = 500,
-    r1 = Math.min(w, h) / 2 - 4,
-    r0 = r1 - 20,
+    var outerRadius = 400 / 2,
+    innerRadius = outerRadius - 20,
+    w = outerRadius * 2 + 300,
+    h = outerRadius * 2 + 300,
     format = d3.format(",.3r");
 
     var couples = [];
 
-    var fill = d3.scale.ordinal()
-    .domain(d3.range(4))
-    .range(["#000000", "#FFDD89", "#957244", "#F26223"]);
-
+    var fill = d3.scale.category20c();
 
   // art generator for groups
   var arc = d3.svg.arc()
-  .innerRadius(r0)
-  .outerRadius(r1);
+  .innerRadius(innerRadius)
+  .outerRadius(outerRadius);
 
   // chord generator
   var chord = d3.svg.chord()
-  .radius(r0);
+  .radius(innerRadius);
 
   var schools = {};
   var n = 0;
@@ -34,12 +31,12 @@ var $ = require('jquery');
   var connections = [];
   var couples = [];
 
-  Object.keys(data).forEach(function(school){
-    Object.keys(data[school]).forEach(function(school_inner){
+  (data).forEach(function(school){
+    school.data.forEach(function(school_inner){
       couples.push({
-        source: schoolMap(school),
-        dest: schoolMap(school_inner),
-        count: data[school][school_inner],
+        source: schoolMap(school.school),
+        dest: schoolMap(school_inner.school),
+        count: school_inner.count,
       });
     });
   });
@@ -61,40 +58,54 @@ var $ = require('jquery');
     connections[c.dest.id] = c.dest;
   });
 
-  //debugger;
-
   var layout = d3.layout.chord()
-    .sortGroups(d3.descending)
-    .sortSubgroups(d3.descending)
-    .sortChords(d3.descending)
-    .padding(.04)
-    .matrix(arr);
-
-  debugger;
+  .sortGroups(d3.descending)
+  .sortSubgroups(d3.descending)
+  .sortChords(d3.descending)
+  .padding(.04)
+  .matrix(arr);
 
   var svg = d3.select("#test").append("svg")
   .attr("width", w)
   .attr("height", h)
   .append("g")
-  .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+  .attr("transform", "translate(" + w/2 + "," + h/2 + ")");
 
-  svg.append('g').selectAll('path')
-    .data(layout.groups)
-  .enter().append('path')
+  // g draw group paths
+  var g = svg.selectAll('.group')
+  .data(layout.groups)
+  .enter().append('g')
+  .attr('class', 'group')
+  ;
+
+  g.append('path')
   .style("fill", function(d) { return fill(d.index); })
-  .style("stroke", function(d) { return fill(d.index); })
+  .style("stroke", function(d) { return d3.rgb(fill(d.index)).darker();})
   .attr("d", arc)
-  //.on("mouseover", fade(.1))
-  //.on("mouseout", fade(1));
+  .on("mouseover", fade(.1))
+  .on("mouseout", fade(1));
 
+  g.append("text")
+  .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", ".35em")
+  .attr("transform", function(d) {
+    return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+    + "translate(" + (innerRadius + 26) + ")"
+    + (d.angle > Math.PI ? "rotate(180)" : "");
+  })
+  .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+  .text(function(d) { return connections[d.index].name; });
+
+  // draw chords
   svg.append("g")
-    .attr("class", "chord")
+  .attr("class", "chord")
   .selectAll("path")
-    .data(layout.chords)
+  .data(layout.chords)
   .enter().append("path")
-    .attr("d", chord)
-    .style("fill", function(d) { return fill(d.target.index); })
-    .style("opacity", 1);
+  .attr("d", chord)
+  .style("stroke", function(d) { return d3.rgb(fill(d.source.index)).darker(); })
+  .style("fill", function(d) { return fill(d.source.index) })
+  .style("opacity", 1);
 
 
    // Memoize the specified school, computing a unique id.
@@ -103,6 +114,16 @@ var $ = require('jquery');
       name: d,
       id: n++
     });
+  }
+
+  // Returns an event handler for fading a given chord group.
+  function fade(opacity) {
+    return function(g, i) {
+      svg.selectAll(".chord path")
+      .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .transition()
+      .style("opacity", opacity);
+    };
   }
 });
 
