@@ -2,6 +2,7 @@ var App = require('./components/app.jsx');
 var test = require('./charts/test.js');
 // data vis imports
 var schoolBubble = require('./charts/school_counts');
+var marriages = require('./charts/marriages.js');
 
 var React = require('react');
 var $ = require('jquery');
@@ -20,6 +21,12 @@ $.get('/api/sources', function(data) {
     'assets/data/schools_counts.json',
      940,
     600
+  );
+
+  marriages.run(
+    '#marriages',
+    'assets/data/schools_couples.json',
+    480
   );
 
 });

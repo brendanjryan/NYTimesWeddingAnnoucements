@@ -83,6 +83,10 @@ var App = React.createClass({
         </TextBlock>
 
         <Bibliography />
+        <Chart
+          chartId={'marriages'}
+          isSidebarShown={this.state.isSidebarShown}
+        />
       </Content>
       );
 }
