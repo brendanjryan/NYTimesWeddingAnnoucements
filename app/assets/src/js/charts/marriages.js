@@ -121,8 +121,6 @@ var chord_chart = (function(d3) {
   .selectAll("path")
   .data(layout.chords)
   .enter().append("path")
-  .transition()
-  .duration(1500)
   .attr("d", chord)
   .style("stroke", function(d) { return d3.rgb(fill(d.source.index)).darker(); })
   .style("fill", function(d) { return fill(d.source.index) })
