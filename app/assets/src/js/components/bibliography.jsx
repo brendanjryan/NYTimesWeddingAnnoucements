@@ -48,7 +48,7 @@ var Bibliography = React.createClass({
 
     return(
       <Row className={klass}>
-        <Col md={8} mdOffset={offset}>
+        <Col md={8} sm={8} xs={8} xsOffset={offset} smOffset={offset} mdOffset={offset}>
           <ul>
             {sources}
           </ul>

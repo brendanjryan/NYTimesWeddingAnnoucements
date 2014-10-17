@@ -14,12 +14,11 @@ var Content = React.createClass({
 
   render: function() {
     return(
-      <Grid className="content container-fluid">
+      <Grid fluid={true}>
         {this.props.children}
       </Grid>
     );
   }
-
 });
 
 module.exports = Content;

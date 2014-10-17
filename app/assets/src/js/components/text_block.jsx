@@ -34,8 +34,8 @@ var textBlock = React.createClass({
     });
 
     var offset = this.props.isSidebarShown ?
-      0 :
-      2
+    0 :
+    2
     ;
     /*
     var comments = this.props.isSidebarShown ?
@@ -45,17 +45,15 @@ var textBlock = React.createClass({
     */
 
     return (
-      <Grid>
-        <Row className={klass}>
-          <Col md={8} mdOffset={offset}>{this.props.children}</Col>
-           <CommentSidebar
-            key={this.props.key}
-            toggleHandler={this.props.sidebarToggleHandler}
-            isSidebarShown={this.props.isSidebarShown}
-          />
-        </Row>
-      </Grid>
-    );
+      <Row className={klass}>
+      <Col md={8} sm={8} xs={8} xsOffset={offset} smOffset={offset} mdOffset={offset}>{this.props.children}</Col>
+      <CommentSidebar
+      key={this.props.key}
+      toggleHandler={this.props.sidebarToggleHandler}
+      isSidebarShown={this.props.isSidebarShown}
+      />
+      </Row>
+      );
   }
 });
 

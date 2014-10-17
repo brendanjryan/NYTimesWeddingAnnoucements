@@ -20,10 +20,10 @@ var Chart = React.createClass({
     var id = this.props.chartId;
 
     var footerText =
-      'Figure ' +
-      this.props.figureNum +
-      ': ' +
-      this.props.footer
+    'Figure ' +
+    this.props.figureNum +
+    ': ' +
+    this.props.footer
     ;
 
     footer = this.props.footerShown ?
@@ -31,28 +31,28 @@ var Chart = React.createClass({
     null;
 
     var offset = this.props.isSidebarShown ?
-      0 :
-      1
+    0 :
+    1
     ;
 
     var tooltip = this.props.tooltipId
-      ? <div
-        id={this.props.tooltipId} i
-        className={"chart-tooltip"}
-      />
-      : null
+    ? <div
+    id={this.props.tooltipId} i
+    className={"chart-tooltip"}
+    />
+    : null
     ;
 
     return (
       <Row className="chart">
-        <Col md={8} mdOffset={offset}>
-          <div id={id} />
-          {footer}
-        </Col>
-        {tooltip}
+      <Col md={8} sm={8} xs={8} xsOffest={offset} smOffset={offset} mdOffset={offset}>
+      <div id={id} />
+      {footer}
+      </Col>
+      {tooltip}
       </Row>
-    );
-  }
+      );
+}
 });
 
 module.exports = Chart;

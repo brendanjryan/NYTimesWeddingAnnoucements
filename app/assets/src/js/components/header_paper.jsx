@@ -20,7 +20,7 @@ var headerPaper = React.createClass({
 
     return (
       <Row className="header-paper">
-        <Col md={8} mdOffset={2}>
+        <Col md={8} sm={8} xs={8} xsOffset={2} smOffset={2} mdOffset={2}>
           <header>
             <h1 className="title">{this.props.title}</h1>
             <ul className="author-list">{authorList}</ul>

@@ -44,7 +44,6 @@ d3.json('assets/data/article_dates.json', function(error, data){
       count: counts[i][0]
     };
     _data.push(obj);
-
   });
 
   x.domain(d3.extent(_data, function(d) { return d.date; }));

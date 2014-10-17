@@ -6,7 +6,6 @@ var $ = require('jquery');
 var chart = {};
 
 chart.run = function(mount, dataPath, r) {
-  debugger;
   d3.json(dataPath, function(data){
     chord_chart.run(mount, data, r);
   });

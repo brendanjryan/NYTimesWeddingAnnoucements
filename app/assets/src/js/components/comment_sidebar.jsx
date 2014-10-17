@@ -35,11 +35,11 @@ var CommentSidebar = React.createClass({
   render: function() {
 
     var content = this.state.areCommentsShown && this.props.isSidebarShown
-      ? <div>
-        <CommentList dataKey={this.props.key} />
-        <CommentForm dataKey={this.props.key} />
-        </div>
-      : null
+    ? <div>
+    <CommentList dataKey={this.props.key} />
+    <CommentForm dataKey={this.props.key} />
+    </div>
+    : null
     ;
 
     var klass = cx({
@@ -48,16 +48,16 @@ var CommentSidebar = React.createClass({
     });
 
     return (
-       <Col md={2} className={klass}>
-          <div className="clearfix">
-          <i
-            onClick={this.onSidebarClick}
-            className="fa fa-comment-o fa-lg pull-left comment-icon"
-          />
-        </div>
-        {content}
-       </Col>
-    );
+     <Col md={2} sm={2} xs={2} className={klass}>
+     <div className="clearfix">
+     <i
+     onClick={this.onSidebarClick}
+     className="fa fa-comment-o fa-lg pull-left comment-icon"
+     />
+     </div>
+     {content}
+     </Col>
+     );
   }
 
 });
