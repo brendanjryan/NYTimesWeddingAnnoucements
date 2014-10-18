@@ -6,12 +6,14 @@ import yaml
 import logging
 from logging import Formatter, FileHandler
 import os
+from flask.ext.pymongo import PyMongo
+
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
 
 app = Flask(__name__, static_folder="assets")
-
+mongo = PyMongo(app)
 app.config.from_object('config')
 
 
@@ -53,8 +55,9 @@ def sources():
     sources=SOURCES
   )
 
+
 @app.route('/api/sources/<key>', methods=['GET'])
-def source(key):
+def get_sources(key):
   for source in SOURCES:
     if source['key'] == key:
       return json.jsonify(
@@ -62,11 +65,35 @@ def source(key):
       )
   return 500
 
+@app.route('/api/comments/<key>', methods=['GET'])
+def get_comments(key):
+  comments = mongo.db.comments.find({'key' : key})
+  return json.jsonify ({
+    'comments': comments
+  })
 
+@app.route('/api/comments/<key>', methods=['POST'])
+def ad_comment(key):
+  author = request.data.author
+  text = request.data.text
+  return mongodb.db.comments.insert({
+    'key': key,
+    'author' : author,
+    'text' : text
+  })
+
+  comments = mongo.db.comments.find({'key' : key})
+  return json.jsonify ({
+    'comments': comments
+  })
+
+# components list
 @app.route('/components/', methods=['GET'])
 def components():
   return render_template('pages/components.html')
 
+
+### test route for building new vis
 @app.route('/test')
 def test():
   return render_template('pages/chart.html')

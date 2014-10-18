@@ -112,7 +112,9 @@ var chord_chart = (function(d3) {
     + (d.angle > Math.PI ? "rotate(180)" : "");
   })
   .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-  .text(function(d) { return connections[d.index].name; });
+  .text(function(d) { return connections[d.index].name; })
+
+  ;
 
   // draw chords
   svg.append("g")
@@ -146,6 +148,7 @@ var chord_chart = (function(d3) {
       .style("opacity", opacity);
     };
   }
+
 
   var res = {};
   res.run = run;

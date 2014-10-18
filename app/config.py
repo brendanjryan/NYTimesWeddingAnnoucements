@@ -11,5 +11,8 @@ DEBUG = True
 SECRET_KEY = 'poop'
 
 JSONIFY_PRETTYPRINT_REGULAR = True
+
+MONGO_DB = 'thesis'
+
 # Connect to the database
 # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'database.db')
