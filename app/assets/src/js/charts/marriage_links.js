@@ -84,7 +84,7 @@ function fade(g, i, opacity) {
   .data(links)
   .enter().append("line")
   .attr("class", "link")
-  .style("stroke-width", function(d) { return Math.sqrt(d.value); })
+  .style("stroke-width", function(d) { return Math.sqrt(d.value)*.666; })
   .style('stroke', function(d){ return fill(d.group);})
   .style("opacity", .8);
 
