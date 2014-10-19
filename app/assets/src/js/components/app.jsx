@@ -33,66 +33,74 @@ var App = React.createClass({
       <Content>
 
       <PaperHeader
-      title={"Example Title"}
-      authors={["Brendan Ryan"]}
+        title={"An Analysis of the New York Times Wedding Announcements"}
+        authors={["Brendan Ryan"]}
       />
       <SectionHeader
-      isSidebarShown={this.state.isSidebarShown}
-      title={"First Header"}
-      size={'large'}
+        isSidebarShown={this.state.isSidebarShown}
+        title={"College 'Selectivity'"}
+        size={'large'}
       />
-      <TextBlock
-      isSidebarShown={this.state.isSidebarShown}
-      sidebarToggleHandler={this.onSideBarToggle}
-      key={"first"}
-      >
+          <TextBlock>
       <p>
-      Whatever deep v <Annotation title={"Yay! An annotation!"} content={"Here is some lovely annotation content. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}>DIY</Annotation> sustainable street art bespoke, <Annotation>scenester</Annotation> kitsch irony quinoa <Citation>fixie</Citation> pickled. Gluten-free Godard fanny pack readymade. Raw denim Tumblr shabby chic retro Brooklyn, Banksy fingerstache. Master cleanse Wes Anderson McSweeney's, before they sold out tofu ugh fingerstache scenester small batch artisan seitan pug chambray letterpress typewriter. Next level <Annotation>umami</Annotation> authentic actually pork belly. Before they sold out gentrify Schlitz, squid Williamsburg pickled Intelligentsia forage next level artisan swag. Leggings mumblecore iPhone, umami cred Helvetica flexitarian Carles DIY.
+      Every year the independant organization Barrons ranks each American College and University on it's selectivity. This selectivity measure is largely based off the metrics of how many applicants the university recieves in a given year versus how many applications are accepted by the university for its newest class. Using these rankings, Barrons categorizes schools into multiple categories, including “most competitive,”, “highly competitive plus,”, “highly competitive,” and "very competitive plus.”
+
+        </p>
+<p>
+        Viewing the New York Times Wedding Announcements as a "prestegious institution" (with less 'graudates' than Harvard since 1981 ) we can apply a similar statistical model to determine the relative "presteige" of numerous institutions. Relative frequency was used for this measure as complete numerical data of applications rejected is (obviously) not available.
+</p><p>
+        Playing with the chart below we can observe that the "selectivity bands" determined by Barrons very closely mirror those determined by the Times. Is this coincidence? Which institutions surprise you?
       </p>
       </TextBlock>
 
       <Chart
-      chartId={'schoolCounts'}
-      isSidebarShown={this.state.isSidebarShown}
-      tooltipId={'school_tooltip'}
+        chartId={'schoolCounts'}
+        isSidebarShown={this.state.isSidebarShown}
+        tooltipId={'school_tooltip'}
       />
 
       <SectionHeader
-      title={'Sample Subsection'}
-      size={'medium'}
-      isSidebarShown={this.state.isSidebarShown}
+        title={'Marriages Across Universities'}
+        size={'large'}
+        isSidebarShown={this.state.isSidebarShown}
       />
-
-      <TextBlock
-      isSidebarShown={this.state.isSidebarShown}
-      sidebarToggleHandler={this.onSideBarToggle}
-      key={"second"}>
+    <TextBlock>
       <p>
-      <Citation key="test">Gastropub</Citation> seitan organic  <Annotation>mumblecore</Annotation>, vegan sartorial shabby chic meh pork belly aesthetic messenger bag pickled polaroid roof party. Synth mixtape gentrify Shoreditch. Biodiesel salvia aesthetic cardigan kitsch blog. Artisan pour-over sustainable,  <Annotation>Thundercats</Annotation>food truck tattooed sartorial hella. Intelligentsia literally fingerstache pop-up ennui, direct trade gastropub Pinterest trust fund forage banh mi. Post-ironic Marfa narwhal cred quinoa Cosby sweater try-hard. Yr DIY dreamcatcher, butcher organic vinyl retro pop-up VHS occupy.
+      Another trend which is very interesting to observe are the relationships between the most pretegious schools in the wedding annoucements (as determiend by the first study). By using advanced NLP and Machine learning techniques we are able to reconstruct the discrete relationships between multiple characters in a single wedding announcement.
+      </p>
+      <p>
+        By exploring the patterns of "who married who" we are able to observe many interesting trends. Is the Harvard/Yale rivalry really that strong? Why is Stanford so choody and Yale so liberal in which schools they marry?
+      </p>
+      <p>
+      Hover over entries to explore the chart and draw your own conclusions!
       </p>
       </TextBlock>
 
       <Chart
-      chartId={'marriages'}
-      isSidebarShown={this.state.isSidebarShown}
+        chartId={'marriages'}
+        isSidebarShown={this.state.isSidebarShown}
       />
 
-      <TextBlock
-      isSidebarShown={this.state.isSidebarShown}
-      sidebarToggleHandler={this.onSideBarToggle}
-      key={"third"}>
+      <SectionHeader
+        title={'Marriages by Gender Distributions'}
+        size={'large'}
+        isSidebarShown={this.state.isSidebarShown}
+      />
+      <TextBlock>
       <p>
-      Flexitarian Wes Anderson food truck, ennui artisan flannel photo booth distillery pug literally ethical craft beer. Messenger bag organic master cleanse, 8-bit selfies hoodie Schlitz literally Echo Park tote bag asymmetrical pop-up cardigan stumptown. Chillwave hashtag Bushwick squid +1 street art 8-bit, yr authentic. Post-ironic vinyl try-hard slow-carb bitters, VHS wolf shabby chic. Brooklyn crucifix tilde Carles heirloom, pop-up distillery. Pickled authentic post-ironic Brooklyn, artisan hella cred deep v Vice forage leggings asymmetrical. Synth Carles master cleanse PBR&B Banksy, artisan 8-bit yr small batch street art Wes Anderson.
+      Building off of our last visualization it is also very interesting to observe the gender representation in unions from the Wedding Announcements. Each school is colored with it's most prevelant gender (blue for guys and pink for girls) and each 'edge' between schools is colored with the most common gender for that directed relationship, with the thickness corresponding to how frequently such a union occurs.
+      </p>
+      <p>
+
       </p>
       </TextBlock>
 
-      <Chart
-      chartId={'marriageLinks'}
-      isSidebarShown={this.state.isSidebarShown}
-      tooltipId={'marriage_tooltip'}
-      />
 
-      <Bibliography />
+      <Chart
+        chartId={'marriageLinks'}
+        isSidebarShown={this.state.isSidebarShown}
+        tooltipId={'marriage_tooltip'}
+      />
 
       </Content>
       );
