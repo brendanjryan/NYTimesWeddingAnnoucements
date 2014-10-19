@@ -259,7 +259,7 @@ function hide_frequencies() {
 
 function show_details(data, i, element) {
   d3.select(element).attr("stroke", "black");
-  var content = "<span class=\"name\">School:</span><span class=\"value\"> " + data.name + "</span><br/>";
+  var content = "<span class=\"name\"></span><span class=\"value\"> " + data.name + "</span><br/>";
   content +="<span class=\"name\">Amount: </span><span class=\"value\">" + data.value + "</span><br/>";
   tooltip.showTooltip(content, d3.event);
 }

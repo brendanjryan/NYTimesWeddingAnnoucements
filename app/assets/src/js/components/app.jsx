@@ -34,7 +34,7 @@ var App = React.createClass({
       <Content>
 
       <PaperHeader
-      title={"Example Paper Title"}
+      title={"Example Title"}
       authors={["Brendan Ryan"]}
       />
       <SectionHeader
@@ -73,6 +73,11 @@ var App = React.createClass({
       </p>
       </TextBlock>
 
+      <Chart
+      chartId={'marriages'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
       <TextBlock
       isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
@@ -82,10 +87,10 @@ var App = React.createClass({
       </p>
       </TextBlock>
 
-
       <Chart
-      chartId={'marriages'}
+      chartId={'marriageLinks'}
       isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'marriage_tooltip'}
       />
 
       <Bibliography />

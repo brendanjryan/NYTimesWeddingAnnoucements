@@ -3,6 +3,7 @@ var test = require('./charts/test.js');
 // data vis imports
 var schoolBubble = require('./charts/school_counts');
 var marriages = require('./charts/marriages.js');
+var marriage_links = require('./charts/marriage_links.js');
 
 var React = require('react');
 var $ = require('jquery');
@@ -27,6 +28,12 @@ $.get('/api/sources', function(data) {
     '#marriages',
     'assets/data/schools_couples.json',
     480
+  );
+
+  marriage_links.run(
+    '#marriageLinks',
+    'assets/data/schools_couples_genders_links.json',
+    400
   );
 
 });

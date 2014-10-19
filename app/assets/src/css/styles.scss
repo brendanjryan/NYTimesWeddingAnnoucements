@@ -1,4 +1,3 @@
-//high level imports
 
 @import 'reset';
 @import 'variables';
@@ -44,4 +43,14 @@ path.chord {
     display: block;
     margin: 0 auto;
   }
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
 }
