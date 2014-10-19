@@ -18,8 +18,8 @@ var force_chart = (function(d3) {
     'female': 1
   };
   var svg = null;
-  var width = 960;
-  var height = 800;
+  var width = 800;
+  var height = 960;
   var n = 0;
   var index = {};
   var school_names = [];
@@ -85,7 +85,7 @@ function fade(g, i, opacity) {
   .enter().append("line")
   .attr("class", "link")
   .style("stroke-width", function(d) { return Math.sqrt(d.value); })
-  .style('stroke', '#999')
+  .style('stroke', function(d){ return fill(d.group);})
   .style("opacity", .8);
 
 
