@@ -7,7 +7,7 @@ import logging
 from logging import Formatter, FileHandler
 import os
 from flask.ext.pymongo import PyMongo
-
+from bson.json_util import dumps
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -67,22 +67,24 @@ def get_sources(key):
 
 @app.route('/api/comments/<key>', methods=['GET'])
 def get_comments(key):
-  comments = mongo.db.comments.find({'key' : key})
+  comments = dumps(mongo.db.comments.find({'key' : key}))
   return json.jsonify ({
     'comments': comments
   })
 
 @app.route('/api/comments/<key>', methods=['POST'])
 def ad_comment(key):
-  author = request.data.author
-  text = request.data.text
-  return mongodb.db.comments.insert({
+  req_json = request.get_json()
+  author = req_json['author']
+
+  text = req_json['text']
+  item = {
     'key': key,
     'author' : author,
     'text' : text
-  })
-
-  comments = mongo.db.comments.find({'key' : key})
+  }
+  id = mongo.db.comments.insert(item)
+  comments = dumps(mongo.db.comments.find({'key' : key}))
   return json.jsonify ({
     'comments': comments
   })
@@ -116,4 +118,4 @@ def internal_error(error):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', port=port, debug=True)
