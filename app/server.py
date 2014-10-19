@@ -13,7 +13,7 @@ from bson.json_util import dumps
 #----------------------------------------------------------------------------#
 
 app = Flask(__name__, static_folder="assets")
-mongo = PyMongo(app)
+#mongo = PyMongo(app)
 app.config.from_object('config')
 
 
