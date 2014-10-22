@@ -59,7 +59,7 @@ var chord_chart = (function(d3) {
 
   //setup fill domain
   fill.domain([0,1])
-  .range(['#45FFFF','#E00B00']);
+  .range(['rgb(56, 251, 255)', '#E00B00']);
 
   // Initialize a square matrix of school chords
   for (var i = 0; i < n; i++) {
@@ -79,7 +79,6 @@ var chord_chart = (function(d3) {
 
     connections[c.source.id] = c.source;
     connections[c.dest.id] = c.dest;
-    debugger;
     gender_connections[c.source.id][c.dest.id] =
       c.femaleCounts / c.maleCount
   });
@@ -89,7 +88,6 @@ var chord_chart = (function(d3) {
   data.forEach(function(school){
     gender_nodes[schoolMap(school.school).id] = school.female / school.male;
   });
-  debugger;
   var layout = d3.layout.chord()
   .sortGroups(d3.descending)
   .sortSubgroups(d3.descending)
