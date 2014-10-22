@@ -34,8 +34,7 @@ var force_chart = (function(d3) {
   ];
   var fill = d3.scale.ordinal()
   .domain([0,1])
-  .range(['#A1CAF1','#FFB6C1']);
-
+  .range(['#618FFF','#FF7A81']);
 
   var charge = function(node) {
     return -1 * Math.pow(node.radius, 3.0);

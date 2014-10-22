@@ -33,43 +33,59 @@ var App = React.createClass({
       <Content>
 
       <PaperHeader
-        title={"An Analysis of the New York Times Wedding Announcements"}
-        authors={["Brendan Ryan"]}
+      title={"An Analysis of the New York Times Wedding Announcements"}
+      authors={["Brendan Ryan"]}
       />
+
+
+
       <SectionHeader
-        isSidebarShown={this.state.isSidebarShown}
-        title={"College 'Selectivity'"}
-        size={'large'}
+      title={'Marriages by Genders'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
       />
-          <TextBlock>
+
+      <Chart
+      chartId={'marriageGenders'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'marriage_genders_tooltip'}
+      />
+
+
+      <SectionHeader
+      isSidebarShown={this.state.isSidebarShown}
+      title={"College 'Selectivity'"}
+      size={'large'}
+      />
+      <TextBlock>
       <p>
       Every year the independant organization Barrons ranks each American College and University on it's selectivity. This selectivity measure is largely based off the metrics of how many applicants the university recieves in a given year versus how many applications are accepted by the university for its newest class. Using these rankings, Barrons categorizes schools into multiple categories, including “most competitive,”, “highly competitive plus,”, “highly competitive,” and "very competitive plus.”
 
-        </p>
-<p>
-        Viewing the New York Times Wedding Announcements as a "prestegious institution" (with less 'graudates' than Harvard since 1981 ) we can apply a similar statistical model to determine the relative "presteige" of numerous institutions. Relative frequency was used for this measure as complete numerical data of applications rejected is (obviously) not available.
-</p><p>
-        Playing with the chart below we can observe that the "selectivity bands" determined by Barrons very closely mirror those determined by the Times. Is this coincidence? Which institutions surprise you?
+      </p>
+      <p>
+      Viewing the New York Times Wedding Announcements as a "prestegious institution" (with less 'graudates' than Harvard since 1981 ) we can apply a similar statistical model to determine the relative "presteige" of numerous institutions. Relative frequency was used for this measure as complete numerical data of applications rejected is (obviously) not available.
+      </p><p>
+      Playing with the chart below we can observe that the "selectivity bands" determined by Barrons very closely mirror those determined by the Times. Is this coincidence? Which institutions surprise you?
       </p>
       </TextBlock>
 
       <Chart
-        chartId={'schoolCounts'}
-        isSidebarShown={this.state.isSidebarShown}
-        tooltipId={'school_tooltip'}
+      chartId={'schoolCounts'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'school_tooltip'}
       />
 
       <SectionHeader
-        title={'Marriages Across Universities'}
-        size={'large'}
-        isSidebarShown={this.state.isSidebarShown}
+      title={'Marriages Across Universities'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
       />
-    <TextBlock>
+      <TextBlock>
       <p>
       Another trend which is very interesting to observe are the relationships between the most pretegious schools in the wedding annoucements (as determiend by the first study). By using advanced NLP and Machine learning techniques we are able to reconstruct the discrete relationships between multiple characters in a single wedding announcement.
       </p>
       <p>
-        By exploring the patterns of "who married who" we are able to observe many interesting trends. Is the Harvard/Yale rivalry really that strong? Why is Stanford so choody and Yale so liberal in which schools they marry?
+      By exploring the patterns of "who married who" we are able to observe many interesting trends. Is the Harvard/Yale rivalry really that strong? Why is Stanford so choody and Yale so liberal in which schools they marry?
       </p>
       <p>
       Hover over entries to explore the chart and draw your own conclusions!
@@ -77,14 +93,14 @@ var App = React.createClass({
       </TextBlock>
 
       <Chart
-        chartId={'marriages'}
-        isSidebarShown={this.state.isSidebarShown}
+      chartId={'marriages'}
+      isSidebarShown={this.state.isSidebarShown}
       />
 
       <SectionHeader
-        title={'Marriages by Gender Distributions'}
-        size={'large'}
-        isSidebarShown={this.state.isSidebarShown}
+      title={'Marriages by Gender Distributions'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
       />
       <TextBlock>
       <p>
@@ -95,12 +111,13 @@ var App = React.createClass({
       </p>
       </TextBlock>
 
-
       <Chart
-        chartId={'marriageLinks'}
-        isSidebarShown={this.state.isSidebarShown}
-        tooltipId={'marriage_tooltip'}
+      chartId={'marriageLinks'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'marriage_tooltip'}
       />
+
+
 
       </Content>
       );

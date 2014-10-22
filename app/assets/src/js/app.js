@@ -3,7 +3,9 @@ var test = require('./charts/test.js');
 // data vis imports
 var schoolBubble = require('./charts/school_counts');
 var marriages = require('./charts/marriages.js');
-var marriage_links = require('./charts/marriage_links.js');
+
+var marriageLinks = require('./charts/marriage_links.js');
+var marriageGenders = require('./charts/marriage_genders.js');
 
 var React = require('react');
 var $ = require('jquery');
@@ -30,8 +32,14 @@ $.get('/api/sources', function(data) {
     480
   );
 
-  marriage_links.run(
+  marriageLinks.run(
     '#marriageLinks',
+    'assets/data/schools_couples_genders_links.json',
+    400
+  );
+
+  marriageGenders.run(
+    '#marriageGenders',
     'assets/data/schools_couples_genders_links.json',
     400
   );
