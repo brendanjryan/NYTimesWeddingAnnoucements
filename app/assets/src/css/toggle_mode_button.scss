@@ -6,25 +6,27 @@
   color: $icon-primary;
   padding: 25px;
 
+  .icon-container:hover {
+    * {
+      color: $citation-blue;
+    }
+  }
+
   i {
     color:$icon-primary;
-
-    &:hover {
-     color: $citation-blue;
-   }
- }
-
- a {
-  &:hover {
-    text-decoration: none;
-    color: $citation-blue;
   }
- }
 
- .transition-text {
-  padding: 10px;
-  color: $text-secondary;
-  font-size: 2rem;
-  vertical-align: super;
-}
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .transition-text {
+    padding: 10px;
+    color: $text-secondary;
+    font-size: 2rem;
+    vertical-align: super;
+  }
+
 }
