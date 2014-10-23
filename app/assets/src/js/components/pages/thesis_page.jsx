@@ -17,13 +17,11 @@ var ThesisPage = React.createClass({
 
   render: function() {
     return (
-      <h1>
 
       <ToggleModeButton
       linkTarget={'analysis'}
       linkText={"Read the Analysis"}
       />
-      THESIS PAGE </h1>
       );
   }
 });

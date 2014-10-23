@@ -51,10 +51,6 @@ var ToggleModeButton = React.createClass({
     this.setState({isTextShown: !this.state.isTextShown});
   },
 
-
-
-
-
 });
 
 module.exports = ToggleModeButton;
