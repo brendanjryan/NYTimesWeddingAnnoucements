@@ -11,8 +11,10 @@ var SectionHeader = require('./header_section.jsx');
 var Chart = require('./chart.jsx');
 var Citation = require('./citation.jsx');
 var Bibliography = require('./bibliography.jsx');
+var ToggleModeButton = require('./toggle_mode_button.jsx');
 
 var App = React.createClass({
+
   proptypes: {
     isSidebarShown: React.PropTypes.bool,
     sources: React.PropTypes.array
@@ -31,32 +33,19 @@ var App = React.createClass({
   render: function() {
     return(
       <Content>
+      <ToggleModeButton />
 
       <PaperHeader
       title={"An Analysis of the New York Times Wedding Announcements"}
       authors={["Brendan Ryan"]}
       />
 
-
-
-      <SectionHeader
-      title={'Marriages by Genders'}
-      size={'large'}
-      isSidebarShown={this.state.isSidebarShown}
-      />
-
-      <Chart
-      chartId={'marriageGenders'}
-      isSidebarShown={this.state.isSidebarShown}
-      tooltipId={'marriage_genders_tooltip'}
-      />
-
-
       <SectionHeader
       isSidebarShown={this.state.isSidebarShown}
       title={"College 'Selectivity'"}
       size={'large'}
       />
+
       <TextBlock>
       <p>
       Every year the independant organization Barrons ranks each American College and University on it's selectivity. This selectivity measure is largely based off the metrics of how many applicants the university recieves in a given year versus how many applications are accepted by the university for its newest class. Using these rankings, Barrons categorizes schools into multiple categories, including “most competitive,”, “highly competitive plus,”, “highly competitive,” and "very competitive plus.”
@@ -117,6 +106,17 @@ var App = React.createClass({
       tooltipId={'marriage_tooltip'}
       />
 
+      <SectionHeader
+      title={'Marriages by Genders'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+      <Chart
+      chartId={'marriageGenders'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'marriage_genders_tooltip'}
+      />
 
 
       </Content>
