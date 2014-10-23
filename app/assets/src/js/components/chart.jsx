@@ -6,14 +6,36 @@ var Row = require('react-bootstrap').Row;
 
 var Chart = React.createClass({
 
+
+  proptypes : {
+    chartId: React.PropTypes.string,
+    figureNum: React.PropTypes.number,
+    footer: React.PropTypes.string,
+    footerShown: React.PropTypes.bool,
+    isSidebarShown: React.PropTypes.bool.isRequired,
+    width: React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired,
+    chartRenderer: React.PropTypes.func.isRequired,
+    dataPath: React.PropTypes.string.isRequired
+  },
+
   getDefaultProps: function() {
     return {
       chartId: 'chart',
       figureNum: '',
       footer: '',
       footerShown: false,
-      isSidebarShown: React.PropTypes.bool.isRequired,
+      isSidebarShown: false,
     };
+  },
+
+  componentDidMount: function() {
+    this.props.chartRenderer.run(
+      '#' + this.props.chartId,
+      this.props.dataPath,
+      this.props.width,
+      this.props.height
+    );
   },
 
   render: function() {
