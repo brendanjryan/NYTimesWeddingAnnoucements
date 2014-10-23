@@ -107,7 +107,7 @@ def internal_error(error):
 
 @app.errorhandler(404)
 def internal_error(error):
-  return render_template('errors/404.html'), 404
+  return redirect(url_for('index'))
 
 
 #----------------------------------------------------------------------------#

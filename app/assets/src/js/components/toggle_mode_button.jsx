@@ -1,15 +1,17 @@
 var React = require('react/addons');
 
+var Link = require('react-router').Link;
+
 var ToggleModeButton = React.createClass({
 
 
   proptypes: {
-    currentPage: React.PropTypes.oneOf['analysis', 'thesis']
   },
 
   getDefaultProps: function() {
     return {
-      currentPage: 'analysis'
+      linkText: 'link text goes here',
+      linkTarget: "main"
     };
   },
 
@@ -21,18 +23,24 @@ var ToggleModeButton = React.createClass({
 
   render: function() {
 
-    var text = this._getPageTransitionText();
+    var text = this.props.linkText;
 
     var textContainer = this.state.isTextShown
       ? (
-          <span onClick={this._pageTransitionHandler} className="transition-text">{text}</span>
+          <Link to={this.props.linkTarget} onClick={this._pageTransitionHandler} className="transition-text">{this.props.linkText}</Link>
         )
       : null
     ;
+
+    var iconClass = this.state.isTextShown
+      ? 'fa-circle-o'
+      : 'fa-dot-circle-o'
+    ;
+
     return (
       <div  className="toggle-mode-button">
         <div className="icon-container">
-          <i onClick={this._toggleTextShown} className="fa fa-2x fa-file-text-o"/>
+          <i onClick={this._toggleTextShown} className={"fa fa-3x " + iconClass}/>
           {textContainer}
         </div>
       </div>
@@ -43,24 +51,7 @@ var ToggleModeButton = React.createClass({
     this.setState({isTextShown: !this.state.isTextShown});
   },
 
-  _pageTransitionHandler: function() {
-    this._toggleTextShown();
 
-    // call callback from app
-  },
-
-  _getPageTransitionText: function() {
-    if (this.props.currentPage === 'analysis') {
-      return this._toThesisString;
-    }
-    if (this.props.currentPage === 'thesis') {
-      return this._toAnalysisString;
-    }
-  },
-
-  _toAnalysisString: "Read the Analysis",
-
-  _toThesisString: "Read the Nerdy Stuff"
 
 
 
