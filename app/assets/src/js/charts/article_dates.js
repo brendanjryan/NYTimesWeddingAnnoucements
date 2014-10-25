@@ -1,75 +1,98 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    w = 1200 - margin.left - margin.right,
-    h = 500 - margin.top - margin.bottom;
+var d3 = require('d3');
+var _ = require('underscore');
+var $ = require('jquery');
 
-var parseDate = d3.time.format("%Y-%m-%d").parse;
+var chart = {};
 
-var x = d3.time.scale()
-        .range([0,w]);
+chart.run = function(mount, dataPath, r) {
+  d3.json(dataPath, function(data){
+    pie_chart.run(mount, data, r);
+  });
+}
 
-var y = d3.scale.linear()
-    .range([h, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("top");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(10);
-
-var area = d3.svg.area()
-    .x(function(d) { return x(d.date); })
-    .y0(h)
-    .y1(function(d) { return y(d.count); });
-
-var svg = d3.select(".chart").append("svg")
-    .attr("w", w + margin.left + margin.right)
-    .attr("h", h + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var pie_chart = (function(d3){
 
 
-d3.json('assets/data/article_dates.json', function(error, data){
+  var svg = null;
+  var fill = d3.scale.linear();
 
-  var _data = [];
-  var ind = data['index'];
-  var counts = data['data'];
+//setup range and domain on data
 
-  ind.forEach(function(date, i){
-    var date = date.split("T")[0];
-    var obj = {
-      date: parseDate(date),
-      count: counts[i][0]
-    };
-    _data.push(obj);
+
+
+
+var run = function(mount, data, r) {
+
+
+  var outerRadius = r/2;
+  var innerRadius = 0;
+  var width = outerRadius * 2 + 300;
+  var height = outerRadius * 2 + 300;
+   // convert all years to numbers
+
+  data.forEach(function(d){
+    d.year = +d.year
+  });
+  data = data.sort(function(a,b){
+    return b.count - a.count;
   });
 
-  x.domain(d3.extent(_data, function(d) { return d.date; }));
-  y.domain([0, d3.max(_data, function(d) { return d.count; })]);
+  fill.domain([
+      d3.min(data, function(d){return d.year}),
+      d3.max(data, function(d){return d.year})
+  ])
+  .range(['#bebebe', '#252525']);
+  //setup range and domain on data
+  var arc = d3.svg.arc()
+    .outerRadius(r/2 - 25)
+    .innerRadius(0);
 
-  svg.append("path")
-      .datum(_data)
-      .attr("class", "data")
-      .attr("d", area);
+  var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d){return d.count});
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + h + ")")
-      .call(xAxis);
+    svg = d3.select(mount).append('svg')
+      .attr('width', width)
+      .attr('height', height)
+    .append('g')
+      .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("# Of Articles");
-});
+    var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
 
+    g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) {return fill(d.data.year); })
+      .attr('stroke', '#fff')
+      .attr('stroke-width', '.75')
+      .attr('class', 'pie-slice')
 
+      .on('mouseover', function(){
+        this.style.fill =  "#A9E4CF";
+      })
+      .on('mouseleave', function(g,i){
+        this.style.fill = fill(g.data.year)
+      });
 
+  g.append("text")
+  .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+  .attr("dy", ".35em")
+  .attr("transform", function(d) {
+    return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+    + "translate(" + (outerRadius) + ")"
 
+    + (d.angle > Math.PI ? "rotate(180)" : "");
+  })
+  .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+  .text(function(d) { return d.data.year; })
+  ;
+
+  }
+  var res = {};
+  res.run = run;
+  return res;
+})(d3);
+
+module.exports = chart;

@@ -13,13 +13,13 @@ var Citation = require('../citation.jsx');
 var Bibliography = require('../bibliography.jsx');
 var ToggleModeButton = require('../toggle_mode_button.jsx');
 
-var test = require('../../charts/test.js');
-// data vis imports
-var schoolBubble = require('../../charts/school_counts');
+// CHART IMPORTS
+var articleDates = require('../../charts/article_dates.js');
 var marriages = require('../../charts/marriages.js');
-
 var marriageLinks = require('../../charts/marriage_links.js');
 var marriageGenders = require('../../charts/marriage_genders.js');
+var schoolBubble = require('../../charts/school_counts');
+
 var AnalysisPage = React.createClass({
 
   proptypes: {
@@ -131,6 +131,21 @@ var AnalysisPage = React.createClass({
       tooltipId={'marriage_genders_tooltip'}
       />
 
+      <SectionHeader
+      title={'Article Date Representation'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+      <Chart
+      width={480}
+      height={480}
+      chartRenderer={articleDates}
+      dataPath={'assets/data/article_dates.json'}
+      chartId={'articleDates'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'article_dates_tooltip'}
+      />
       <this.props.activeRouteHandler/>
       </div>
       );

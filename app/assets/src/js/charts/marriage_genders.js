@@ -159,7 +159,7 @@ var chord_chart = (function(d3) {
   function fade(opacity) {
     return function(g, i) {
       svg.selectAll(".chord path")
-      .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .filter(function(d) {return d.source.index != i && d.target.index != i; })
       .transition()
       .style("opacity", opacity);
     };
