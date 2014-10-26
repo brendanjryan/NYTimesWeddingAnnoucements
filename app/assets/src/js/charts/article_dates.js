@@ -44,8 +44,8 @@ var run = function(mount, data, r) {
   .range(['#bebebe', '#252525']);
   //setup range and domain on data
   var arc = d3.svg.arc()
-    .outerRadius(r/2 - 25)
-    .innerRadius(0);
+    .outerRadius(outerRadius - 25)
+    .innerRadius(innerRadius);
 
   var pie = d3.layout.pie()
     .sort(null)

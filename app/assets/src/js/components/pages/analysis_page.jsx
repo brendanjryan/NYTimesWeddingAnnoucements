@@ -14,11 +14,12 @@ var Bibliography = require('../bibliography.jsx');
 var ToggleModeButton = require('../toggle_mode_button.jsx');
 
 // CHART IMPORTS
-var articleDates = require('../../charts/article_dates.js');
-var marriages = require('../../charts/marriages.js');
-var marriageLinks = require('../../charts/marriage_links.js');
-var marriageGenders = require('../../charts/marriage_genders.js');
+var articleDates = require('../../charts/article_dates');
+var marriages = require('../../charts/marriages');
+var marriageLinks = require('../../charts/marriage_links');
+var marriageGenders = require('../../charts/marriage_genders');
 var schoolBubble = require('../../charts/school_counts');
+var ageMarried = require('../../charts/age_married');
 
 var AnalysisPage = React.createClass({
 
@@ -146,9 +147,32 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'article_dates_tooltip'}
       />
+
+
+
+      <SectionHeader
+      title={'Ages Married'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+      <Chart
+      width={700}
+      height={400}
+      chartRenderer={ageMarried}
+      dataPath={'assets/data/age_married.json'}
+      chartId={'ageMarried'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'age_married_tooltip'}
+      />
+
+
       <this.props.activeRouteHandler/>
       </div>
       );
+
+
+
 }
 
 });
