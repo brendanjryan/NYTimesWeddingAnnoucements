@@ -59,15 +59,6 @@ var force_chart = (function(d3) {
     };
   }
 
-// Returns an event handler for fading a given chord group.
-function fade(g, i, opacity) {
-    svg.selectAll(".link")
-      .filter(function(d) { return d.source.school != g.school && d.target.school != g.school; })
-      .transition()
-      .style("opacity", opacity);
-  }
-
-
   var run = function(mount, data) {
     svg = d3.select(mount).append("svg")
     .attr("width", width)

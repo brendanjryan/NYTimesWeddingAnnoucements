@@ -20,7 +20,7 @@ var marriageLinks = require('../../charts/marriage_links');
 var marriageGenders = require('../../charts/marriage_genders');
 var schoolBubble = require('../../charts/school_counts');
 var ageMarried = require('../../charts/age_married');
-
+var housesOfWorship = require('../../charts/houses_of_worship');
 var AnalysisPage = React.createClass({
 
   proptypes: {
@@ -101,20 +101,7 @@ var AnalysisPage = React.createClass({
       <p>
       Building off of our last visualization it is also very interesting to observe the gender representation in unions from the Wedding Announcements. Each school is colored with it's most prevelant gender (blue for guys and pink for girls) and each 'edge' between schools is colored with the most common gender for that directed relationship, with the thickness corresponding to how frequently such a union occurs.
       </p>
-      <p>
-
-      </p>
       </TextBlock>
-
-      <Chart
-      width={400}
-      height={400}
-      chartRenderer={marriageLinks}
-      dataPath={'assets/data/schools_couples_genders_links.json'}
-      chartId={'marriageLinks'}
-      isSidebarShown={this.state.isSidebarShown}
-      tooltipId={'marriage_tooltip'}
-      />
 
       <SectionHeader
       title={'Marriages by Genders'}
@@ -139,16 +126,14 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={480}
-      height={480}
+      width={900}
+      height={400}
       chartRenderer={articleDates}
       dataPath={'assets/data/article_dates.json'}
       chartId={'articleDates'}
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'article_dates_tooltip'}
       />
-
-
 
       <SectionHeader
       title={'Ages Married'}
@@ -157,7 +142,7 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={700}
+      width={800}
       height={400}
       chartRenderer={ageMarried}
       dataPath={'assets/data/age_married.json'}
@@ -166,12 +151,26 @@ var AnalysisPage = React.createClass({
       tooltipId={'age_married_tooltip'}
       />
 
+      <SectionHeader
+      title={'Houses of Worship'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+      <Chart
+      width={800}
+      height={400}
+      chartRenderer={housesOfWorship}
+      dataPath={'assets/data/churches.json'}
+      chartId={'housesOfWorship'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'worship_houses_tooltip'}
+      />
+
 
       <this.props.activeRouteHandler/>
       </div>
       );
-
-
 
 }
 
