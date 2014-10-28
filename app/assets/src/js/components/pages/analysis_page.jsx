@@ -21,6 +21,8 @@ var marriageGenders = require('../../charts/marriage_genders');
 var schoolBubble = require('../../charts/school_counts');
 var ageMarried = require('../../charts/age_married');
 var housesOfWorship = require('../../charts/houses_of_worship');
+var namesFirst = require('../../charts/names_first');
+
 var AnalysisPage = React.createClass({
 
   proptypes: {
@@ -167,6 +169,21 @@ var AnalysisPage = React.createClass({
       tooltipId={'worship_houses_tooltip'}
       />
 
+      <SectionHeader
+      title={'Most Common First Names'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+      <Chart
+      width={940}
+      height={400}
+      chartRenderer={namesFirst}
+      dataPath={'assets/data/names_first.json'}
+      chartId={'namesFirst'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'names_tooltip'}
+      />
 
       <this.props.activeRouteHandler/>
       </div>
