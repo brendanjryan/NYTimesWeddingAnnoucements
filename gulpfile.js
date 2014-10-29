@@ -38,10 +38,11 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  return browserify(PATHS.app_js).on('error', gutil.log)
-  .transform(reactify).on('error', gutil.log)
-  .bundle().on('error', gutil.log)
-  .pipe(source('bundle.js')).on('error', gutil.log)
+  return browserify(PATHS.app_js)
+  .pipe(plumber())
+  .transform(reactify))
+  .bundle()
+  .pipe(source('bundle.js'))
   .pipe(gulp.dest(BUILD_PATH + 'js/'));
 });
 
