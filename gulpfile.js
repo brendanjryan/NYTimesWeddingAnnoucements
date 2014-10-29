@@ -9,6 +9,7 @@ var sass = require('gulp-sass');
 var reactify = require('reactify');
 var browserify = require('browserify');
 var gutil = require('gulp-util');
+var plumber = require('gulp-plumber');
 
 var ASSET_PATH = './app/assets/';
 
@@ -29,8 +30,9 @@ gulp.task('clean', function(done){
 
 gulp.task('css', function() {
   return gulp.src(PATHS.css)
-  .pipe(sass()).on('error', gutil.log)
-  .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true })).on('error', gutil.log)
+  .pipe(plumber())
+  .pipe(sass())
+  .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true }))
   .pipe(gulp.dest(BUILD_PATH + 'css/'));
 
 });

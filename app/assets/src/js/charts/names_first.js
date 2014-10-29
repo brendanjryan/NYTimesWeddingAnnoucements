@@ -13,7 +13,6 @@ chart.run = function(mount, dataPath, width, height){
 
  // create toggle buttons
  if(! $(mount + ' .filter-row').length) {
-  debugger;
   var filterRow = $('<div />', {class: 'filter-row'});
 
   filterRow.append(
@@ -73,9 +72,9 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     var center = {x: width / 2, y: height / 2};
 
     var gender_centers = {
-      "male": {x: width / 3, y: height / 2},
-      "female" : {x: 2 * width / 3, y: height / 2}
-    };
+      "male": {x: width / 2 - 100, y: height / 2},
+      "female" : {x: width / 2 + 100, y: height / 2}
+    };5
 
     var fill_color = d3.scale.ordinal()
     .domain(["male", "female"])
@@ -124,8 +123,17 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     .on("mouseover", function(d, i) {show_details(d, i, this);} )
     .on("mouseout", function(d, i) {hide_details(d, i, this);} )
     ;
+    circles.append("title")
+    .text(function(d) { return d.name + ": " + d.value; });
+
+
+  circles.append("text")
+    .attr("dy", ".3em")
+    .style("text-anchor", "middle")
+    .text(function(d) { return d.name.substring(0, d.radius / 3); });
 
     circles.transition().duration(2000).attr("r", function(d) { return d.radius; });
+
   }
 
   function charge(d) {
@@ -148,7 +156,6 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
       .attr("cy", function(d) {return d.y;});
     });
     force.start();
-    //hide_labels();
   }
 
   function move_towards_center(alpha) {
@@ -162,7 +169,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   function display_by_gender() {
     force.gravity(layout_gravity)
     .charge(charge)
-    .friction(0.85)
+    .friction(0.9)
     .on("tick", function(e) {
       circles.each(move_towards_gender(e.alpha))
       .attr("cx", function(d) {return d.x;})
@@ -182,13 +189,8 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
 function show_details(data, i, element) {
   d3.select(element).attr("stroke", "black");
   var content = "<span class=\"name\"></span><span class=\"value\"> " + data.name + "</span><br/>";
-  content +="<span class=\"name\">Amount: </span><span class=\"value\">" + data.value + "</span><br/>";
+  content +="<span class=\"name\">Count: </span><span class=\"value\">" + data.value + "</span><br/>";
   tooltip.showTooltip(content, d3.event);
-}
-
-function hide_labels() {
-  hide_frequencies();
-  hide_rankings();
 }
 
 function hide_details(data, i, element) {
