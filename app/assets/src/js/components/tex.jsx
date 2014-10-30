@@ -17,7 +17,6 @@ var Tex = React.createClass({
   },
 
   componentDidMount: function() {
-    debugger;
     var text = this.props.children;
     var texHolder = this.refs.tex.getDOMNode();
     katex.render(text, texHolder);

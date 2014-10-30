@@ -40,7 +40,7 @@ gulp.task('css', function() {
 gulp.task('js', function() {
   return browserify(PATHS.app_js)
   .pipe(plumber())
-  .transform(reactify))
+  .transform(reactify)
   .bundle()
   .pipe(source('bundle.js'))
   .pipe(gulp.dest(BUILD_PATH + 'js/'));
