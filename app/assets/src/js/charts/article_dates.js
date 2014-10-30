@@ -50,7 +50,7 @@ var run = function(mount, data, width, height) {
 
     var obj = {
       key: 'poop',
-      color: '#8C8C8C',
+      color: '#578E99',
       values: data
     };
 

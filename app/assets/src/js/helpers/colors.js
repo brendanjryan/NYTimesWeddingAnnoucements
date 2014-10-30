@@ -6,5 +6,14 @@ var colors= [
   "#578E99",
 ];
 
+// make object here
+/*
+
+light-blue: "#A1FFF0",
+dark-blue:  "#578E99",
+dark-red: "#CC7183",
+pink: "#578E99",
+ */
+
 
 module.exports = colors;

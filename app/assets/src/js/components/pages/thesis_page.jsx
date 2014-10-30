@@ -25,6 +25,11 @@ var housesOfWorship = require('../../charts/houses_of_worship');
 var namesFirst = require('../../charts/names_first');
 
 var ThesisPage = React.createClass({
+
+  onSideBarToggle: function(){
+    this.setState({isSidebarShown: !this.state.isSidebarShown});
+  },
+
   getInitialState: function() {
     return {
       isSidebarShown: false
@@ -70,7 +75,8 @@ Direct trade vinyl fanny pack, fixie hella PBR pop-up asymmetrical McSweeney's P
     <TextBlock
       isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
-      key={"second"}>
+      key={"second"}
+      >
       <p>
       <Citation key="test">Gastropub</Citation> seitan organic  <Annotation>mumblecore</Annotation>, vegan sartorial shabby chic meh pork belly aesthetic messenger bag pickled polaroid roof party. Synth mixtape gentrify Shoreditch. Biodiesel salvia aesthetic cardigan kitsch blog. Artisan pour-over sustainable,  <Annotation>Thundercats</Annotation>food truck tattooed sartorial hella. Intelligentsia literally fingerstache pop-up ennui, direct trade gastropub Pinterest trust fund forage banh mi. Post-ironic Marfa narwhal cred quinoa Cosby sweater try-hard. Yr DIY dreamcatcher, butcher organic vinyl retro pop-up VHS occupy.
       </p>
