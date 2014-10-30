@@ -37,6 +37,7 @@
     "react-router": "^0.9.4",
     "reactify": "^0.14.0",
     "underscore": "^1.7.0",
-    "vinyl-source-stream": "^1.0.0"
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.1.0"
   }
 }
