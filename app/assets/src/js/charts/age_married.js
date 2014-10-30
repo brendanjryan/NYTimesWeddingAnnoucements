@@ -4,7 +4,9 @@ var $ = require('jquery');
 
 var chart = {};
 
+var colors = require('../helpers/colors');
 chart.run = function(mount, dataPath, width, height) {
+
   d3.json(dataPath, function(data){
     line_chart.run(mount, data, width, height);
   });
@@ -21,7 +23,7 @@ var line_chart = (function(d3){
 
   var fill = d3.scale.ordinal()
     .domain(d3.range(categories.length))
-    .range(['#CEE081', '#E8E37F', '#FFA874', '#FF6369', '#323956'])
+    .range(colors)
   ;
 
   var run = function(mount, data, width, height) {
