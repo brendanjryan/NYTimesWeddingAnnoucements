@@ -2,6 +2,7 @@
 
 var React = require('react/addons');
 
+// COMPONENTS
 var CodeBlock = require('../code_block.jsx');
 var Content = require('../content.jsx');
 var Annotation = require('../annotation.jsx');
@@ -13,7 +14,7 @@ var Citation = require('../citation.jsx');
 var Bibliography = require('../bibliography.jsx');
 var ToggleModeButton = require('../toggle_mode_button.jsx');
 
-// CHART IMPORTS
+// CHARTS
 var articleDates = require('../../charts/article_dates');
 var marriages = require('../../charts/marriages');
 var marriageLinks = require('../../charts/marriage_links');

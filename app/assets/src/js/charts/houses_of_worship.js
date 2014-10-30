@@ -2,6 +2,8 @@ var d3 = require('d3');
 var _ = require('underscore');
 var $ = require('jquery');
 
+
+var colors = require('../helpers/colors');
 var chart = {};
 
 chart.run = function(mount, dataPath, width, height) {
@@ -19,7 +21,7 @@ var line_chart = (function(d3){
 
   var fill = d3.scale.ordinal()
     .domain(d3.range(2))
-    .range(['#CEE081','#323956'])
+    .range([colors[2], colors[4]])
   ;
   var categories = ['church_count', 'synagogue_count'];
   var run = function(mount, data, width, height) {
