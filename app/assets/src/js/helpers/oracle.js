@@ -3,18 +3,18 @@ var _ = require('underscore');
 
 // this file contains the global oracle for the application's data flow
 
-
-
 var oracle = {
 
   initOracle: function() {
     // initialze data
-    var app_state = {
-      isSidebarShown: false,
-      currentView: 'analysis'
+    var app = {
+      app_state: {
+        isSidebarShown: false,
+        currentView: 'analysis'
+      }
     };
 
-    return new Cortex(app_state);
+    return new Cortex(app);
   }
 
 };

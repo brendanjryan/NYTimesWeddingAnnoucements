@@ -10,6 +10,7 @@ var reactify = require('reactify');
 var browserify = require('browserify');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
+var watchify = require('watchify');
 
 var ASSET_PATH = './app/assets/';
 
@@ -38,12 +39,20 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  return browserify(PATHS.app_js)
-  .pipe(plumber())
-  .transform(reactify)
-  .bundle()
-  .pipe(source('bundle.js'))
-  .pipe(gulp.dest(BUILD_PATH + 'js/'));
+
+  var bundler = watchify(browserify(PATHS.app_js, watchify.args));
+
+  bundler.transform(reactify);
+
+  bundler.on('update', rebundle);
+
+  function rebundle() {
+    return bundler.bundle()
+    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest(BUILD_PATH + 'js/'));
+  }
+
 });
 
 gulp.task('watch', function() {

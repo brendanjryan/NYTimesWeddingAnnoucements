@@ -9,7 +9,12 @@ var DefaultRoute = ReactRouter.DefaultRoute;
 
 var App = require('./app.jsx');
 var AnalysisPage = require('./pages/analysis_page.jsx');
-var ThesisPage = require('./pages/thesis_page.jsx')
+var ThesisPage = require('./pages/thesis_page.jsx');
+
+
+// setup oracle
+
+
 var routes = (
   <Routes location="history">
     <Route path="/" handler={App}>
