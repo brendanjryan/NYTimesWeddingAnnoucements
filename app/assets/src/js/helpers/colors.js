@@ -1,9 +1,9 @@
 var colors= [
-  "#A1FFF0",
-  "#FFE1E1",
+  "#A1FFF0", //light blue
+  "#FFE1E1", // pink
   "#CC7183",
   "#D3ADD9",
-  "#578E99",
+  "#578E99", //dark blue
 ];
 
 // make object here

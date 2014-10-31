@@ -39,20 +39,11 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-
-  var bundler = watchify(browserify(PATHS.app_js, watchify.args));
-
-  bundler.transform(reactify);
-
-  bundler.on('update', rebundle);
-
-  function rebundle() {
-    return bundler.bundle()
-    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-    .pipe(source('bundle.js'))
-    .pipe(gulp.dest(BUILD_PATH + 'js/'));
-  }
-
+  return browserify(PATHS.app_js).on('error', gutil.log)
+    .transform(reactify).on('error', gutil.log)
+    .bundle().on('error', gutil.log)
+    .pipe(source('bundle.js')).on('error', gutil.log)
+    .pipe(gulp.dest(BUILD_PATH + 'js/'))
 });
 
 gulp.task('watch', function() {

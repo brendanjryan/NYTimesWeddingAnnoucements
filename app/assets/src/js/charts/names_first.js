@@ -3,7 +3,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 
 var CustomTooltip = require('../components/CustomTooltip');
-
+var colors = require('../helpers/colors');
 var chart = {};
 
 chart.run = function(mount, dataPath, width, height){
@@ -60,10 +60,10 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   damper = 0.1,
   nodes = [],
   vis, force, circles, radius_scale;
-
+  debugger;
   var COLORS = [
-  '#C2F4F4', // baby blue
-  '#F4C2C2' // baby pink
+    colors[0],
+    colors[1]
   ];
 
     var MAX_RADIUS = 60;
