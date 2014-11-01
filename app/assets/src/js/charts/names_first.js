@@ -33,6 +33,15 @@ chart.run = function(mount, dataPath, width, height){
     }
     )
     );
+  filterRow.append(
+    $("<a />",
+    {
+      class: 'filter-button',
+      'text': 'Split by Frequency',
+      'data-filter': 'frequency'
+    }
+    )
+    );
 
   $(mount).prepend(filterRow);
 }
@@ -57,10 +66,10 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   height = 600,
   tooltip = CustomTooltip("names_tooltip", 240),
   layout_gravity = -0.01,
-  damper = 0.1,
+  damper = 0.15,
   nodes = [],
   vis, force, circles, radius_scale;
-  debugger;
+
   var COLORS = [
     colors[0],
     colors[1]
@@ -74,7 +83,13 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     var gender_centers = {
       "male": {x: width / 2 - 100, y: height / 2},
       "female" : {x: width / 2 + 100, y: height / 2}
-    };5
+    };
+    var frequency_centers = {
+      "3": {x: width / 4, y: height / 2},
+      "2" : {x: 2 * width / 4, y: height / 2},
+      "1" : {x: 3 * width / 4, y: height / 2}
+    };
+
 
     var fill_color = d3.scale.ordinal()
     .domain(["male", "female"])
@@ -98,6 +113,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
         value: d.count,
         name: d.name,
         gender: d.gender,
+        frequencyBin: d.frequency_bin,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -186,6 +202,27 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     };
   }
 
+
+  function display_by_frequency() {
+    force.gravity(layout_gravity)
+    .charge(charge)
+    .friction(0.9)
+    .on("tick", function(e) {
+      circles.each(move_towards_frequency(e.alpha))
+      .attr("cx", function(d) {return d.x;})
+      .attr("cy", function(d) {return d.y;});
+    });
+    force.start();
+  }
+
+  function move_towards_frequency(alpha) {
+    return function(d) {
+      var target = frequency_centers[d.frequencyBin];
+      d.x = d.x + (target.x - d.x) * (damper + 0.07) * alpha * 1.1;
+      d.y = d.y + (target.y - d.y) * (damper + 0.07) * alpha * 1.1;
+    };
+  }
+
 function show_details(data, i, element) {
   d3.select(element).attr("stroke", "black");
   var content = "<span class=\"name\"></span><span class=\"value\"> " + data.name + "</span><br/>";
@@ -209,6 +246,9 @@ my_mod.display_ranking = display_by_gender;
 my_mod.toggle_view = function(view_type) {
   if (view_type === 'gender') {
     display_by_gender();
+  }
+  else if (view_type === 'frequency') {
+    display_by_frequency();
   } else {
     display_group_all();
   }

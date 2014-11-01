@@ -23,6 +23,7 @@ var schoolBubble = require('../../charts/school_counts');
 var ageMarried = require('../../charts/age_married');
 var housesOfWorship = require('../../charts/houses_of_worship');
 var namesFirst = require('../../charts/names_first');
+var honors = require('../../charts/honors');
 
 var AnalysisPage = React.createClass({
 
@@ -197,6 +198,22 @@ var AnalysisPage = React.createClass({
       chartId={'namesFirst'}
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'names_tooltip'}
+      />
+
+      <SectionHeader
+      title={'Graduation Honors'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+      <Chart
+      width={940}
+      height={400}
+      chartRenderer={honors}
+      dataPath={'assets/data/honors.json'}
+      chartId={'honors'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'honors_tooltip'}
       />
 
       <this.props.activeRouteHandler/>
