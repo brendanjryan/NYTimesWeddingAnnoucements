@@ -24,7 +24,6 @@ var line_chart = (function(d3){
     .range(colors)
   ;
   var categories = [
-    'laude_count',
     'summa_cum_laude_count',
     'cum_laude_count',
     'magna_cum_laude_count'
@@ -37,7 +36,9 @@ var line_chart = (function(d3){
         key: cat.split('_').join(' '),
         values: [],
         color: fill(i),
+        interpolate: 'basis'
       };
+
       Object.keys(data[cat]).forEach(function(year){
         obj.values.push({
           x: +year,

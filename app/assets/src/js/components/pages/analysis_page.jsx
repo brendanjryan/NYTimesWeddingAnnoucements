@@ -24,6 +24,7 @@ var ageMarried = require('../../charts/age_married');
 var housesOfWorship = require('../../charts/houses_of_worship');
 var namesFirst = require('../../charts/names_first');
 var honors = require('../../charts/honors');
+var careers = require('../../charts/careers');
 
 var AnalysisPage = React.createClass({
 
@@ -214,6 +215,22 @@ var AnalysisPage = React.createClass({
       chartId={'honors'}
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'honors_tooltip'}
+      />
+
+      <SectionHeader
+      title={'Most Common Jobs'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+    <Chart
+      width={940}
+      height={480}
+      chartRenderer={careers}
+      dataPath={'assets/data/careers.json'}
+      chartId={'careers'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'careers_tooltip'}
       />
 
       <this.props.activeRouteHandler/>

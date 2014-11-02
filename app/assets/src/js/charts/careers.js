@@ -1,68 +1,84 @@
+var _ = require('underscore');
+var $ = require('jquery');
+var d3 = require('d3');
+var colors = require('../helpers/colors');
+var cloud = require('../vendor/d3.layout.cloud');
+var chart = {};
 
-var LIM = 1;
-var diameter = 960,
-color = d3.scale.category20c();
-var bubble = d3.layout.pack()
-//.sort(null)
-.size([diameter, diameter])
-.value(function(d){return d.size || 0;})
-.padding(1.5);
+chart.run = function(mount, dataPath, width, height) {
+  d3.json(dataPath, function(data){
+    word_chart.run(mount, data, width, height);
+  });
+}
 
-var svg = d3.select(".chart").append("svg")
-.attr("width", diameter)
-.attr("height", diameter)
-.attr("class", "bubble")
-.style('display', 'block')
-.style('margin', '0 auto');
+var word_chart = (function(d3){
 
+  var margin = null;
 
-d3.json("assets/data/careers2.json", function(error, data) {
+  var run = function(mount, data, width, height) {
 
-  var flag = false;
-  var _data = {'name': 'careers', 'children': []};
-  for(var c in data){
+    var fill = d3.scale.ordinal()
+      .domain(d3.range(colors.length))
+      .range(colors);
 
-    if(data[c] > LIM){
-      _data.children.push({name: c, size: data[c] });
-    }
-  }
-  ///Take square root of radius
-  ///move larger circle to center
-  ///
-  var node = svg.selectAll(".node")
-  .data(bubble.nodes(_data))
-  .enter().append("g")
-  .attr("class", "node")
-  .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  var dataWords = [];
+  var maxVal = 0;
 
-  node.append("title")
-  .text(function(d) { return d.name; });
+  Object.keys(data).forEach(function(career){
+    if (data[career] > maxVal) { maxVal = data[career]; }
 
-  node.append("circle")
-  .attr("r", function(d) { return d.r; })
-  .style("fill", function(d) { return color(d.name); })
-  .style({opacity:'0.8'});
-
-  node.append("text")
-  .attr("dy", ".2em")
-  .style("text-anchor", "middle")
-  .text(function(d) { return d.name; })
-  .style({opacity:'0.5'})
-  .style({'font-size': '.75rem'});
-
-  node
-  .on('mouseover', function(d){
-    var sel = d3.select(this).style({opacity:'1.0'})
-    sel.select("text").style({opacity:'1.0'});
-
-  })
-  .on('mouseout', function(d){
-    var sel = d3.select(this).style({opacity:'0.8',});
-    sel.select("text").style({opacity:'0.5'});
+    dataWords.push({
+      value: data[career],
+      text: career
+    });
   });
 
-  d3.select('circle').style('fill', 'white');
+  cloud().size([width, height])
+      .words(dataWords)
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return 10 + 80 * d.value/ maxVal; })
+      .on("end", draw)
+      .start();
 
-});
+  function draw(words) {
+    d3.select(mount).append("svg")
+        .attr("width", width)
+        .attr("height", height)
+      .append("g")
+      .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(Math.random() * colors.length); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; })
+        .on('mouseover', fade(.35))
+          .on("mouseout", fade(1))
+  }
 
-d3.select(self.frameElement).style("height", diameter + "px");
+  // Returns an event handler for fading a given chord group.
+  function fade(opacity) {
+    return function(g, i) {
+      d3.selectAll(mount + " text")
+      .filter(function(d, ind) { return ind != i; })
+      .transition()
+      .style("opacity", opacity);
+    };
+  }
+  }
+
+  var res = {};
+  res.run = run;
+  return res;
+
+
+})(d3);
+
+module.exports = chart;
