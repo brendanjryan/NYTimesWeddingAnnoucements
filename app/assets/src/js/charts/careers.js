@@ -18,8 +18,9 @@ var word_chart = (function(d3){
   var run = function(mount, data, width, height) {
 
     var fill = d3.scale.ordinal()
-      .domain(d3.range(colors.length))
-      .range(colors);
+      .domain(d3.range(colors.range.length))
+      .range(colors.range);
+      debugger;
 
   var dataWords = [];
   var maxVal = 0;
@@ -53,13 +54,13 @@ var word_chart = (function(d3){
       .enter().append("text")
         .style("font-size", function(d) { return d.size + "px"; })
         .style("font-family", "Impact")
-        .style("fill", function(d, i) { return fill(Math.random() * colors.length); })
+        .style("fill", function(d, i) { return fill(Math.random() * colors.range.length); })
         .attr("text-anchor", "middle")
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
         .text(function(d) { return d.text; })
-        .on('mouseover', fade(.35))
+        .on('mouseover', fade(.4))
           .on("mouseout", fade(1))
   }
 

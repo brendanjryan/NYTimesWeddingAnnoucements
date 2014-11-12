@@ -1,7 +1,7 @@
 var d3 = require('d3');
 var _ = require('underscore');
 var $ = require('jquery');
-
+var colors = require('../helpers/colors')
 
 var chart = {};
 
@@ -28,7 +28,7 @@ var chord_chart = (function(d3) {
 
   var couples = [];
 
-  var fill = d3.scale.category20c();
+  var fill = colors.medLightGray;
 
   // art generator for groups
   var arc = d3.svg.arc()
@@ -97,11 +97,11 @@ var chord_chart = (function(d3) {
   ;
 
   g.append('path')
-  .style("fill", function(d) { return fill(d.index); })
-  .style("stroke", function(d) { return d3.rgb(fill(d.index)).darker();})
+  .style("fill", function(d) { return fill; })
+  .style("stroke", function(d) { return d3.rgb(fill).darker();})
   .attr("d", arc)
-  .on("mouseover", fade(.1))
-  .on("mouseout", fade(1));
+  .on("mouseover", fade(.1, fill, colors.darkBlue))
+  .on("mouseout", fade(1, fill, fill));
 
   g.append("text")
   .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
@@ -123,11 +123,9 @@ var chord_chart = (function(d3) {
   .data(layout.chords)
   .enter().append("path")
   .attr("d", chord)
-  .style("stroke", function(d) { return d3.rgb(fill(d.source.index)).darker(); })
-  .style("fill", function(d) { return fill(d.source.index) })
+  .style("stroke", function(d) { return d3.rgb(fill).darker(); })
+  .style("fill", function(d) { return fill })
   .style("opacity", 1)
-  .on("mouseover", fade(.05))
-  .on("mouseout", fade(1))
   ;
 
 }
@@ -140,12 +138,21 @@ var chord_chart = (function(d3) {
   }
 
   // Returns an event handler for fading a given chord group.
-  function fade(opacity) {
+  function fade(opacity, def, color) {
     return function(g, i) {
       svg.selectAll(".chord path")
       .filter(function(d) { return d.source.index != i && d.target.index != i; })
       .transition()
-      .style("opacity", opacity);
+      .style("opacity", opacity)
+      .style('fill', def)
+      .style('stroke', d3.rgb(def).darker());
+      ;
+
+      svg.selectAll(".chord path")
+      .filter(function(d) { return d.source.index == i || d.target.index == i; })
+      .transition()
+      .style('fill', color)
+      .style('stroke', d3.rgb(color).darker());
     };
   }
 

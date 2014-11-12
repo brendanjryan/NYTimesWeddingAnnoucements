@@ -1,6 +1,7 @@
 var d3 = require('d3');
 var _ = require('underscore');
 var $ = require('jquery');
+var colors = require('../helpers/colors');
 
 var chart = {};
 
@@ -50,7 +51,7 @@ var run = function(mount, data, width, height) {
 
     var obj = {
       key: 'poop',
-      color: '#578E99',
+      color: colors.medGray,
       values: data
     };
 

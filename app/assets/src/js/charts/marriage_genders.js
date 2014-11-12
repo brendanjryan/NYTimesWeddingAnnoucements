@@ -2,6 +2,7 @@ var d3 = require('d3');
 var _ = require('underscore');
 var $ = require('jquery');
 
+var colors = require('../helpers/colors');
 var chart = {};
 
 chart.run = function(mount, dataPath, r) {
@@ -25,7 +26,7 @@ var chord_chart = (function(d3) {
  var school_names = [];
  var gender_connections = [];
  var gender_nodes = [];
- var fill = d3.scale.linear();
+ var fill = d3.scale.ordinal();
 
  var run = function(mount, data, r) {
   var outerRadius = r / 2,
@@ -58,8 +59,8 @@ var chord_chart = (function(d3) {
   });
 
   //setup fill domain
-  fill.domain([0,1])
-  .range(['rgb(56, 251, 255)', '#E00B00']);
+  fill.domain(['female', 'male', 'neither'])
+  .range([colors.pink, colors.lightBlue, colors.lightGray]);
 
   // Initialize a square matrix of school chords
   for (var i = 0; i < n; i++) {
@@ -88,6 +89,7 @@ var chord_chart = (function(d3) {
   data.forEach(function(school){
     gender_nodes[schoolMap(school.school).id] = school.female / school.male;
   });
+
   var layout = d3.layout.chord()
   .sortGroups(d3.descending)
   .sortSubgroups(d3.descending)

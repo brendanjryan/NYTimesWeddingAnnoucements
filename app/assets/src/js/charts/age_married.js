@@ -23,7 +23,7 @@ var line_chart = (function(d3){
 
   var fill = d3.scale.ordinal()
     .domain(d3.range(categories.length))
-    .range(colors)
+    .range(colors.range)
   ;
 
   var run = function(mount, data, width, height) {

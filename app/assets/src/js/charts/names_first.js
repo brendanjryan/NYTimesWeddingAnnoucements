@@ -68,11 +68,12 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   layout_gravity = -0.01,
   damper = 0.15,
   nodes = [],
+  hoverNode = null,
   vis, force, circles, radius_scale;
 
   var COLORS = [
-    colors[0],
-    colors[1]
+    colors.lightBlue,
+    colors.pink
   ];
 
     var MAX_RADIUS = 60;
@@ -136,8 +137,14 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     .attr("stroke-width", 2)
     .attr("stroke", function(d) {return d3.rgb(fill_color(d.gender)).darker();})
     .attr("id", function(d) { return  "bubble_" + d.id; })
-    .on("mouseover", function(d, i) {show_details(d, i, this);} )
-    .on("mouseout", function(d, i) {hide_details(d, i, this);} )
+    .on("mouseover", function(d, i) {
+      show_details(d, i, this);
+      hoverNode = d.id
+    })
+    .on("mouseout", function(d, i) {
+      hide_details(d, i, this);
+      hoverNode = null;
+    })
     ;
     circles.append("title")
     .text(function(d) { return d.name + ": " + d.value; });
@@ -152,7 +159,10 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
 
   }
 
-  function charge(d) {
+  function charge(d, i) {
+    if (hoverNode && d.id == hoverNode) {
+      return d.radius;
+    }
     return -Math.pow(d.radius, 2.0) / 8;
   }
 

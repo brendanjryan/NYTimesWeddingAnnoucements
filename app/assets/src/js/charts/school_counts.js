@@ -71,7 +71,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   nodes = [],
   vis, force, circles, radius_scale;
 
-  var COLORS = colors;
+  var COLORS = colors.range;
 
     var MAX_RADIUS = 60;
     var MIN_RADIUS = 2;

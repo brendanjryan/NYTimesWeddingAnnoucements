@@ -21,7 +21,7 @@ var line_chart = (function(d3){
 
   var fill = d3.scale.ordinal()
     .domain(d3.range(2))
-    .range(colors)
+    .range(colors.range)
   ;
   var categories = [
     'summa_cum_laude_count',

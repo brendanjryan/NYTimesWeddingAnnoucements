@@ -1,19 +1,24 @@
-var colors= [
+colors = {
+
+  range: [
   "#A1FFF0", //light blue
   "#FFE1E1", // pink
   "#CC7183",
   "#D3ADD9",
   "#578E99", //dark blue
-];
+  ],
 
-// make object here
-/*
+  // parts of the range
+  lightBlue: "#A1FFF0",
+  darkBlue:  "#578E99",
+  darkRed: "#CC7183",
+  pink: "#FFE1E1",
 
-light-blue: "#A1FFF0",
-dark-blue:  "#578E99",
-dark-red: "#CC7183",
-pink: "#578E99",
- */
+  // grays
+  medGray: "#8c8c8c",
+  medLightGray: "#a5a5a5",
+  lightGray: "#bebebe"
+};
 
 
 module.exports = colors;
