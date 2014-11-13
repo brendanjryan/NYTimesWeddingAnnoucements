@@ -25,6 +25,7 @@ var housesOfWorship = require('../../charts/houses_of_worship');
 var namesFirst = require('../../charts/names_first');
 var honors = require('../../charts/honors');
 var careers = require('../../charts/careers');
+var commonSchools = require('../../charts/common_schools');
 
 var AnalysisPage = React.createClass({
 
@@ -96,6 +97,17 @@ var AnalysisPage = React.createClass({
       Hover over entries to explore the chart and draw your own conclusions!
       </p>
       </TextBlock>
+
+      <Chart
+      width={900}
+      height={450}
+      chartRenderer={commonSchools}
+      dataPath={'assets/data/schools_counts_common.json'}
+      chartId={'commonSchools'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'common_schools_tooltip'}
+      />
+
 
       <Chart
       width={480}
