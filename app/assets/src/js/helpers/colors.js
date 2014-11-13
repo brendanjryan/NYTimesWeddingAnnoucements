@@ -26,6 +26,8 @@ var colors = {
 
   grayScale: grayScale,
 
+  redBlueRange: redBlueRange,
+
   // parts of the range
   lightBlue: "#9ED5FF",
   darkBlue:  "#578E99",

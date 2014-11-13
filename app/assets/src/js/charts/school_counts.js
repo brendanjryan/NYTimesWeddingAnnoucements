@@ -38,7 +38,7 @@ chart.run = function(mount, dataPath, width, height){
     $("<a />",
     {
       class: 'filter-button',
-      'text': 'NYT Ranking',
+      'text': 'Inferred New York Times\' Ranking',
       'data-filter': 'frequency'
     }
     )
@@ -135,11 +135,15 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     .attr("r", 0)
     .attr("fill", function(d) {
       var color = d3.hsl(fill_color(d.group));
-      color.s = 0.50;
+      color.s = 0.45;
       return color.toString();
     })
     .attr("stroke-width", 2)
-    .attr("stroke", function(d) {return d3.rgb(fill_color(d.group)).darker();})
+    .attr("stroke", function(d) {
+      var color = d3.hsl(fill_color(d.group));
+      color.s = 0.45;
+      return d3.rgb(color).darker();
+    })
     .attr("id", function(d) { return  "bubble_" + d.id; })
     .on("mouseover", function(d, i) {show_details(d, i, this);} )
     .on("mouseout", function(d, i) {hide_details(d, i, this);} )
@@ -264,7 +268,7 @@ function hide_frequencies() {
 function show_details(data, i, element) {
   d3.select(element).attr("stroke", "black");
   var content = "<span class=\"name\"></span><span class=\"value\"> " + data.name + "</span><br/>";
-  content +="<span class=\"name\">Amount: </span><span class=\"value\">" + data.value + "</span><br/>";
+  content +="<span class=\"name\">Students: </span><span class=\"value\">" + data.value + "</span><br/>";
   tooltip.showTooltip(content, d3.event);
 }
 

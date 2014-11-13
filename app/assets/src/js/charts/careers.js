@@ -18,8 +18,8 @@ var word_chart = (function(d3){
   var run = function(mount, data, width, height) {
 
     var fill = d3.scale.ordinal()
-      .domain(d3.range(colors.range.length))
-      .range(colors.range);
+      .domain(d3.range(Object.keys(data).length))
+      .range(colors.grayScale.slice(2, -1));
 
   var dataWords = [];
   var maxVal = 0;
@@ -53,13 +53,13 @@ var word_chart = (function(d3){
       .enter().append("text")
         .style("font-size", function(d) { return d.size + "px"; })
         .style("font-family", "Impact")
-        .style("fill", function(d, i) { return fill(Math.random() * colors.range.length); })
+        .style("fill", function(d, i) { return fill(i) })
         .attr("text-anchor", "middle")
         .attr("transform", function(d) {
           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
         })
         .text(function(d) { return d.text; })
-        .on('mouseover', fade(.4))
+        .on('mouseover', fade(.5))
           .on("mouseout", fade(1))
   }
 
@@ -69,7 +69,7 @@ var word_chart = (function(d3){
       d3.selectAll(mount + " text")
       .filter(function(d, ind) { return ind != i; })
       .transition()
-      .style("opacity", opacity);
+      .style("opacity", opacity)
     };
   }
   }

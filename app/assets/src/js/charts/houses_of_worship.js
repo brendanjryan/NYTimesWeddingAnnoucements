@@ -21,7 +21,7 @@ var line_chart = (function(d3){
 
   var fill = d3.scale.ordinal()
     .domain(d3.range(2))
-    .range([colors[2], colors[4]])
+    .range(colors.range)
   ;
   var categories = ['church_count', 'synagogue_count'];
   var run = function(mount, data, width, height) {

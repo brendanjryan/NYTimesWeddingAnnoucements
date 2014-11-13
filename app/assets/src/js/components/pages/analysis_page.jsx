@@ -12,7 +12,7 @@ var SectionHeader = require('../header_section.jsx');
 var Chart = require('../chart.jsx');
 var Citation = require('../citation.jsx');
 var Bibliography = require('../bibliography.jsx');
-var ToggleModeButton = require('../toggle_mode_button.jsx');
+var ToggleModeButton  = require('../toggle_mode_button.jsx');
 var FullWidthHeader = require('../full_width_header.jsx');
 
 // CHARTS
@@ -55,6 +55,22 @@ var AnalysisPage = React.createClass({
       <ToggleModeButton
       linkTarget={'thesis'}
       linkText={"Read the Nerdy Stuff"}
+      />
+
+    <SectionHeader
+      title={'The Corpus'}
+      size={'large'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
+     <Chart
+      width={900}
+      height={400}
+      chartRenderer={articleDates}
+      dataPath={'assets/data/article_dates.json'}
+      chartId={'articleDates'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'article_dates_tooltip'}
       />
 
       <TextBlock
@@ -162,15 +178,7 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
 
-      <Chart
-      width={900}
-      height={400}
-      chartRenderer={articleDates}
-      dataPath={'assets/data/article_dates.json'}
-      chartId={'articleDates'}
-      isSidebarShown={this.state.isSidebarShown}
-      tooltipId={'article_dates_tooltip'}
-      />
+
 
       <SectionHeader
       title={'Ages Married'}
