@@ -133,7 +133,11 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
 
     circles.enter().append("circle")
     .attr("r", 0)
-    .attr("fill", function(d) { return fill_color(d.group) ;})
+    .attr("fill", function(d) {
+      var color = d3.hsl(fill_color(d.group));
+      color.s = 0.50;
+      return color.toString();
+    })
     .attr("stroke-width", 2)
     .attr("stroke", function(d) {return d3.rgb(fill_color(d.group)).darker();})
     .attr("id", function(d) { return  "bubble_" + d.id; })

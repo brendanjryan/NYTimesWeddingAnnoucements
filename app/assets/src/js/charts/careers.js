@@ -20,7 +20,6 @@ var word_chart = (function(d3){
     var fill = d3.scale.ordinal()
       .domain(d3.range(colors.range.length))
       .range(colors.range);
-      debugger;
 
   var dataWords = [];
   var maxVal = 0;

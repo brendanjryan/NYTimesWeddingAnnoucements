@@ -28,7 +28,7 @@ var chord_chart = (function(d3) {
 
   var couples = [];
 
-  var fill = colors.medLightGray;
+  var fill = colors.lightGray;
 
   // art generator for groups
   var arc = d3.svg.arc()
@@ -100,7 +100,7 @@ var chord_chart = (function(d3) {
   .style("fill", function(d) { return fill; })
   .style("stroke", function(d) { return d3.rgb(fill).darker();})
   .attr("d", arc)
-  .on("mouseover", fade(.1, fill, colors.darkBlue))
+  .on("mouseover", fade(.1, fill, colors.darkRed))
   .on("mouseout", fade(1, fill, fill));
 
   g.append("text")

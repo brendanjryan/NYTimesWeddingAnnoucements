@@ -13,8 +13,9 @@ chart.run = function(mount, dataPath, r) {
 
 var chord_chart = (function(d3) {
   var GENDERS = {
-    'male': 0,
-    'female': 1
+    MALE : 'male',
+    FEMALE : 'female',
+    NEITHER: 'neither',
   };
 
  var schools = {};
@@ -45,7 +46,6 @@ var chord_chart = (function(d3) {
   // chord generator
   var chord = d3.svg.chord()
   .radius(innerRadius);
-
   (data).forEach(function(school){
     school.connections.forEach(function(connection){
       couples.push({
@@ -53,14 +53,16 @@ var chord_chart = (function(d3) {
         dest: schoolMap(connection.school),
         total: connection.total,
         maleCount: connection.male,
-        femaleCounts: connection.female
+        femaleCount: connection.female,
+        maleBin: connection.male_bin,
+        femaleBin: connection.female_bin
       });
     });
   });
 
   //setup fill domain
   fill.domain(['female', 'male', 'neither'])
-  .range([colors.pink, colors.lightBlue, colors.lightGray]);
+  .range([colors.pink, colors.lightBlue, colors.white]);
 
   // Initialize a square matrix of school chords
   for (var i = 0; i < n; i++) {
@@ -80,14 +82,15 @@ var chord_chart = (function(d3) {
 
     connections[c.source.id] = c.source;
     connections[c.dest.id] = c.dest;
-    gender_connections[c.source.id][c.dest.id] =
-      c.femaleCounts / c.maleCount
+    // colors of link
+    gender_connections[c.source.id][c.dest.id] = getGenderClassification(c);
   });
 
   // get the predominant gender for each node
   //
   data.forEach(function(school){
-    gender_nodes[schoolMap(school.school).id] = school.female / school.male;
+    //get node color
+    gender_nodes[schoolMap(school.school).id] = getGenderClassification(school)
   });
 
   var layout = d3.layout.chord()
@@ -115,7 +118,7 @@ var chord_chart = (function(d3) {
   // Groups
   g.append('path')
   .style("fill", function(d) { return fill(gender_nodes[d.index]); })
-  .style("stroke", function(d) { return d3.rgb(fill(gender_nodes[d.index])).darker();})
+  .style("stroke", function(d) { return d3.rgb(fill(gender_nodes[d.index])).darker(1.75);})
   .attr("d", arc)
   .on("mouseover", fade(.1))
   .on("mouseout", fade(1));
@@ -141,11 +144,9 @@ var chord_chart = (function(d3) {
   .data(layout.chords)
   .enter().append("path")
   .attr("d", chord)
-  .style("stroke", function(d) { return d3.rgb(getFillLink(d)).darker(); })
+  .style("stroke", function(d) { return d3.rgb(getFillLink(d)).darker(.8); })
   .style("fill", function(d) { return getFillLink(d); })
   .style("opacity", 1)
-  .on("mouseover", fade(.05))
-  .on("mouseout", fade(1))
   ;
 
 }
@@ -167,6 +168,15 @@ var chord_chart = (function(d3) {
     };
   }
 
+  function getGenderClassification(link) {
+    var limit = 9;
+    if (link.femaleBin >= limit || link.female_bin >= limit) {
+      return GENDERS.FEMALE;
+    } else if (link.maleBin >= limit || link.male_bin >= limit) {
+      return GENDERS.MALE;
+    }
+    return GENDERS.NEITHER;
+  }
   function getFillLink(link){
     return fill(
       gender_connections[link.source.index][link.target.index]
