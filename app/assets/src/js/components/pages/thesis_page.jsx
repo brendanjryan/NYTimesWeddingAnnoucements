@@ -39,6 +39,10 @@ var ThesisPage = React.createClass({
   render: function() {
     return (
       <div>
+        <PaperHeader
+        title={"An Analysis of the New York Times Wedding Announcements"}
+        authors={["Brendan Ryan"]}
+        />
         <ToggleModeButton
         linkTarget={'analysis'}
         linkText={"Read the Analysis"}

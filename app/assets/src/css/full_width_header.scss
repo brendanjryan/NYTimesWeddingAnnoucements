@@ -1,0 +1,48 @@
+.fullWidthHeader {
+  min-height: 750px;
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+  color: black;
+  font-family: $fonts-default-header;
+
+  .wrapper {
+    opacity: .25;
+    background-attachment: relative;
+    background-position: center center;
+    background-size: cover;
+    background: url(../img/splash.jpg) no-repeat center top;
+    position: absolute;
+    min-height: 750px;
+    width: 102%;
+    top: -75px;
+    margin-left: -15px;
+    z-index: -1;
+  }
+
+  .title {
+    font-size: 6rem;
+    margin-top: 100px;
+  }
+
+  .subtitle {
+    font-size: 4rem;
+  }
+
+  hr {
+    border: none;
+    width: 33%;
+    display: block;
+    background: $border-dark;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    display: block;
+    height: 1px;
+  }
+
+  .fa {
+    margin-top: 275px;
+  }
+
+}

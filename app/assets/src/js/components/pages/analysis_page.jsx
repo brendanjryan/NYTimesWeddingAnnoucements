@@ -13,6 +13,7 @@ var Chart = require('../chart.jsx');
 var Citation = require('../citation.jsx');
 var Bibliography = require('../bibliography.jsx');
 var ToggleModeButton = require('../toggle_mode_button.jsx');
+var FullWidthHeader = require('../full_width_header.jsx');
 
 // CHARTS
 var articleDates = require('../../charts/article_dates');
@@ -45,6 +46,12 @@ var AnalysisPage = React.createClass({
   render: function() {
     return(
       <div>
+      <FullWidthHeader
+        title={"How John Met Ann"}
+        subtitle={
+          "An Analysis of The New York Times Wedding Announcements"
+        }
+      />
       <ToggleModeButton
       linkTarget={'thesis'}
       linkText={"Read the Nerdy Stuff"}

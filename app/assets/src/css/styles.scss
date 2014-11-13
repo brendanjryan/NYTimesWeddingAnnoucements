@@ -1,7 +1,7 @@
-
 @import 'reset';
 @import 'variables';
 @import 'colors';
+@import 'fonts';
 @import 'globals';
 @import 'bootstrap';
 
@@ -25,6 +25,8 @@
 @import "bibliography_source";
 @import "toggle_mode_button.scss";
 @import 'nv';
+@import "full_width_header";
+
 .group text {
   font: 11px sans-serif;
   pointer-events: none;
@@ -37,13 +39,6 @@
 path.chord {
   stroke-width: .75;
   fill-opacity: .75;
-}
-
-#test {
-  svg {
-    display: block;
-    margin: 0 auto;
-  }
 }
 
 .node {

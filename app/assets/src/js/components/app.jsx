@@ -18,14 +18,7 @@ var App = React.createClass({
   render: function(){
     return (
       <Content>
-
-
-      <PaperHeader
-      title={"An Analysis of the New York Times Wedding Announcements"}
-      authors={["Brendan Ryan"]}
-      />
-
-      <this.props.activeRouteHandler/>
+        <this.props.activeRouteHandler/>
       </Content>
       );
   }

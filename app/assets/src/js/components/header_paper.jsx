@@ -1,7 +1,6 @@
 var React = require('react/addons');
 
 var Col = require('react-bootstrap').Col;
-var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 
 var headerPaper = React.createClass({

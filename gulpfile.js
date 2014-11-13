@@ -22,7 +22,7 @@ var PATHS = {
   css_watch: [SRC_PATH + 'css/**/*.scss'],
   app_js: [SRC_PATH + 'js/app.js'],
   js: [SRC_PATH + 'js/**/*.js', SRC_PATH + 'js/**/*.jsx'],
-
+  img: [SRC_PATH + 'img/**/*.png', SRC_PATH + 'img/**/*.jpg']
 };
 
 gulp.task('clean', function(done){
@@ -46,10 +46,17 @@ gulp.task('js', function() {
     .pipe(gulp.dest(BUILD_PATH + 'js/'))
 });
 
+gulp.task('img', function() {
+  return gulp.src(PATHS.img)
+  .pipe(plumber())
+  .pipe(gulp.dest(BUILD_PATH + 'img/'));
+});
+
 gulp.task('watch', function() {
   gulp.watch(PATHS.css_watch, ['css']);
   gulp.watch(PATHS.js, ['js']);
+  gulp.watch(PATHS.img, ['img']);
 });
 
-gulp.task('assets', ['css', 'js']);
-gulp.task('default', ['watch', 'css', 'js']);
+gulp.task('assets', ['js', 'css', 'img']);
+gulp.task('default', ['watch', 'js', 'css', 'img']);
