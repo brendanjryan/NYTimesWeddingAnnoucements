@@ -57,7 +57,7 @@ var line_chart = (function(d3){
 
   chart.yAxis
     .axisLabel('Marriage %')
-    .tickFormat(d3.format('.02f'))
+    .tickFormat(d3.format('.01%'))
   ;
 
   svg = d3.select(mount).append('svg')

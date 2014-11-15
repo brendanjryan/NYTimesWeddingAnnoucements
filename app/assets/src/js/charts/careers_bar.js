@@ -20,41 +20,41 @@ var line_chart = (function(d3){
 var run = function(mount, data, width, height) {
 
    // convert all years to numbers
-
-  data.forEach(function(d){
-    d.year = +d.year
-  });
+   var _data = Object.keys(data).map(function(career){
+    return {
+      'name': career,
+      'value': data[career] * 10 // scale factor
+    };
+   });
 
     var chart = nv.models.multiBarChart()
-        .x(function(d) { return d.year })
-        .y(function(d) { return d.count })
+        .x(function(d) { return d.name })
+        .y(function(d) { return d.value })
         .showLegend(false)
         .showControls(false)
         .tooltips(false)
         .transitionDuration(500)
-        .reduceXTicks(true)
+        .reduceXTicks(false)
         .staggerLabels(true)
         .rotateLabels(45)
-        .height(height)
-        .width(width)
+        .height(height - 150)
+        .width(width - 100)
         .groupSpacing(.1)
       ;
 
 
     chart.xAxis
-      .axisLabel("Year")
       .tickPadding(10)
     ;
     chart.yAxis
-      .axisLabel("Number of Articles")
-      .tickFormat(d3.format(',.1f'))
+      .tickFormat(d3.format(',.2f'))
       .axisLabelDistance(10);
     ;
 
     var obj = {
       key: 'poop',
       color: colors.medGray,
-      values: data
+      values: _data
     };
 
     d3.select(mount).append('svg')

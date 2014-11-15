@@ -69,7 +69,14 @@ Direct trade vinyl fanny pack, fixie hella PBR pop-up asymmetrical McSweeney's P
 </p>
       </TextBlock>
 
-        <SectionHeader
+      <CodeBlock
+       isSidebarShown={this.state.isSidebarShown}
+       codePath={'src/js/charts/honors'}
+      >
+        {String(require('../../charts/honors').run)}
+      </CodeBlock>
+
+    <SectionHeader
       title={'Introduction'}
       size={'large'}
       isSidebarShown={this.state.isSidebarShown}

@@ -35,6 +35,7 @@
     "react": "^0.11.2",
     "react-addons": "^0.9.0",
     "react-bootstrap": "^0.12.0",
+    "react-prism": "^1.2.0",
     "react-router": "^0.9.4",
     "reactify": "^0.14.0",
     "underscore": "^1.7.0",

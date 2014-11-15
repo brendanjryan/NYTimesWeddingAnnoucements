@@ -27,6 +27,7 @@ var namesFirst = require('../../charts/names_first');
 var honors = require('../../charts/honors');
 var careers = require('../../charts/careers');
 var commonSchools = require('../../charts/common_schools');
+var careersBar = require('../../charts/careers_bar');
 
 var AnalysisPage = React.createClass({
 
@@ -122,7 +123,7 @@ var AnalysisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={900}
+      width={950}
       height={450}
       chartRenderer={commonSchools}
       dataPath={'assets/data/schools_counts_common.json'}
@@ -171,14 +172,6 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'marriage_genders_tooltip'}
       />
-
-      <SectionHeader
-      title={'Article Date Representation'}
-      size={'large'}
-      isSidebarShown={this.state.isSidebarShown}
-      />
-
-
 
       <SectionHeader
       title={'Ages Married'}
@@ -258,6 +251,15 @@ var AnalysisPage = React.createClass({
       chartId={'careers'}
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'careers_tooltip'}
+      />
+
+      <Chart
+      width={900}
+      height={500}
+      chartRenderer={careersBar}
+      dataPath={'assets/data/careers.json'}
+      chartId={'careers_bar'}
+      isSidebarShown={this.state.isSidebarShown}
       />
 
       <this.props.activeRouteHandler/>

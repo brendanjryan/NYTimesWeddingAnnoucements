@@ -34,8 +34,8 @@ var textBlock = React.createClass({
     });
 
     var offset = this.props.isSidebarShown ?
-    0 :
-    2
+      0 :
+      2
     ;
 
     return (

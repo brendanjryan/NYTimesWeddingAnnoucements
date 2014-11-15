@@ -21,16 +21,17 @@ var run = function(mount, data, width, height) {
 
     var chart = nv.models.multiBarChart()
         .x(function(d) { return d.school })
-        .y(function(d) { return d.count })
+        .y(function(d) { return d.percent })
         .showLegend(false)
         .showControls(false)
         .tooltips(false)
         .transitionDuration(500)
+        .showYAxis(true)
         .reduceXTicks(false)
         .staggerLabels(true)
         .rotateLabels(45)
         .height(height - 100)
-        .width(width - 50)
+        .width(width)
         .groupSpacing(.1)
       ;
 
@@ -39,8 +40,9 @@ var run = function(mount, data, width, height) {
     ;
 
     chart.yAxis
-      .axisLabel("Number of Articles")
-      .tickFormat(d3.format(',.1f'));
+      .axisLabel("Number of Mentions (%)")
+      .axisLabelDistance(10)
+      .tickFormat(d3.format(',.1%'));
 
     var obj = {
       key: 'poop',
