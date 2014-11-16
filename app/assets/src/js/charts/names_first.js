@@ -65,7 +65,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   var width = 940,
   height = 600,
   tooltip = CustomTooltip("names_tooltip", 240),
-  layout_gravity = -0.01,
+  layout_gravity = -0.06,
   damper = 0.15,
   nodes = [],
   hoverNode = null,
@@ -82,13 +82,13 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     var center = {x: width / 2, y: height / 2};
 
     var gender_centers = {
-      "male": {x: width / 2 - 100, y: height / 2},
-      "female" : {x: width / 2 + 100, y: height / 2}
+      "male": {x: width / 2 - 20, y: height / 2},
+      "female" : {x: width / 2 + 20, y: height / 2}
     };
     var frequency_centers = {
-      "3": {x: width / 4, y: height / 2},
-      "2" : {x: 2 * width / 4, y: height / 2},
-      "1" : {x: 3 * width / 4, y: height / 2}
+      "3": {x: width / 3, y: height / 2},
+      "2" : {x: 1.5 * width / 3, y: height / 2},
+      "1" : {x: 2 * width / 3, y: height / 2}
     };
 
 
