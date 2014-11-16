@@ -23,6 +23,7 @@ var schoolBubble = require('../../charts/school_counts');
 var ageMarried = require('../../charts/age_married');
 var housesOfWorship = require('../../charts/houses_of_worship');
 var namesFirst = require('../../charts/names_first');
+var namesFirstBar = require('../../charts/names_first_bar');
 
 var ThesisPage = React.createClass({
 

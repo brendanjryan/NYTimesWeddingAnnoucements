@@ -82,8 +82,8 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     var center = {x: width / 2, y: height / 2};
 
     var gender_centers = {
-      "male": {x: width / 2 - 20, y: height / 2},
-      "female" : {x: width / 2 + 20, y: height / 2}
+      "male": {x: width / 2 - 100, y: height / 2},
+      "female" : {x: width / 2 + 100, y: height / 2}
     };
     var frequency_centers = {
       "3": {x: width / 3, y: height / 2},
@@ -146,11 +146,13 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
       hoverNode = null;
     })
     ;
+
     circles.append("title")
     .text(function(d) { return d.name + ": " + d.value; });
 
 
   circles.append("text")
+    .attr('dx', function(){ return -20;})
     .attr("dy", ".3em")
     .style("text-anchor", "middle")
     .text(function(d) { return d.name.substring(0, d.radius / 3); });

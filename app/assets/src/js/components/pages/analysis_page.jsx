@@ -28,6 +28,7 @@ var honors = require('../../charts/honors');
 var careers = require('../../charts/careers');
 var commonSchools = require('../../charts/common_schools');
 var careersBar = require('../../charts/careers_bar');
+var namesFirstBar = require('../../charts/names_first_bar');
 
 var AnalysisPage = React.createClass({
 
@@ -211,6 +212,16 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
 
+     <Chart
+      width={900}
+      height={500}
+      chartRenderer={namesFirstBar}
+      dataPath={'assets/data/names_first.json'}
+      chartId={'namesFirstBar'}
+      isSidebarShown={this.state.isSidebarShown}
+      tooltipId={'names_tooltip'}
+      />
+
       <Chart
       width={940}
       height={400}
@@ -220,6 +231,7 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'names_tooltip'}
       />
+
 
       <SectionHeader
       title={'Graduation Honors'}
