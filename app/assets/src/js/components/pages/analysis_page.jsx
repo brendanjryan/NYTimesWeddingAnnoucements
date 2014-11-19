@@ -138,7 +138,7 @@ var AnalysisPage = React.createClass({
       width={480}
       height={490}
       chartRenderer={marriages}
-      dataPath={'assets/data/schools_couples.json'}
+      dataPath={'assets/data/school_couples_colors.json'}
       chartId={'marriages'}
       isSidebarShown={this.state.isSidebarShown}
       />

@@ -27,8 +27,8 @@ var chord_chart = (function(d3) {
   format = d3.format(",.3r");
 
   var couples = [];
-
-  var fill = colors.medLightGray;
+  var school_colors = d3.range(25);
+  var fill = colors.lightGray;
 
   // art generator for groups
   var arc = d3.svg.arc()
@@ -42,11 +42,13 @@ var chord_chart = (function(d3) {
   (data).forEach(function(school){
     school.data.forEach(function(school_inner){
       couples.push({
+        color: school.color,
         source: schoolMap(school.school),
         dest: schoolMap(school_inner.school),
         count: school_inner.count,
       });
     });
+    school_colors[schoolMap(school.school).id] = school.color;
   });
 
   // Initialize a square matrix of school chords
@@ -58,10 +60,11 @@ var chord_chart = (function(d3) {
   }
 
 
-  // Populate the matrices, and stash a map from id to country.
+  // Populate the matrices, and stash a map from id to couple.
   couples.forEach(function(c) {
+    debugger;
     arr[c.source.id][c.dest.id] = c.count;
-
+    school_colors[c.source.id] = c.color;
     connections[c.source.id] = c.source;
     connections[c.dest.id] = c.dest;
   });
@@ -72,7 +75,7 @@ var chord_chart = (function(d3) {
       arr[i][j] = Math.max(arr[i][j], arr[j][i]);
     }
   }
-
+  debugger;
   var layout = d3.layout.chord()
   .sortGroups(d3.descending)
   .sortSubgroups(d3.descending)
@@ -97,11 +100,11 @@ var chord_chart = (function(d3) {
   ;
 
   g.append('path')
-  .style("fill", function(d) { return fill; })
-  .style("stroke", function(d) { return d3.rgb(fill).darker(1.50);})
+  .style("fill", function(d) { return school_colors[d.index]; })
+  .style("stroke", function(d) { return d3.rgb(school_colors[d.index]).darker(1.75);})
   .attr("d", arc)
-  .on("mouseover", fade(.1, fill, colors.grayScale[3]))
-  .on("mouseout", fade(1, fill, fill));
+  .on("mouseover", fade(.1, fill, school_colors))
+  .on("mouseout", fade(1, fill));
 
   g.append("text")
   .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
@@ -138,10 +141,12 @@ var chord_chart = (function(d3) {
   }
 
   // Returns an event handler for fading a given chord group.
-  function fade(opacity, def, color) {
+  function fade(opacity, def, colors) {
     return function(g, i) {
+      var color = colors ? colors[i] : def;
+
       svg.selectAll(".chord path")
-      .filter(function(d) { return d.source.index != i && d.target.index != i; })
+      .filter(function(d) { return d.source.index !== i && d.target.index !== i; })
       .transition()
       .style("opacity", opacity)
       .style('fill', def)
@@ -149,10 +154,12 @@ var chord_chart = (function(d3) {
       ;
 
       svg.selectAll(".chord path")
-      .filter(function(d) { return d.source.index == i || d.target.index == i; })
+      .filter(function(d) { return d.source.index === i || d.target.index === i; })
       .transition()
+      .style('opacity', 1) //always full
       .style('fill', color)
-      .style('stroke', d3.rgb(color).darker());
+      .style('stroke', d3.rgb(color).darker())
+      ;
     };
   }
 
