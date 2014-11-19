@@ -274,6 +274,11 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
 
+
+
+
+
+
       <this.props.activeRouteHandler/>
       </div>
       );
