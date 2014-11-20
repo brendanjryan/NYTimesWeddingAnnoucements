@@ -62,7 +62,6 @@ var chord_chart = (function(d3) {
 
   // Populate the matrices, and stash a map from id to couple.
   couples.forEach(function(c) {
-    debugger;
     arr[c.source.id][c.dest.id] = c.count;
     school_colors[c.source.id] = c.color;
     connections[c.source.id] = c.source;
@@ -75,7 +74,6 @@ var chord_chart = (function(d3) {
       arr[i][j] = Math.max(arr[i][j], arr[j][i]);
     }
   }
-  debugger;
   var layout = d3.layout.chord()
   .sortGroups(d3.descending)
   .sortSubgroups(d3.descending)

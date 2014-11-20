@@ -49,30 +49,22 @@ var AnalysisPage = React.createClass({
     return(
       <div>
       <FullWidthHeader
-        title={"How John Met Ann"}
-        subtitle={
-          "An Analysis of The New York Times Wedding Announcements"
-        }
+      title={"How John Met Ann"}
+      subtitle={
+        "An Analysis of The New York Times Wedding Announcements"
+      }
       />
       <ToggleModeButton
       linkTarget={'thesis'}
       linkText={"Read the Nerdy Stuff"}
       />
-       <CodeBlock
-       isSidebarShown={this.state.isSidebarShown}
-       codePath={'src/js/charts/honors'}
-      >
-        {String(require('../../charts/honors').run)}
-      </CodeBlock>
-    <SectionHeader
+      <SectionHeader
       title={'The Corpus'}
       size={'large'}
       isSidebarShown={this.state.isSidebarShown}
       />
 
-     <Chart
-      width={900}
-      height={400}
+      <Chart
       chartRenderer={articleDates}
       dataPath={'assets/data/article_dates.json'}
       chartId={'articleDates'}
@@ -81,7 +73,7 @@ var AnalysisPage = React.createClass({
       />
 
       <TextBlock
-       isSidebarShown={this.state.isSidebarShown}
+      isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
       key={"analysis-first"}
       >
@@ -98,7 +90,6 @@ var AnalysisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={940}
       height={460}
       chartRenderer={schoolBubble}
       dataPath={'assets/data/schools_counts.json'}
@@ -113,7 +104,7 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
       <TextBlock
-       isSidebarShown={this.state.isSidebarShown}
+      isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
       key={"analysis-second"}
       >
@@ -129,8 +120,6 @@ var AnalysisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={950}
-      height={450}
       chartRenderer={commonSchools}
       dataPath={'assets/data/schools_counts_common.json'}
       chartId={'commonSchools'}
@@ -140,8 +129,8 @@ var AnalysisPage = React.createClass({
 
 
       <Chart
-      width={480}
-      height={490}
+      height={window.innerWidth * .333}
+      width={window.innerWidth * .333}
       chartRenderer={marriages}
       dataPath={'assets/data/school_couples_colors.json'}
       chartId={'marriages'}
@@ -154,9 +143,9 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
       <TextBlock
-        isSidebarShown={this.state.isSidebarShown}
-        sidebarToggleHandler={this.onSideBarToggle}
-        key={"analysis-third"}
+      isSidebarShown={this.state.isSidebarShown}
+      sidebarToggleHandler={this.onSideBarToggle}
+      key={"analysis-third"}
       >
       <p>
       Building off of our last visualization it is also very interesting to observe the gender representation in unions from the Wedding Announcements. Each school is colored with it's most prevelant gender (blue for guys and pink for girls) and each 'edge' between schools is colored with the most common gender for that directed relationship, with the thickness corresponding to how frequently such a union occurs.
@@ -170,8 +159,9 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={400}
-      height={400}
+
+      height={window.innerWidth * .3333}
+      width={window.innerWidth * .333}
       chartRenderer={marriageGenders}
       dataPath={'assets/data/schools_couples_genders_links.json'}
       chartId={'marriageGenders'}
@@ -186,8 +176,6 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={800}
-      height={400}
       chartRenderer={ageMarried}
       dataPath={'assets/data/age_married.json'}
       chartId={'ageMarried'}
@@ -202,8 +190,6 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={800}
-      height={400}
       chartRenderer={housesOfWorship}
       dataPath={'assets/data/churches.json'}
       chartId={'housesOfWorship'}
@@ -217,9 +203,7 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
 
-     <Chart
-      width={900}
-      height={500}
+      <Chart
       chartRenderer={namesFirstBar}
       dataPath={'assets/data/names_first.json'}
       chartId={'namesFirstBar'}
@@ -229,7 +213,6 @@ var AnalysisPage = React.createClass({
 
       <Chart
       width={940}
-      height={400}
       chartRenderer={namesFirst}
       dataPath={'assets/data/names_first.json'}
       chartId={'namesFirst'}
@@ -245,8 +228,6 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={940}
-      height={400}
       chartRenderer={honors}
       dataPath={'assets/data/honors.json'}
       chartId={'honors'}
@@ -260,9 +241,7 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
 
-    <Chart
-      width={940}
-      height={480}
+      <Chart
       chartRenderer={careers}
       dataPath={'assets/data/careers.json'}
       chartId={'careers'}
@@ -271,16 +250,11 @@ var AnalysisPage = React.createClass({
       />
 
       <Chart
-      width={900}
-      height={500}
       chartRenderer={careersBar}
       dataPath={'assets/data/careers.json'}
       chartId={'careers_bar'}
       isSidebarShown={this.state.isSidebarShown}
       />
-
-
-
 
 
 

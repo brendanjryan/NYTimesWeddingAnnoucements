@@ -26,6 +26,8 @@ var Chart = React.createClass({
       footer: '',
       footerShown: false,
       isSidebarShown: false,
+      width: window.innerWidth * .8333,
+      height: 400
     };
   },
 

@@ -359,12 +359,21 @@ var ThesisPage = React.createClass({
       <TextBlock
       isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
-      key={"tenth"}
+      key={"vis_sixth"}
       >
       <p>
       Flexitarian Wes Anderson food truck, ennui artisan flannel photo booth distillery pug literally ethical craft beer. Messenger bag organic master cleanse, 8-bit selfies hoodie Schlitz literally Echo Park tote bag asymmetrical pop-up cardigan stumptown. Chillwave hashtag Bushwick squid +1 street art 8-bit, yr authentic. Post-ironic vinyl try-hard slow-carb bitters, VHS wolf shabby chic. Brooklyn crucifix tilde Carles heirloom, pop-up distillery. Pickled authentic post-ironic Brooklyn, artisan hella cred deep v Vice forage leggings asymmetrical. Synth Carles master cleanse PBR&B Banksy, artisan 8-bit yr small batch street art Wes Anderson.Try-hard messenger bag small batch photo booth, typewriter kogi kale chips mlkshk American Apparel. Swag Wes Anderson tote bag artisan Williamsburg, irony vinyl lomo.Brooklyn chambray mixtape Shoreditch Pinterest Austin fashion axe. Chia letterpress ugh pop-up gentrify, dreamcatcher cred aesthetic American Apparel Schlitz. Distillery 90's whatever, tote bag mumblecore next level messenger bag scenester roof party PBR Carles bicycle rights street art salvia literally. Single-origin coffee mustache swag keffiyeh church-key kogi. Pitchfork taxidermy pug VHS, beard direct trade pork belly normcore ugh Godard swag craft beer. +1 Godard quinoa pop-up 3 wolf moon. Art party tousled freegan locavore keytar, Wes Anderson try-hard whatever McSweeney's blog VHS cred gluten-free banjo jean shorts.
       </p>
       </TextBlock>
+
+      <CodeBlock
+      isSidebarShown={this.state.isSidebarShown}
+      codePath={'src/js/charts/honors'}
+      >
+      {String(require('../../charts/honors').run)}
+      </CodeBlock>
+
+
       <Bibliography />
       <this.props.activeRouteHandler/>
       </div>
