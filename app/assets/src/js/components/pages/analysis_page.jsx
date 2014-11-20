@@ -58,7 +58,12 @@ var AnalysisPage = React.createClass({
       linkTarget={'thesis'}
       linkText={"Read the Nerdy Stuff"}
       />
-
+       <CodeBlock
+       isSidebarShown={this.state.isSidebarShown}
+       codePath={'src/js/charts/honors'}
+      >
+        {String(require('../../charts/honors').run)}
+      </CodeBlock>
     <SectionHeader
       title={'The Corpus'}
       size={'large'}
