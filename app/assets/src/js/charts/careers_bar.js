@@ -27,6 +27,8 @@ var run = function(mount, data, width, height) {
     };
    });
 
+   _data = _data.slice(0, 15);
+
     var chart = nv.models.multiBarChart()
         .x(function(d) { return d.name })
         .y(function(d) { return d.value })

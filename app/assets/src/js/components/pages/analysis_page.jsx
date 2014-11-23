@@ -190,6 +190,10 @@ var AnalysisPage = React.createClass({
       <p>
       Playing with the chart below we can observe that the "selectivity bands" determined by Barrons very closely mirror those determined by the Times. Is this coincidence? Which institutions surprise you?
       </p>
+      <p style="text-style: italics">
+        N.B. These statistics do not reflect unattainable measures such as the percentage of a college's graduates who applied to be listed in the Times' Wedding Announcements or live in the Greater New York City area.
+        applied to be listed in the
+      </p>
       </TextBlock>
 
       <Chart
@@ -289,7 +293,7 @@ var AnalysisPage = React.createClass({
       key={"jobs-first"}
       >
       <p>
-      In 1980 you were almost 4 times more likely to see a bride/groom pair in their early 20’s as you would in 2010. This sudden drop in young couples is mirrored by the meteoric rise of couples in their early 30’s, with those in their late 20’s hovering around the same general percentage over the years. I wonder what the chances of Jay-Z sitting on the Times’s editorial board are…
+      Rather unsurprisingly, the lives and careers of America’s elite are quite far from that of Wayne Campbell. It is almost cliché that the 9-5 days of America’s elite are still disproportionally dominated by traditional administrative and financial careers and titles such as “associate” and “manager.” Even with the great deal of discussion surrounding the flocking of “millennials” from finance to jobs in tech the degree that more traditional business titles dominate “tech” (http://online.wsj.com/articles/SB10001424052702303661404579180152676790032) the Wedding Announcements is striking.
       </p>
       </TextBlock>
       <Chart
@@ -306,8 +310,7 @@ var AnalysisPage = React.createClass({
       key={"jobs-second"}
       >
       <p>
-      In 1980 you were almost 4 times more likely to see a bride/groom pair in their early 20’s as you would in 2010. This sudden drop in young couples is mirrored by the meteoric rise of couples in their early 30’s, with those in their late 20’s hovering around the same general percentage over the years. I wonder what the chances of Jay-Z sitting on the Times’s editorial board are…
-      </p>
+      Looking at the laid-out frequencies of “careers” mentioned in the Times, one statistic that really jumps out is career “students” coming in at a whopping 4th place! (most likely due to the strong draw of NYU and Columbia’s graduate programs).
       </TextBlock>
 
       <Chart
@@ -325,8 +328,12 @@ var AnalysisPage = React.createClass({
       key={"conclusion"}
       >
       <p>
-      did you enjoy reading this ...... bkadlfmaslkdfmalksfm
+      There are infinitely more questions that still can be answered from this data. If you have any suggestions for further digging or would like to see more similar pieces please don’t hesitate to reach out!
       </p>
+      <p>
+      Brendan Ryan
+      </p>
+      <p><a href="http://twitter.com/brendanjryan">@brendanjryan</a></p>
       </TextBlock>
 
 
