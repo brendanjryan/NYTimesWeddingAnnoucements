@@ -86,7 +86,6 @@ function isBreakpoint(alias) {
 
 function getMulti() {
   if (isBreakpoint('sm') || isBreakpoint('xs')){
-    debugger;
     return 0.66667;
   }
   else return 0.5;

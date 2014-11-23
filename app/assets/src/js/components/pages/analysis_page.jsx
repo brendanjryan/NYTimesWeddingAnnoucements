@@ -48,6 +48,7 @@ var AnalysisPage = React.createClass({
   render: function() {
     return(
       <div>
+      <div className="wrapper"/>
       <FullWidthHeader
       title={"How John Met Ann"}
       subtitle={

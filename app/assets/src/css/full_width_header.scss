@@ -6,19 +6,7 @@
   color: black;
   font-family: $fonts-default-header;
 
-  .wrapper {
-    opacity: .25;
-    background-attachment: relative;
-    background-position: center center;
-    background-size: cover;
-    background: url(../img/splash.jpg) no-repeat center top;
-    position: absolute;
-    min-height: 750px;
-    width: 102%;
-    top: -75px;
-    margin-left: -15px;
-    z-index: -1;
-  }
+
 
   .title {
     font-size: 6rem;
@@ -45,4 +33,17 @@
     margin-top: 275px;
   }
 
+}
+.wrapper {
+  opacity: .25;
+  background-attachment: relative;
+  background-position: center center;
+  background-size: cover;
+  background: url(../img/splash.jpg) no-repeat center top;
+  position: absolute;
+  min-height: 750px;
+  width: 100%;
+  top: -75px;
+  z-index: -1;
+  margin-left: -15px;
 }
