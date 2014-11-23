@@ -14,6 +14,7 @@ var Citation = require('../citation.jsx');
 var Bibliography = require('../bibliography.jsx');
 var ToggleModeButton  = require('../toggle_mode_button.jsx');
 var FullWidthHeader = require('../full_width_header.jsx');
+var SparkLineInline = require('../sparkline_inline.jsx');
 
 // CHARTS
 var articleDates = require('../../charts/article_dates');
@@ -75,22 +76,17 @@ var AnalysisPage = React.createClass({
       size={'large'}
       isSidebarShown={this.state.isSidebarShown}
       />
-      <Chart
-      chartRenderer={articleDates}
-      title={"Article Publish Dates"}
-      dataPath={'assets/data/article_dates.json'}
-      chartId={'articleDates'}
-      isSidebarShown={this.state.isSidebarShown}
-      tooltipId={'article_dates_tooltip'}
-      />
+
+
       <TextBlock
       isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
       key={"analysis-second"}>
       <p>
-      The cool thing about the collection of Wedding Announcements printed since 1981 is that their distribution is fairly even. This fact, when combined with the shockingly consistent writing style of the Announcements, makes for a very interesting and robust dataset. Following in the footsteps of many others, I took an analytical approach to answering the universal question, “what do the worlds most socially conscious people think is important?”.
+      The cool thing about the collection of Wedding Announcements printed since 1981 is that their distribution is fairly even <SparkLineInline dataPath={"assets/data/article_dates.json"} />. This fact, when combined with the shockingly consistent writing style of the Announcements, makes for a very interesting and robust dataset. Following in the footsteps of many others, I took an analytical approach to answering the universal question, “what do the worlds most socially conscious people think is important?”.
       </p>
       </TextBlock>
+
       <SectionHeader
       title={'What\'s in a Name Anyways?'}
       size={'large'}
@@ -181,6 +177,7 @@ var AnalysisPage = React.createClass({
       <SectionHeader
       title={"\"You got into Harvard Law?\"\n \"What? Like it's hard?\" \n\n- Legally Blonde"}
       size={'large'}
+      textType={'quote'}
       isSidebarShown={this.state.isSidebarShown}
       />
 
