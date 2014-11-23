@@ -86,6 +86,13 @@ var chord_chart = (function(d3) {
     gender_connections[c.source.id][c.dest.id] = getGenderClassification(c);
   });
 
+  // make relations symmetric
+  for (var i = 0; i < n; i++) {
+    for (var j = 0; j < n; j++) {
+      arr[i][j] = Math.max(arr[i][j], arr[j][i]);
+    }
+  }
+
   // get the predominant gender for each node
   //
   data.forEach(function(school){

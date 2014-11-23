@@ -71,12 +71,6 @@ var AnalysisPage = React.createClass({
       The New York Times Wedding Announcements, once referred to as “the single woman’s sports page” is one of the most interesting institutions in American Journalism. Nestled within the traditionally liberal New York Times Sunday edition, the Wedding Announcements serve as a social measuring stick defined by the social-conscious Times’ Editorial Board and the limited number of listings chosen for week’s publication.
       </p>
       </TextBlock>
-      <SectionHeader
-      title={'The Corpus'}
-      size={'large'}
-      isSidebarShown={this.state.isSidebarShown}
-      />
-
 
       <TextBlock
       isSidebarShown={this.state.isSidebarShown}
