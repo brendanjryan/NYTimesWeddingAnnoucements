@@ -35,10 +35,6 @@ var Bibliography = React.createClass({
       'bibliography': true,
     });
 
-    var offset = this.props.isSidebarShown ?
-      0 :
-      2
-    ;
 
     var sources = this.state.sources.map(function(source){
       return(
@@ -48,7 +44,7 @@ var Bibliography = React.createClass({
 
     return(
       <Row className={klass}>
-        <Col md={8} sm={8} xs={8} xsOffset={offset} smOffset={offset} mdOffset={offset}>
+        <Col md={6} sm={10} xs={10} xsOffset={1} smOffset={1} mdOffset={3}>
           <ul>
             {sources}
           </ul>

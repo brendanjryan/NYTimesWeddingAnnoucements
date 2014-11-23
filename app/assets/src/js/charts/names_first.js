@@ -65,43 +65,57 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   var width = 940,
   height = 600,
   tooltip = CustomTooltip("names_tooltip", 240),
-  layout_gravity = -0.06,
+  layout_gravity = 0.025,
   damper = 0.15,
   nodes = [],
   hoverNode = null,
   vis, force, circles, radius_scale;
 
   var COLORS = [
-    colors.lightBlue,
-    colors.pink
+  colors.lightBlue,
+  colors.pink
   ];
 
-    var MAX_RADIUS = 60;
-    var MIN_RADIUS = 2;
+  var MAX_RADIUS = 60;
+  var MIN_RADIUS = 2;
 
-    var center = {x: width / 2, y: height / 2};
+  var center = {x: width / 2, y: height / 2};
 
-    var gender_centers = {
+  var gender_centers = {
+    "male": {x: width / 2 - 100, y: height / 2},
+    "female" : {x: width / 2 + 100, y: height / 2}
+  };
+  var frequency_centers = {
+    "3": {x: width / 3, y: height / 2},
+    "2" : {x: 1.5 * width / 3, y: height / 2},
+    "1" : {x: 2 * width / 3, y: height / 2}
+  };
+
+
+  var fill_color = d3.scale.ordinal()
+  .domain(["male", "female"])
+  .range(COLORS);
+
+  function custom_chart(data, mount, w, h) {
+    width = w ? w : width;
+    height = h ? height : height;
+
+    center = {x: width / 2, y: height / 2};
+
+    gender_centers = {
       "male": {x: width / 2 - 100, y: height / 2},
       "female" : {x: width / 2 + 100, y: height / 2}
     };
-    var frequency_centers = {
+
+    frequency_centers = {
       "3": {x: width / 3, y: height / 2},
       "2" : {x: 1.5 * width / 3, y: height / 2},
       "1" : {x: 2 * width / 3, y: height / 2}
     };
 
 
-    var fill_color = d3.scale.ordinal()
-    .domain(["male", "female"])
-    .range(COLORS);
-
-    function custom_chart(data, mount, w, h) {
-      width = w ? w : width;
-      height = h ? height : height;
-
-      var max_amount = d3.max(data, function(d) { return parseInt(d.count, 10); } );
-      radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([MIN_RADIUS, MAX_RADIUS]);
+    var max_amount = d3.max(data, function(d) { return parseInt(d.count, 10); } );
+    radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([MIN_RADIUS, MAX_RADIUS]);
 
     //create node objects from original data
     //that will serve as the data behind each
@@ -151,7 +165,7 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     .text(function(d) { return d.name + ": " + d.value; });
 
 
-  circles.append("text")
+    circles.append("text")
     .attr('dx', function(){ return -20;})
     .attr("dy", ".3em")
     .style("text-anchor", "middle")
@@ -235,38 +249,38 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
     };
   }
 
-function show_details(data, i, element) {
-  d3.select(element).attr("stroke", "black");
-  var content = "<span class=\"name\"></span><span class=\"value\"> " + data.name + "</span><br/>";
-  content +="<span class=\"name\">Count: </span><span class=\"value\">" + data.value + "</span><br/>";
-  tooltip.showTooltip(content, d3.event);
-}
-
-function hide_details(data, i, element) {
-  d3.select(element).attr("stroke", function(d) { return d3.rgb(fill_color(d.gender)).darker();} );
-  tooltip.hideTooltip();
-}
-
-var my_mod = {};
-my_mod.init = function (_data, mount, width, height) {
-  custom_chart(_data, mount, width, height);
-  start();
-};
-
-my_mod.display_all = display_group_all;
-my_mod.display_ranking = display_by_gender;
-my_mod.toggle_view = function(view_type) {
-  if (view_type === 'gender') {
-    display_by_gender();
+  function show_details(data, i, element) {
+    d3.select(element).attr("stroke", "black");
+    var content = "<span class=\"name\"></span><span class=\"value\"> " + data.name + "</span><br/>";
+    content +="<span class=\"name\">Count: </span><span class=\"value\">" + data.value + "</span><br/>";
+    tooltip.showTooltip(content, d3.event);
   }
-  else if (view_type === 'frequency') {
-    display_by_frequency();
-  } else {
-    display_group_all();
-  }
-};
 
-return my_mod;
+  function hide_details(data, i, element) {
+    d3.select(element).attr("stroke", function(d) { return d3.rgb(fill_color(d.gender)).darker();} );
+    tooltip.hideTooltip();
+  }
+
+  var my_mod = {};
+  my_mod.init = function (_data, mount, width, height) {
+    custom_chart(_data, mount, width, height);
+    start();
+  };
+
+  my_mod.display_all = display_group_all;
+  my_mod.display_ranking = display_by_gender;
+  my_mod.toggle_view = function(view_type) {
+    if (view_type === 'gender') {
+      display_by_gender();
+    }
+    else if (view_type === 'frequency') {
+      display_by_frequency();
+    } else {
+      display_group_all();
+    }
+  };
+
+  return my_mod;
 })(d3, CustomTooltip);
 
 

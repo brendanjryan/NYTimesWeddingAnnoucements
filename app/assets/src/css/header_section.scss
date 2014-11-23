@@ -1,20 +1,26 @@
 .header-section {
   text-align: left;
   font-family: $fonts-default-header;
+  margin: 25px auto;
 
   .title {
     font-weight: 500;
 
     &.large {
-      font-size: 3rem;
+      font-size: 3.5rem;
+      line-height: 5rem;
     }
 
     &.medium {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
 
     &.small {
-      font-size: 2rem;
+      font-size: 2.5rem;
+    }
+
+    &.quote {
+      font-style: italic;
     }
   }
 

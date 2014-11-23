@@ -1,4 +1,5 @@
 var React = require('react/addons');
+var $ = require('jQuery');
 
 var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
@@ -6,8 +7,7 @@ var Row = require('react-bootstrap').Row;
 
 var Chart = React.createClass({
 
-
-  proptypes : {
+  proptypes: {
     chartId: React.PropTypes.string,
     figureNum: React.PropTypes.number,
     footer: React.PropTypes.string,
@@ -16,20 +16,24 @@ var Chart = React.createClass({
     width: React.PropTypes.number.isRequired,
     height: React.PropTypes.number.isRequired,
     chartRenderer: React.PropTypes.func.isRequired,
-    dataPath: React.PropTypes.string.isRequired
+    dataPath: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string
   },
 
   getDefaultProps: function() {
+    var mult = getMulti();
     return {
       chartId: 'chart',
       figureNum: '',
       footer: '',
       footerShown: false,
       isSidebarShown: false,
-      width: window.innerWidth * .8333,
+      width: window.innerWidth * mult,
       height: 400
     };
   },
+
+
 
   componentDidMount: function() {
     this.props.chartRenderer.run(
@@ -37,7 +41,7 @@ var Chart = React.createClass({
       this.props.dataPath,
       this.props.width,
       this.props.height
-    );
+      );
   },
 
   render: function() {
@@ -45,7 +49,7 @@ var Chart = React.createClass({
 
     var footerText =
     'Figure ' +
-    this.props.figureNum +
+    this.props.figureNum
     ': ' +
     this.props.footer
     ;
@@ -54,10 +58,6 @@ var Chart = React.createClass({
     <p className='footer'>{footerText}</p> :
     null;
 
-    var offset = this.props.isSidebarShown ?
-    0 :
-    1
-    ;
 
     var tooltip = this.props.tooltipId
     ? <div
@@ -69,7 +69,8 @@ var Chart = React.createClass({
 
     return (
       <Row className="chart">
-      <Col md={10} sm={10} xs={10} xsOffest={offset} smOffset={offset} mdOffset={offset}>
+      <Col md={8} sm={8} xs={8} xsOffset={2} smOffset={2} mdOffset={2}>
+      <header>{this.props.title}</header>
       <div id={id} />
       {footer}
       </Col>
@@ -78,5 +79,17 @@ var Chart = React.createClass({
       );
 }
 });
+
+function isBreakpoint(alias) {
+  return $('.device-' + alias).is(':visible');
+}
+
+function getMulti() {
+  if (isBreakpoint('sm') || isBreakpoint('xs')){
+    debugger;
+    return 0.66667;
+  }
+  else return 0.5;
+}
 
 module.exports = Chart;

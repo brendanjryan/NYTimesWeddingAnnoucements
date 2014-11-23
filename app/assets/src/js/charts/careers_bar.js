@@ -63,7 +63,6 @@ var run = function(mount, data, width, height) {
       .datum([obj])
       .call(chart);
 
-    nv.utils.windowResize(chart.update);
   }
 
   var res = {};

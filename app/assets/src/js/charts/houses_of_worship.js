@@ -66,7 +66,6 @@ var line_chart = (function(d3){
       .datum(res)
       .call(chart)
   chart.update();
-  nv.utils.windowResize(chart.update);
 
   }
 

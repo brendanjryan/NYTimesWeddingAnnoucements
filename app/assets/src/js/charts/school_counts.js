@@ -13,7 +13,7 @@ chart.run = function(mount, dataPath, width, height){
     custom_bubble_chart.toggle_view('all');
 
  // create toggle buttons
- if(! $('.filter-row').length) {
+ if(! $(mount + '.filter-row').length) {
   var filterRow = $('<div />', {class: 'filter-row'});
 
   filterRow.append(
@@ -66,38 +66,54 @@ var custom_bubble_chart = (function(d3, CustomTooltip) {
   var width = 940,
   height = 600,
   tooltip = CustomTooltip("school_tooltip", 240),
-  layout_gravity = -0.01,
+  layout_gravity = 0.01,
   damper = 0.1,
   nodes = [],
   vis, force, circles, radius_scale;
 
   var COLORS = colors.range;
 
-    var MAX_RADIUS = 60;
-    var MIN_RADIUS = 2;
+  var MAX_RADIUS = 60;
+  var MIN_RADIUS = 2;
 
-    var center = {x: width / 2, y: height / 2};
+  var center = {x: width / 2, y: height / 2};
 
-    var ranking_centers = {
-      "1": {x: width / 5, y: height / 2},
-      "2": {x: 2 * width / 5, y: height / 2},
-      "3": {x: 3 * width / 5, y: height / 2},
-      "4" : {x: 4 * width / 5, y: height / 2}
-    };
-    var frequency_centers = {
-      "4": {x: width / 5, y: height / 2},
-      "3": {x: 2 * width / 5, y: height / 2},
-      "2": {x: 3 * width / 5, y: height / 2},
-      "1" : {x: 4 * width / 5, y: height / 2}
-    };
+  var ranking_centers = {
+    "1": {x: width / 5, y: height / 2},
+    "2": {x: 2 * width / 5, y: height / 2},
+    "3": {x: 3 * width / 5, y: height / 2},
+    "4" : {x: 4 * width / 5, y: height / 2}
+  };
+  var frequency_centers = {
+    "4": {x: width / 5, y: height / 2},
+    "3": {x: 2 * width / 5, y: height / 2},
+    "2": {x: 3 * width / 5, y: height / 2},
+    "1" : {x: 4 * width / 5, y: height / 2}
+  };
 
-    var fill_color = d3.scale.ordinal()
-    .domain(["most", "hcplus", "hc", 'vcplus'])
-    .range(COLORS);
+  var fill_color = d3.scale.ordinal()
+  .domain(["most", "hcplus", "hc", 'vcplus'])
+  .range(COLORS);
 
-    function custom_chart(data, mount, w, h) {
-      width = w ? w : width;
-      height = h ? height : height;
+  function custom_chart(data, mount, w, h) {
+    width = w ? w : width;
+    height = h ? height : height;
+
+      //reflow ranking centers
+      center = {x: width / 2, y: height / 2};
+
+      ranking_centers = {
+        "1": {x: 2 * width / 9, y: height / 2},
+        "2": {x: 4 * width / 9, y: height / 2},
+        "3": {x: 6 * width / 9, y: height / 2},
+        "4" : {x: 8 * width / 9, y: height / 2}
+      };
+      frequency_centers = {
+        "4": {x: 2 * width / 9, y: height / 2},
+        "3": {x: 4 * width / 9, y: height / 2},
+        "2": {x: 6 * width / 9, y: height / 2},
+        "1" : {x: 8 * width / 9, y: height / 2}
+      };
 
       var max_amount = d3.max(data, function(d) { return parseInt(d.count, 10); } );
       radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([MIN_RADIUS, MAX_RADIUS]);

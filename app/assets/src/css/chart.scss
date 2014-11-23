@@ -1,12 +1,19 @@
 
 
 .chart {
+  margin: 50px auto;
 
   svg {
     display: block;
     margin: 0 auto;
   }
 
+  header {
+    font-size: 25px;
+    color: $text-default;
+    font-weight: 300;
+    text-align: center;
+  }
   a {
     text-decoration: none;
   }

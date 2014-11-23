@@ -33,21 +33,12 @@ var textBlock = React.createClass({
       'text-block-quote': this.props.role === 'quote'
     });
 
-    var offset = this.props.isSidebarShown ?
-      0 :
-      2
-    ;
-
     return (
       <Row className={klass}>
-      <Col md={8} sm={8} xs={8} xsOffset={offset} smOffset={offset} mdOffset={offset}>
+      <Col md={6} sm={10} xs={10} xsOffset={1} smOffset={1} mdOffset={3}>
+
         {this.props.children}
       </Col>
-      <CommentSidebar
-        key={this.props.key}
-        toggleHandler={this.props.sidebarToggleHandler}
-        isSidebarShown={this.props.isSidebarShown}
-      />
       </Row>
       );
   }

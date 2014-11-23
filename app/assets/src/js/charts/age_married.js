@@ -16,7 +16,7 @@ var line_chart = (function(d3){
 
   var categories = ['20-25 percent','25-30 percent','30-35 percent','35-40 percent','40-45 percent'];
 
-  var margin = {top: 20, right: 20, bottom: 30, left: 40}
+  var margin = {top: 50, right: 50, bottom: 50, left:  50}
   var svg = null;
   var legend = null;
   var marker = null;
@@ -80,7 +80,6 @@ var line_chart = (function(d3){
       .datum(data)
       .call(chart)
   chart.update();
-  nv.utils.windowResize(chart.update);
 
   }
 
