@@ -190,9 +190,8 @@ var AnalysisPage = React.createClass({
       <p>
       Playing with the chart below we can observe that the "selectivity bands" determined by Barrons very closely mirror those determined by the Times. Is this coincidence? Which institutions surprise you?
       </p>
-      <p style="text-style: italics">
+      <p style={{ "font-style": "italic" }}>
         N.B. These statistics do not reflect unattainable measures such as the percentage of a college's graduates who applied to be listed in the Times' Wedding Announcements or live in the Greater New York City area.
-        applied to be listed in the
       </p>
       </TextBlock>
 
@@ -284,6 +283,7 @@ var AnalysisPage = React.createClass({
       <SectionHeader
       title={"\"I\'ve had plenty of jo-jobs; nothing I\'d call a career. Let me put it this way: I have an extensive collection of name tags and hairnets\"\n\n-Wayne\'s World "}
       size={'large'}
+      textType={'quote'}
       isSidebarShown={this.state.isSidebarShown}
       />
 
@@ -296,6 +296,7 @@ var AnalysisPage = React.createClass({
       Rather unsurprisingly, the lives and careers of America’s elite are quite far from that of Wayne Campbell. It is almost cliché that the 9-5 days of America’s elite are still disproportionally dominated by traditional administrative and financial careers and titles such as “associate” and “manager.” Even with the great deal of discussion surrounding the flocking of “millennials” from finance to jobs in tech the degree that more traditional business titles dominate “tech” (http://online.wsj.com/articles/SB10001424052702303661404579180152676790032) the Wedding Announcements is striking.
       </p>
       </TextBlock>
+
       <Chart
       chartRenderer={careers}
       dataPath={'assets/data/careers.json'}
@@ -311,6 +312,7 @@ var AnalysisPage = React.createClass({
       >
       <p>
       Looking at the laid-out frequencies of “careers” mentioned in the Times, one statistic that really jumps out is career “students” coming in at a whopping 4th place! (most likely due to the strong draw of NYU and Columbia’s graduate programs).
+      </p>
       </TextBlock>
 
       <Chart
@@ -321,19 +323,25 @@ var AnalysisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       />
 
+      <SectionHeader
+      title={"\"We wanted to keep it intimate. She Said. Just family and close friends.\"\n \"And \"The New York Times\". How intimate is that?\n\n - Sex and the City"}
+      size={'large'}
+      textType={'quote'}
+      isSidebarShown={this.state.isSidebarShown}
+      />
+
 
       <TextBlock
       isSidebarShown={this.state.isSidebarShown}
       sidebarToggleHandler={this.onSideBarToggle}
       key={"conclusion"}
       >
-      <p>
+      <p style={{ "font-weight": "bold" }}>
       There are infinitely more questions that still can be answered from this data. If you have any suggestions for further digging or would like to see more similar pieces please don’t hesitate to reach out!
       </p>
       <p>
-      Brendan Ryan
+       - Brendan Ryan <a href="http://twitter.com/brendanjryan">(@brendanjryan)</a>
       </p>
-      <p><a href="http://twitter.com/brendanjryan">@brendanjryan</a></p>
       </TextBlock>
 
 
