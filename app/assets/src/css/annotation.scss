@@ -1,15 +1,27 @@
 //annotation.scss
 
 .annotation {
+ul{
+  list-style: default;
+}
+li {
+  padding: 10px 0;
+}
 
-
-
+  &:hover, &:active {
+    background: yellow;
+  }
 
 }
 
 .annotation-text {
   background-color: $highlight;
   padding: 0 5px;
+
+  &:hover, &:active {
+    background-color: darken($highlight, 15%);
+
+  }
 }
 
 .popover {

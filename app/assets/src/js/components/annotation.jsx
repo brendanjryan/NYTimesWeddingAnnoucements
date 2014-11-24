@@ -13,8 +13,14 @@ var Annotation = React.createClass({
   },
 
   render: function() {
+
+    var contentText = this.props.content.split('\n').map(function(item){
+      return <p>{item}</p>
+    });
+
     return (
       <OverlayTrigger
+        trigger={["click"]}
         className="annotation"
         placement="right"
         delayShow={300}
@@ -23,9 +29,8 @@ var Annotation = React.createClass({
         overlay={
           <Popover
             className="pop-over"
-            title={this.props.title}
           >
-            {this.props.content}
+          <div dangerouslySetInnerHTML={{__html: this.props.content}} />
           </Popover>
         }
       >
