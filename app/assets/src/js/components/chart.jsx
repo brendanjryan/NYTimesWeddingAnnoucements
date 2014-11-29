@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var $ = require('jQuery');
+var $ = require('jquery');
 
 var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
