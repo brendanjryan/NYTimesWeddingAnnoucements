@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var $ = require('jQuery');
+var $ = require('jquery');
 var d3 = require('d3');
 
 var SparkLine = require('react-sparkline');
