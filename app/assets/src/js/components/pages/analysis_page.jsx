@@ -243,10 +243,6 @@ var AnalysisPage = React.createClass({
       </p>
       </TextBlock>
 
-
-
-
-
       <SectionHeader
       title={'Is 30 really the new 20?'}
       size={'large'}

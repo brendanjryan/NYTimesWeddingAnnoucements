@@ -28,6 +28,7 @@ var careers = require('../../charts/careers');
 var commonSchools = require('../../charts/common_schools');
 var careersBar = require('../../charts/careers_bar');
 var namesFirstBar = require('../../charts/names_first_bar');
+var articleDatesBar = require('../../charts/article_dates_bar');
 
 var ThesisPage = React.createClass({
 
@@ -110,12 +111,9 @@ var ThesisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={900}
-      height={400}
-      chartRenderer={articleDates}
+      chartRenderer={articleDatesBar}
       dataPath={'assets/data/article_dates.json'}
-      chartId={'articleDates'}
-      isSidebarShown={this.state.isSidebarShown}
+      chartId={'articleDatesBar'}
       tooltipId={'article_dates_tooltip'}
       />
 
@@ -145,8 +143,6 @@ var ThesisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={940}
-      height={400}
       chartRenderer={namesFirstBar}
       dataPath={'assets/data/names_first.json'}
       chartId={'namesFirstBar'}
@@ -166,8 +162,6 @@ var ThesisPage = React.createClass({
 
 
       <Chart
-      width={940}
-      height={400}
       chartRenderer={namesFirst}
       dataPath={'assets/data/names_first.json'}
       chartId={'namesFirst'}
@@ -187,8 +181,6 @@ var ThesisPage = React.createClass({
 
 
       <Chart
-      width={940}
-      height={480}
       chartRenderer={careers}
       dataPath={'assets/data/careers.json'}
       chartId={'careers'}
@@ -224,8 +216,6 @@ var ThesisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={800}
-      height={400}
       chartRenderer={ageMarried}
       dataPath={'assets/data/age_married.json'}
       chartId={'ageMarried'}
@@ -292,8 +282,6 @@ var ThesisPage = React.createClass({
       </p>
       </TextBlock>
       <Chart
-      width={900}
-      height={500}
       chartRenderer={namesFirstBar}
       dataPath={'assets/data/names_first.json'}
       chartId={'namesFirstBar_second'}
@@ -313,8 +301,6 @@ var ThesisPage = React.createClass({
 
 
       <Chart
-      width={940}
-      height={460}
       chartRenderer={schoolBubble}
       dataPath={'assets/data/schools_counts.json'}
       chartId={'schoolCounts'}
@@ -332,8 +318,8 @@ var ThesisPage = React.createClass({
       </TextBlock>
 
       <Chart
-      width={400}
-      height={400}
+      width={window.innerWidth * .333}
+      height={window.innerWidth * .333}
       chartRenderer={marriageGenders}
       dataPath={'assets/data/schools_couples_genders_links.json'}
       chartId={'marriageGenders'}
