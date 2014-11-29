@@ -6,14 +6,12 @@ import yaml
 import logging
 from logging import Formatter, FileHandler
 import os
-from flask.ext.pymongo import PyMongo
 from bson.json_util import dumps
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
 
 app = Flask(__name__, static_folder="assets")
-#mongo = PyMongo(app)
 app.config.from_object('config')
 
 

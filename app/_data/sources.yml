@@ -1,272 +1,268 @@
-- key: 'parentholder'
-title: "The patent holder\u2019s dilemma: Buy, sell, or troll?"
-authors: ["Patricia S. Abril", "Robert Plant"]
-publish_date: "2007"
-publish_location: "Commun. ACM 50, 1 (Jan. 2007)"
-publisher: "ACM 50"
-url: "http://dx.doi.org/10.1145/1188913.1188915"
-
-- key: 'test'
-title: "The patent holder\u2019s dilemma: Buy, sell, or troll?"
-authors: ["Patricia S. Abril","Robert Plant"]
-publish_date: "2007"
-publish_location: "Commun. ACM 50, 1 (Jan. 2007)"
-publisher: "ACM 50"
-url: "http://dx.doi.org/10.1145/1188913.1188915"
-
 - key: 'semantic_scraping'
-title: "A SEMANTIC SCRAPING MODEL FOR WEB RESOURCES"
-authors: ["José IgnacioFernández-Villamor","Jacobo Blasco-Garćıa", "Carlos A ́.Iglesias", "Mercedes Garijo"]
-publish_date: "2011"
-publisher: "ICAART"
-url: "http://oa.upm.es/13159/1/INVE_MEM_2011_109693.pdf"
+  title: "A SEMANTIC SCRAPING MODEL FOR WEB RESOURCES"
+  authors:
+    - "José IgnacioFernandez-Villamor"
+    -"Jacobo Blasco-Garcia"
+    -"Carlos A Iglesias"
+    - "Mercedes Garijo"
+
+  publish_date: "2011"
+  publisher: "ICAART"
+  url: "http://oa.upm.es/13159/1/INVE_MEM_2011_109693.pdf"
 
 - key: 'mining_survey'
-title: "Web Mining Research: A Survey"
-authors: ["Raymond Kosala","Hendrik Blockeel"]
-publish_date: "2000"
-publish_location: "ACM SIGKDD Explorations Newsletter"
-publisher: "ACM"
-url: "http://www.kdd.org/sites/default/files/issues/2-1-2000-06/kosala.pdf"
+  title: "Web Mining Research: A Survey"
+  authors:
+    - "Raymond Kosala"
+    - "Hendrik Blockeel"
 
+  publish_date: "2000"
+  publish_location: "ACM SIGKDD Explorations Newsletter"
+  publisher: "ACM"
+  url: "http://www.kdd.org/sites/default/files/issues/2-1-2000-06/kosala.pdf"
 
 - key: 'vis_extract'
-title: "Visually extracting data records from the deep web"
-authors: ["Neil Anderson","Jun Hong"]
-publish_date: "2013"
-publish_location: "Rio de Janeiro, Brazil"
-publisher: "International World Wide Web Conferences Steering Committee"
-url: "http://dl.acm.org/citation.cfm?id=2487788.2488156"
+  title: "Visually extracting data records from the deep web"
+  authors:
+    -"Neil Anderson"
+    -"Jun Hong"
+
+  publish_date: "2013"
+  publish_location: "Rio de Janeiro, Brazil"
+  publisher: "International World Wide Web Conferences Steering Committee"
+  url: "http://dl.acm.org/citation.cfm?id=2487788.2488156"
 
 - key: 'text_tapping'
-title: "Tapping into the Power of Text Mining"
-authors: ["Weiguo Fan", "Linda Wallace", "Stephanie Rich", "Zhongju Zhang"]
-publish_date: "2006"
-publish_location: "Commun. ACM"
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/1151030.1151032"
+  title: "Tapping into the Power of Text Mining"
+  authors:
+    - "Weiguo Fan"
+    - "Linda Wallace"
+    - "Stephanie Rich"
+    - "Zhongju Zhang"
 
-- key: 'text_tapping'
-title: "Tapping into the Power of Text Mining"
-authors: ["Weiguo Fan", "Linda Wallace", "Stephanie Rich", "Zhongju Zhang"]
-publish_date: "2006"
-publish_location: "Commun. ACM"
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/1151030.1151032"
+  publish_date: "2006"
+  publish_location: "Commun. ACM"
+  publisher: "ACM"
+  url: "http://doi.acm.org/10.1145/1151030.1151032"
 
 - key: 'wordnet'
-title: "Introduction to WordNet: An On-line Lexical Database"
-authors: ["George A. Miller", "Richard Beckwith", "Christiane Fellbaum,", "Derek Gross", "Katherine Miller"]
-publish_date: "1993"
-url: "http://wordnetcode.princeton.edu/5papers.pdf"
+  title: "Introduction to WordNet: An On-line Lexical Database"
+  authors:
+    -"George A. Miller"
+    - "Richard Beckwith"
+    - "Christiane Fellbaum,"
+    - "Derek Gross"
+    - "Katherine Miller"
+
+  publish_date: "1993"
+  url: "http://wordnetcode.princeton.edu/5papers.pdf"
 
 - key: 'tweets'
-title: "Named Entity Recognition in Tweets: An Experimental Study"
-authors: ["Alan Ritter", "Sam Clark", "Oren Etzioni"]
-publish_date: "2011"
-publish_location: "EMNLP '11"
-publisher: "Association for Computational Linguistics"
-url: "http://dl.acm.org/citation.cfm?id=2145432.2145595"
+  title: "Named Entity Recognition in Tweets: An Experimental Study"
+  authors:
+    - "Alan Ritter"
+    - "Sam Clark"
+    - "Oren Etzioni"
 
-- key: 'tweets'
-title: "Named Entity Recognition in Tweets: An Experimental Study"
-authors: ["Alan Ritter", "Sam Clark", "Oren Etzioni"]
-publish_date: "2011"
-publish_location: "EMNLP '11"
-publisher: "Association for Computational Linguistics"
-url: "http://dl.acm.org/citation.cfm?id=2145432.2145595"
-
-- key: 'tweets'
-title: "Named Entity Recognition in Tweets: An Experimental Study"
-authors: ["Alan Ritter", "Sam Clark", "Oren Etzioni"]
-publish_date: "2011"
-publish_location: "EMNLP '11"
-publisher: "Association for Computational Linguistics"
-url: "http://dl.acm.org/citation.cfm?id=2145432.2145595"
+  publish_date: "2011"
+  publish_location: "EMNLP '11"
+  publisher: "Association for Computational Linguistics"
+  url: "http://dl.acm.org/citation.cfm?id=2145432.2145595"
 
 - key: 'ner_gazetteers'
-title: "Named Entity Recognition without Gazetteers"
-authors: ["Andrei Mikheev", "Marc Moens", "Claire Grover"]
-publish_date: "2011"
-publish_location: "EACL"
-publisher: "Association for Computational Linguistics"
-url: "http://dx.doi.org/10.3115/977035.977037"
+  title: "Named Entity Recognition without Gazetteers"
+  authors:
+    - "Andrei Mikheev"
+    - "Marc Moens"
+    - "Claire Grover"
+
+  publish_date: "2011"
+  publish_location: "EACL"
+  publisher: "Association for Computational Linguistics"
+  url: "http://dx.doi.org/10.3115/977035.977037"
 
 - key: 'multi_bootstrap'
-title: "Learning Dictionaries for Information Extraction by Multi-level Bootstrapping"
-authors: ["Ellen Riloff", "Rosie Jones"]
-publish_date: "1999"
-publish_location: "AAAI"
-publisher: "American Association for Artificial Intelligence"
-url: "http://dl.acm.org/citation.cfm?id=315149.315364"
+  title: "Learning Dictionaries for Information Extraction by Multi-level Bootstrapping"
+  authors:
+    - "Ellen Riloff"
+    - "Rosie Jones"
+
+  publish_date: "1999"
+  publish_location: "AAAI"
+  publisher: "American Association for Artificial Intelligence"
+  url: "http://dl.acm.org/citation.cfm?id=315149.315364"
 
 - key: 'ner_diverse'
-title: "Named Entity Recognition from Diverse Text Types"
-authors: ["Diana Maynard" , "Valentin Tablan" , "Cristian Ursu" , "Hamish Cunningham", "Yorick Wilks"]
-publish_date: "2001"
-url: "http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=2EDD87300639DD641AA16E736FEE34E9?doi=10.1.1.18.7395&rep=rep1&type=pdf"
+  title: "Named Entity Recognition from Diverse Text Types"
+  authors:
+    - "Diana Maynard"
+    - "Valentin Tablan"
+    - "Cristian Ursu"
+    - "Hamish Cunningham"
+    - "Yorick Wilks"
+
+  publish_date: "2001"
+  url: "http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=2EDD87300639DD641AA16E736FEE34E9?doi=10.1.1.18.7395&rep=rep1&type=pdf"
 
 - key: 'max_entropy'
-title: "A maximum entropy approach to named entity recognition"
-authors: ["Borthwick, Andrew Eliot"]
-publish_date: "1999"
-publish_location: "AAAI"
-publisher: "New York University"
-url: "http://dl.acm.org/citation.cfm?id=930095"
+  title: "A maximum entropy approach to named entity recognition"
+  authors:
+    - "Borthwick, Andrew Eliot"
+
+  publish_date: "1999"
+  publish_location: "AAAI"
+  publisher: "New York University"
+  url: "http://dl.acm.org/citation.cfm?id=930095"
 
 - key: 'semi_structured'
-title: "Learning Information Extraction Rules for Semi-Structured and Free Text"
-authors: ["Soderland Stephen"]
-publish_date: "1999"
-publish_location: "Kluwer Academic Publishers"
-publisher: "Mach. Learn"
-url: "http://dx.doi.org/10.1023/A:1007562322031"
+  title: "Learning Information Extraction Rules for Semi-Structured and Free Text"
+  authors:
+    - "Soderland Stephen"
 
-- key: 'semi_structures'
-title: "Learning Information Extraction Rules for Semi-Structured and Free Text"
-authors: ["Soderland Stephen"]
-publish_date: "1999"
-publish_location: "Kluwer Academic Publishers"
-publisher: "Mach. Learn"
-url: "http://dx.doi.org/10.1023/A:1007562322031"
+  publish_date: "1999"
+  publish_location: "Kluwer Academic Publishers"
+  publisher: "Mach. Learn"
+  url: "http://dx.doi.org/10.1023/A:1007562322031"
 
 - key: 'ner_challenges'
-title: "Design challenges and misconceptions in named entity recognition"
-authors: ["Lev Ratinov", "Dan Roth"]
-publish_date: "2009"
-publish_location: "CoNLL"
-publisher: "Association for Computational Linguistics"
-url: "http://dl.acm.org/citation.cfm?id=1596374.1596399"
+  title: "Design challenges and misconceptions in named entity recognition"
+  authors:
+    - "Lev Ratinov"
+    - "Dan Roth"
+
+  publish_date: "2009"
+  publish_location: "CoNLL"
+  publisher: "Association for Computational Linguistics"
+  url: "http://dl.acm.org/citation.cfm?id=1596374.1596399"
 
 - key: 'ling_patterns'
-title: "Acquisition of Linguistic Patterns for Knowledge-Based Information Extraction"
-authors: ["Jun-Tae Kim", "Dan I. Moldovan"]
-publish_date: "1995"
-publisher: "IEEE Educational Activities Department"
-url: "http://dx.doi.org/10.1109/69.469825"
+  title: "Acquisition of Linguistic Patterns for Knowledge-Based Information Extraction"
+  authors:
+    - "Jun-Tae Kim"
+    - "Dan I. Moldovan"
+
+  publish_date: "1995"
+  publisher: "IEEE Educational Activities Department"
+  url: "http://dx.doi.org/10.1109/69.469825"
 
 - key: 'guidelines'
-title: "Ten guidelines for effective data visualization in scientific publications"
-authors: ["Christa Kelleher", "Thorsten Wagener"]
-publish_date: "2009"
-publish_location: "Environ. Model. Softw."
-publisher: "Elsevier Science Publishers B. V."
-url: "http://dx.doi.org/10.1016/j.envsoft.2010.12.006"
+  title: "Ten guidelines for effective data visualization in scientific publications"
+  authors:
+    - "Christa Kelleher"
+    - "Thorsten Wagener"
+
+  publish_date: "2009"
+  publish_location: "Environ. Model. Softw."
+  publisher: "Elsevier Science Publishers B. V."
+  url: "http://dx.doi.org/10.1016/j.envsoft.2010.12.006"
 
 - key: 'vis_design_patterns'
-title: "Software Design Patterns for Information Visualization"
-authors: ["Jeffrey Heer", "Maneesh Agrawala"]
-publish_date: "2006"
-publish_location: "IEEE Transactions on Visualization and Computer Graphics"
-publisher: "IEEE Educational Activities Department"
-url: "http://dx.doi.org/10.1109/TVCG.2006.178"
+  title: "Software Design Patterns for Information Visualization"
+  authors:
+    - "Jeffrey Heer"
+    - "Maneesh Agrawala"
+
+  publish_date: "2006"
+  publish_location: "IEEE Transactions on Visualization and Computer Graphics"
+  publisher: "IEEE Educational Activities Department"
+  url: "http://dx.doi.org/10.1109/TVCG.2006.178"
 
 - key: 'protovis'
-title: "Declarative Language Design for Interactive Visualization"
-authors: ["Jeffrey Heer","Michael Bostock"]
-publish_date: "2010"
-publish_location: "IEEE Transactions on Visualization and Computer Graphics"
-publisher: "IEEE Educational Activities Department"
-url: "http://dx.doi.org/10.1109/TVCG.2010.144"
+  title: "Declarative Language Design for Interactive Visualization"
+  authors:
+    - "Jeffrey Heer"
+    - "Michael Bostock"
+
+  publish_date: "2010"
+  publish_location: "IEEE Transactions on Visualization and Computer Graphics"
+  publisher: "IEEE Educational Activities Department"
+  url: "http://dx.doi.org/10.1109/TVCG.2010.144"
 
 - key: 'd3'
-title: "D3: Data-Driven Documents"
-authors: ["Jeffrey Heer","Michael Bostock", "Vadim Ogievetsky "]
-publish_date: "2011"
-publish_location: "IEEE Transactions on Visualization and Computer Graphics"
-publisher: "IEEE Educational Activities Department"
-url: "http://dx.doi.org/10.1109/TVCG.2011.185"
+  title: "D3: Data-Driven Documents"
+  authors:
+    - "Jeffrey Heer"
+    - "Michael Bostock"
+    - "Vadim Ogievetsky "
+
+  publish_date: "2011"
+  publish_location: "IEEE Transactions on Visualization and Computer Graphics"
+  publisher: "IEEE Educational Activities Department"
+  url: "http://dx.doi.org/10.1109/TVCG.2011.185"
 
 - key: 'declarative_design'
-title: "Declarative interaction design for data visualization"
-authors: ["Jeffrey Heer","Arvind Satyanarayan", "Kanit Wongsuphasawat"]
-publish_date: "2014"
-publish_location: "Honolulu, Hawaii, USA"
-publisher: "Proceedings of the 27th Annual ACM Symposium on User Interface Software and Technology"
-url: "http://doi.acm.org/10.1145/2642918.2647360"
+  title: "Declarative interaction design for data visualization"
+  authors:
+    - "Jeffrey Heer"
+    - "Arvind Satyanarayan"
+    - "Kanit Wongsuphasawat"
 
-- key: 'declarative_design'
-title: "Declarative interaction design for data visualization"
-authors: ["Jeffrey Heer","Arvind Satyanarayan", "Kanit Wongsuphasawat"]
-publish_date: "2014"
-publish_location: "Honolulu, Hawaii, USA"
-publisher: "Proceedings of the 27th Annual ACM Symposium on User Interface Software and Technology"
-url: "http://doi.acm.org/10.1145/2642918.2647360"
+  publish_date: "2014"
+  publish_location: "Honolulu, Hawaii, USA"
+  publisher: "Proceedings of the 27th Annual ACM Symposium on User Interface Software and Technology"
+  url: "http://doi.acm.org/10.1145/2642918.2647360"
 
 - key: 'frp_anim'
-title: "Declarative interaction design for data visualization"
-authors: ["Conal Elliott","Paul Hudak"]
-publish_date: "2014"
-publish_location: "SIGPLAN"
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/258949.258973"
+  title: "Declarative interaction design for data visualization"
+  authors:
+    - "Conal Elliott"
+    - "Paul Hudak"
+
+  publish_date: "2014"
+  publish_location: "SIGPLAN"
+  publisher: "ACM"
+  url: "http://doi.acm.org/10.1145/258949.258973"
 
 - key: 'constraint'
-title: "ConstraintJS: programming interactive behaviors for the web by integrating constraints and states"
-authors: [" Stephen Oney", "Brad Myers", "Joel Brandt"]
-publish_date: "2012"
-publisher: "Proceedings of the 25th Annual ACM Symposium on User Interface Software and Technology}"
-url: "http://doi.acm.org/10.1145/2380116.2380146"
+  title: "ConstraintJS: programming interactive behaviors for the web by integrating constraints and states"
+  authors:
+    - "Stephen Oney"
+    - "Brad Myers"
+    - "Joel Brandt"
+
+  publish_date: "2012"
+  publisher: "Proceedings of the 25th Annual ACM Symposium on User Interface Software and Technology}"
+  url: "http://doi.acm.org/10.1145/2380116.2380146"
 
 - key: 'frp_anim'
-title: "Declarative interaction design for data visualization"
-authors: ["Conal Elliott","Paul Hudak"]
-publish_date: "2014"
-publish_location: "SIGPLAN"
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/258949.258973"
+  title: "Declarative interaction design for data visualization"
+  authors:
+    - "Conal Elliott"
+    - "Paul Hudak"
+
+  publish_date: "2014"
+  publish_location: "SIGPLAN"
+  publisher: "ACM"
+  url: "http://doi.acm.org/10.1145/258949.258973"
 
 - key: 'elm'
-title: "Asynchronous Functional Reactive Programming for GUIs"
-authors: ["Evan Czaplicki","Stephen Chong"]
-publish_date: "2013"
-publish_location: "PLDI"
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/2491956.2462161"
+  title: "Asynchronous Functional Reactive Programming for GUIs"
+  authors:
+    - "Evan Czaplicki"
+    - "Stephen Chong"
 
-- key: 'elm'
-title: "Asynchronous Functional Reactive Programming for GUIs"
-authors: ["Evan Czaplicki","Stephen Chong"]
-publish_date: "2013"
-publish_location: "PLDI"
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/2491956.2462161"
+  publish_date: "2013"
+  publish_location: "PLDI"
+  publisher: "ACM"
+  url: "http://doi.acm.org/10.1145/2491956.2462161"
 
 - key: 'adap_frp'
-title: "Adaptive functional programming"
-authors: ["Umut A. Acar", "Guy E. Blelloch","Robert Harper"]
-publish_date: "2006"
-publish_location: "ACM Trans. Program. Lang. Syst."
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/1186632.1186634"
+  title: "Adaptive functional programming"
+  authors:
+    - "Umut A. Acar"
+    - "Guy E. Blelloch"
+    - "Robert Harper"
 
+  publish_date: "2006"
+  publish_location: "ACM Trans. Program. Lang. Syst."
+  publisher: "ACM"
+  url: "http://doi.acm.org/10.1145/1186632.1186634"
 
 - key: 'cbv_dataflow'
-title: "Integrating dataflow evaluation into a practical higher-order call-by-value language"
-authors: ["Gregory Harold Cooper"]
-publish_date: "2008"
-publish_location: "Ph.D. Dissertation"
-publisher: "Brown University"
+  title: "Integrating dataflow evaluation into a practical higher-order call-by-value language"
+  authors:
+    - "Gregory Harold Cooper"
 
-- key: ''
-title: "Adaptive functional programming"
-authors: ["Umut A. Acar", "Guy E. Blelloch","Robert Harper"]
-publish_date: "2006"
-publish_location: "ACM Trans. Program. Lang. Syst."
-publisher: "ACM"
-url: "http://doi.acm.org/10.1145/1186632.1186634"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  publish_date: "2008"
+  publish_location: "Ph.D. Dissertation"
+  publisher: "Brown University"
