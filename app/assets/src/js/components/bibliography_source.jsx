@@ -6,16 +6,19 @@ var BibSource = React.createClass({
 
   proptypes: {
     source: React.PropTypes.string.isRequired,
+    idnex: React.PropTypes.number.isRequired
   },
 
 
   render: function() {
-
     var klass = cx({
       'bib-source': true,
     });
 
     var source = this.props.source;
+    if (!source) {
+      return null;
+    }
     var citationString = '';
 
     var authorString = source.authors
@@ -45,9 +48,12 @@ var BibSource = React.createClass({
 
     var citationString = authorString + titleString + publishLocString + publisherString + publishDateString + '.';
 
+    var anchorURL = "#" + source.key + "_citation";
+    var refURL = source.key + "_entry";
+
     return(
-      <li className={klass}>
-        {citationString}
+      <li name={refURL} className={klass}>
+        <a href={anchorURL}>[{this.props.index}]</a><span>{citationString}</span>
       </li>
     );
   }

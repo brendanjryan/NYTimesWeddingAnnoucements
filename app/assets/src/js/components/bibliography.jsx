@@ -30,15 +30,13 @@ var Bibliography = React.createClass({
   },
 
   render: function() {
-
     var klass = cx({
       'bibliography': true,
     });
 
-
-    var sources = this.state.sources.map(function(source){
+    var sources = this.state.sources.map(function(source, ind){
       return(
-        <BibSource source={source} />
+        <BibSource source={source} index={ind} />
       );
     });
 

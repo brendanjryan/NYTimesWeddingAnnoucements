@@ -2,8 +2,8 @@
   title: "A SEMANTIC SCRAPING MODEL FOR WEB RESOURCES"
   authors:
     - "José IgnacioFernandez-Villamor"
-    -"Jacobo Blasco-Garcia"
-    -"Carlos A Iglesias"
+    - "Jacobo Blasco-Garcia"
+    - "Carlos A Iglesias"
     - "Mercedes Garijo"
 
   publish_date: "2011"
@@ -24,8 +24,8 @@
 - key: 'vis_extract'
   title: "Visually extracting data records from the deep web"
   authors:
-    -"Neil Anderson"
-    -"Jun Hong"
+    - "Neil Anderson"
+    - "Jun Hong"
 
   publish_date: "2013"
   publish_location: "Rio de Janeiro, Brazil"
@@ -48,7 +48,7 @@
 - key: 'wordnet'
   title: "Introduction to WordNet: An On-line Lexical Database"
   authors:
-    -"George A. Miller"
+    - "George A. Miller"
     - "Richard Beckwith"
     - "Christiane Fellbaum,"
     - "Derek Gross"

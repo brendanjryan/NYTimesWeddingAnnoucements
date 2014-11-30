@@ -30,6 +30,10 @@ var Citation = React.createClass({
   },
 
   render: function() {
+    debugger;
+    var anchorURL =  '#' + this.props.key + "_entry";
+    var refURL = this.props.key + "_citation";
+
     return this.state.article
       ? (
          <OverlayTrigger
@@ -47,10 +51,12 @@ var Citation = React.createClass({
             </Popover>
           }
         >
-        <span className="citation-holder">
+        <span name={refURL} className="citation-holder">
           {this.props.children}
           <span className="citation-icon">
-            <i className="fa fa-bookmark-o"/>
+            <a href={anchorURL}>
+              <i className="fa fa-bookmark-o"/>
+            </a>
           </span>
         </span>
         </OverlayTrigger>

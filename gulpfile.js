@@ -49,6 +49,7 @@ gulp.task('js', function() {
 gulp.task('img', function() {
   return gulp.src(PATHS.img)
   .pipe(plumber())
+  //compress images here
   .pipe(gulp.dest(BUILD_PATH + 'img/'));
 });
 
