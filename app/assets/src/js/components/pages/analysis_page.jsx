@@ -220,7 +220,7 @@ var AnalysisPage = React.createClass({
       >
       <p>
 
-      It would be paltry to discuss the prestige of America’s elite universities without also giving a nod to their finest graduates; those with Latin distinctions. In the <Annotation content="<p>Even <a href='http://www.thecrimson.com/article/2005/4/21/honors-now-with-more-competition-the/'>Harvard</a> isn't immuninible to this plight</p>">modern GPA crazed</Annotation> academic environment it is almost no surprise that the Times has a startlingly high number of its constituents representing our Nation’s academic elite.
+      It would be paltry to discuss the prestige of America’s elite universities without also giving a nod to their finest graduates; those with Latin distinctions. In the <Annotation content="<p>Even <a href='http://www.thecrimson.com/article/2005/4/21/honors-now-with-more-competition-the/'>Harvard</a> isn't immune to this plight.</p>">modern GPA crazed</Annotation> academic environment it is almost no surprise that the Times has a startlingly high number of its constituents representing our Nation’s academic elite.
       </p>
       </TextBlock>
 
