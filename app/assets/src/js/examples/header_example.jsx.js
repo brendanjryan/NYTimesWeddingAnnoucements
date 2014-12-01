@@ -1,3 +1,5 @@
+/** @jsx React.DOM */
+
 var React = require('react/addons');
 var cx = React.addons.classSet;
 
@@ -5,7 +7,7 @@ var Col = require('react-bootstrap').Col;
 var Grid = require('react-bootstrap').Grid;
 var Row = require('react-bootstrap').Row;
 
-var headerSubsection = React.createClass({
+module.exports =  React.createClass({
 
   proptypes: {
     title: React.PropTypes.string.isRequired,
@@ -39,16 +41,14 @@ var headerSubsection = React.createClass({
     return (
 
       <Row className="header-section">
-        <Col md={6} sm={10} xs={10} xsOffset={1} smOffset={1} mdOffset={3}>
-          <header>
-             <h1 className={klass}>
-              {titleText}
-            </h1>
-          </header>
-        </Col>
+      <Col md={6} sm={10} xs={10} xsOffset={1} smOffset={1} mdOffset={3}>
+      <header>
+      <h1 className={klass}>
+      {titleText}
+      </h1>
+      </header>
+      </Col>
       </Row>
-    );
+      );
   }
 });
-
-module.exports = headerSubsection;

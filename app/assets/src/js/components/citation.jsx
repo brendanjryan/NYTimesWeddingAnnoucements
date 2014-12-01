@@ -30,7 +30,6 @@ var Citation = React.createClass({
   },
 
   render: function() {
-    debugger;
     var anchorURL =  '#' + this.props.key + "_entry";
     var refURL = this.props.key + "_citation";
 
@@ -45,9 +44,8 @@ var Citation = React.createClass({
           overlay={
             <Popover
               className="pop-over"
-              title={this.state.article.title}
             >
-            {this.props.notes}
+              {this.state.article.title}
             </Popover>
           }
         >

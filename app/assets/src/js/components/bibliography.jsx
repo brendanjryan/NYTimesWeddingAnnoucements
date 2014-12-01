@@ -36,7 +36,7 @@ var Bibliography = React.createClass({
 
     var sources = this.state.sources.map(function(source, ind){
       return(
-        <BibSource source={source} index={ind} />
+        <BibSource source={source} index={ind+1} />
       );
     });
 
