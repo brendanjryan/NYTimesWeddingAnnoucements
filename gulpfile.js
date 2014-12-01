@@ -11,6 +11,7 @@ var browserify = require('browserify');
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var watchify = require('watchify');
+var imagemin = require('gulp-imagemin');
 
 var ASSET_PATH = './app/assets/';
 
@@ -40,16 +41,15 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
   return browserify(PATHS.app_js).on('error', gutil.log)
-    .transform(reactify).on('error', gutil.log)
-    .bundle().on('error', gutil.log)
-    .pipe(source('bundle.js')).on('error', gutil.log)
-    .pipe(gulp.dest(BUILD_PATH + 'js/'))
+  .transform(reactify).on('error', gutil.log)
+  .bundle().on('error', gutil.log)
+  .pipe(source('bundle.js')).on('error', gutil.log)
+  .pipe(gulp.dest(BUILD_PATH + 'js/'))
 });
 
 gulp.task('img', function() {
   return gulp.src(PATHS.img)
-  .pipe(plumber())
-  //compress images here
+  .pipe(imagemin({ optimizationLevel: 4, progressive: true, interlaced: true }))
   .pipe(gulp.dest(BUILD_PATH + 'img/'));
 });
 
