@@ -328,7 +328,7 @@ var ThesisPage = React.createClass({
       <Chart
       chartRenderer={namesFirstBar}
       dataPath={'assets/data/names_first.json'}
-      chartId={'namesFirstBar_second'}
+      chartId={'namesFirstBar_third'}
       isSidebarShown={this.state.isSidebarShown}
       tooltipId={'names_tooltip'}
       />
