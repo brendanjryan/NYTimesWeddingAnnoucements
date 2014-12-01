@@ -45,7 +45,7 @@ var Citation = React.createClass({
             <Popover
               className="pop-over"
             >
-              {this.state.article.title}
+              <span className="title">{"\"" + this.state.article.title +  "\"" }</span>
             </Popover>
           }
         >
@@ -53,7 +53,7 @@ var Citation = React.createClass({
           {this.props.children}
           <span className="citation-icon">
             <a href={anchorURL}>
-              <i className="fa fa-bookmark-o"/>
+              <i className="fa fa-info-circle"/>
             </a>
           </span>
         </span>

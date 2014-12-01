@@ -1,9 +1,17 @@
 .citation {
+  font-weight: 400;
 
+
+  .title {
+    font-weight: bold;
+  }
 }
 
 .citation-holder {
+
 }
+
+
 
 .citation-icon {
   position: relative;
@@ -11,8 +19,8 @@
   i {
     font-size: 1.5rem;
     position: absolute;
-    right: -7.5px;
-    top: -7.5px;
-    color: rgba(102, 3, 255, 1);
+    right: -10px;
+    top: -10px;
+    color: $citation-blue;
   }
 }
