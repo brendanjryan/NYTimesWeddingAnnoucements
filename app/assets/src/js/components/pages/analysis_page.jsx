@@ -338,7 +338,7 @@ var AnalysisPage = React.createClass({
       There are infinitely more questions that still can be answered from this data. If you have any suggestions for further digging or would like to see more similar pieces please don’t hesitate to reach out!
       </p>
       <p>
-      - Brendan Ryan <a href="http://twitter.com/brendan_j_ryan">(@brendanjryan)</a>
+      - Brendan Ryan
       </p>
       </TextBlock>
 
