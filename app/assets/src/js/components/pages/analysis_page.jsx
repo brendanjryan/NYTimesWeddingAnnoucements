@@ -184,7 +184,7 @@ var AnalysisPage = React.createClass({
       >
       <p>
 
-      Every year the <Annotation content="<p><a href='http://online.barrons.com/home-page'>These guys</p>">independent organization Barrons</Annotation>ranks each American College and University on it's selectivity. This selectivity measure is largely based off the metrics of how many applicants the university receives in a given year versus how many applications are accepted by the university for its newest class. Using these rankings, Barrons categorizes schools into multiple categories, including “most competitive”, “highly competitive plus,” “highly competitive,” and "very competitive plus.”
+      Every year the <Annotation content="<p><a href='http://www.barronspac.com/'>These guys</p>">independent organization Barrons</Annotation>ranks each American College and University on it's selectivity. This selectivity measure is largely based off the metrics of how many applicants the university receives in a given year versus how many applications are accepted by the university for its newest class. Using these rankings, Barrons categorizes schools into multiple categories, including “most competitive”, “highly competitive plus,” “highly competitive,” and "very competitive plus.”
       </p>
       <p>
       Viewing the New York Times Wedding Announcements as a "prestigious institution" (with less "graduates" than Harvard since 1981) we can apply a similar statistical model to determine the relative "prestige" of numerous institutions. Relative frequency was used for this measure as complete numerical data of number of applications rejected is (obviously) not available.
