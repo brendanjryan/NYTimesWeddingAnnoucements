@@ -291,7 +291,7 @@ var AnalysisPage = React.createClass({
       key={"jobs-first"}
       >
       <p>
-      Rather unsurprisingly, the lives and careers of America’s elite are quite far from that of Wayne Campbell. It is almost cliché that the 9-5 days of America’s elite are still disproportionally dominated by traditional administrative and financial careers and titles such as “associate” and “manager.” Even with the <Annotation content="<a href='http://online.wsj.com/articles/SB10001424052702303661404579180152676790032'>A classic Wall Street Journal Article</a>">great deal of discussion</Annotation> surrounding the flocking of “millennials"” from finance to jobs in tech the degree that more traditional business titles still dominate “tech” the Wedding Announcements is striking.
+      Rather unsurprisingly, the lives and careers of America’s elite are quite far from that of Wayne Campbell. It is almost cliché that the 9-5 days of America’s elite are still disproportionally dominated by traditional administrative and financial careers and titles such as “associate” and “manager.” Even with the <Annotation content="<a href='http://online.wsj.com/articles/SB10001424052702303661404579180152676790032'>A classic Wall Street Journal Article</a>">great deal of discussion</Annotation> surrounding the flocking of “millennials"” from finance jobs to those in the technology sector, the degree that more traditional business titles, such as associate and manager, still dominate those which are native to tech (such as "engineer") is striking.
       </p>
       </TextBlock>
 
