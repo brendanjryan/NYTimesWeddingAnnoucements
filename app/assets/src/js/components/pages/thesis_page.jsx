@@ -244,7 +244,7 @@ var ThesisPage = React.createClass({
       isSidebarShown={this.state.isSidebarShown}
       codePath={'src/js/charts/honors'}
       >
-      {String(require('../../examples/header_example.jsx').run)}
+      {String(require('../../examples/header_example.jsx'))}
       </CodeBlock>
 
       <TextBlock

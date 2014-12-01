@@ -42,7 +42,7 @@ var CodeBlock = React.createClass({
       1 :
       3
     ;
-
+    debugger;
     return(
       <Row className={klass}>
        <Col md={6} sm={10} xs={10} xsOffset={1} smOffset={1} mdOffset={3}>
