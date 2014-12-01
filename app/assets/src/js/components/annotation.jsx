@@ -20,7 +20,8 @@ var Annotation = React.createClass({
 
     return (
       <OverlayTrigger
-        trigger={["click"]}
+        trigger={["focus", "click"]}
+        tabindex="0"
         className="annotation"
         placement="right"
         delayShow={300}

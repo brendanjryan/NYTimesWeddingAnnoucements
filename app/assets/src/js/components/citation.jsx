@@ -45,11 +45,11 @@ var Citation = React.createClass({
             <Popover
               className="pop-over"
             >
-              <span className="title">{"\"" + this.state.article.title +  "\"" }</span>
+              <span className="title">{this._formatArticle(this.state.article)}</span>
             </Popover>
           }
         >
-        <span name={refURL} className="citation-holder">
+        <span id={refURL} className="citation-holder">
           {this.props.children}
           <span className="citation-icon">
             <a href={anchorURL}>
@@ -61,6 +61,27 @@ var Citation = React.createClass({
       )
       : null
     ;
+  },
+
+  _formatArticle: function(source) {
+    var components = [];
+
+    components.push(source.authors
+      ? source.authors.join(', ') + '. '
+      : ''
+    );
+
+    components.push(source.title
+      ? "\"" + source.title + "\". "
+      : ''
+    );
+
+    components.push(source.publish_date
+      ? source.publish_date
+      : ''
+    );
+
+    return components.join(' ');
   }
 
 });

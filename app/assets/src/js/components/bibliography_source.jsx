@@ -23,7 +23,7 @@ var BibSource = React.createClass({
 
     var authorString = source.authors
       ? source.authors.join(', ') + '. '
-      : null;
+      : '';
     ;
 
     var titleString = source.title
@@ -52,7 +52,7 @@ var BibSource = React.createClass({
     var refURL = source.key + "_entry";
 
     return(
-      <li name={refURL} className={klass}>
+      <li id={refURL} className={klass}>
         <a href={anchorURL}>[{this.props.index}]</a><span>{citationString}</span>
       </li>
     );
