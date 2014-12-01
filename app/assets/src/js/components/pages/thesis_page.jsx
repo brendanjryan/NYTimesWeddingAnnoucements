@@ -127,7 +127,7 @@ var ThesisPage = React.createClass({
       </p>
 
       <p>
-      Once the complete corpus of articles was collected a complete dump of the database was made and the data was normalized. For each of the articles, the complete body was augmented with a parallel version that was stemmed and stripped of all stop words. In addition to this, finer adjustments were made to the data such as normalizing whitespace and dates in order to ensure <Citation key="text_tapping'">consistency across the corpus</Citation>.
+      Once the complete corpus of articles was collected a complete dump of the database was made and the data was normalized. For each of the articles, the complete body was augmented with a parallel version that was stemmed and stripped of all stop words. In addition to this, finer adjustments were made to the data such as normalizing whitespace and dates in order to ensure <Citation key="text_tapping">consistency across the corpus</Citation>.
       </p>
       </TextBlock>
 
@@ -284,7 +284,7 @@ var ThesisPage = React.createClass({
       key={"interface_fourth"}
       >
       <p>
-      By combining the static abstractions of React with the extensibility of generic data visualization frameworks (such as <Citation key="d3">D3</Citation>), flow attempts to strike a balance between declarative, but restrictive, visualization environments and those which are sacrifice extensibility and flexibility at the <Citation key="protivis">cost of programming power</Citation>.
+      By combining the static abstractions of React with the extensibility of generic data visualization frameworks (such as <Citation key="d3">D3</Citation>), flow attempts to strike a balance between declarative, but restrictive, visualization environments and those which are sacrifice extensibility and flexibility at the <Citation key="protovis">cost of programming power</Citation>.
       </p>
       </TextBlock>
 
