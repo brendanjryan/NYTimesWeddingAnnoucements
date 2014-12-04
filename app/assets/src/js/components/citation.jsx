@@ -34,32 +34,32 @@ var Citation = React.createClass({
     var refURL = this.props.key + "_citation";
 
     return this.state.article
-      ? (
-         <OverlayTrigger
-          className="citation"
-          placement="right"
-          delayShow={300}
-          delayHide={150}
-          positionTop={50}
-          overlay={
-            <Popover
-              className="pop-over"
-            >
-              <span className="title">{this._formatArticle(this.state.article)}</span>
-            </Popover>
-          }
-        >
-        <span id={refURL} className="citation-holder">
-          {this.props.children}
-          <span className="citation-icon">
-            <a href={anchorURL}>
-              <i className="fa fa-info-circle"/>
-            </a>
-          </span>
-        </span>
-        </OverlayTrigger>
-      )
-      : null
+    ? (
+     <OverlayTrigger
+     className="citation"
+     placement="right"
+     delayShow={300}
+     delayHide={150}
+     positionTop={50}
+     overlay={
+      <Popover
+      className="pop-over"
+      >
+      <span className="title">{this._formatArticle(this.state.article)}</span>
+      </Popover>
+    }
+    >
+    <span id={refURL} className="citation-holder">
+    {this.props.children}
+    <span className="citation-icon">
+    <a href={anchorURL}>
+    <i className="fa fa-info-circle"/>
+    </a>
+    </span>
+    </span>
+    </OverlayTrigger>
+    )
+    : null
     ;
   },
 
@@ -69,17 +69,17 @@ var Citation = React.createClass({
     components.push(source.authors
       ? source.authors.join(', ') + '. '
       : ''
-    );
+      );
 
     components.push(source.title
       ? "\"" + source.title + "\". "
       : ''
-    );
+      );
 
     components.push(source.publish_date
       ? source.publish_date
       : ''
-    );
+      );
 
     return components.join(' ');
   }
