@@ -68,9 +68,9 @@ var AnalysisPage = React.createClass({
       key={"analysis-first"}
       >
       <p>
-      The <Annotation content="<p>The best way to read these is in the print Sunday Edition of the Times but if saving trees is really your thing you can check them out <a href='http://www.nytimes.com/pages/fashion/weddings/index.html'>online</a> or on <a href='https://twitter.com/nytimesvows'>Twitter</a></p> ">New York Times Wedding Announcements</Annotation> once referred to as
+      The <Annotation content="<p>The best way to read these is in the print Sunday Edition of the Times but if saving trees is really your thing you can check them out <a href='http://www.nytimes.com/pages/fashion/weddings/index.html'>online</a> or on <a href='https://twitter.com/nytimesvows'>Twitter</a></p> ">New York Times Wedding Announcements,</Annotation> once referred to as
       <Annotation content="<p>As per Sara Jessica Parker's Character on Sex and the City</p> <p><a href='http://www.satctranscripts.com/2008/08/sex-and-city-season-3-episode-3.html#.VHKSWJPF_ZV'>Transcript</a></p>">“the single woman’s sports page”</Annotation>
-      is one of the most interesting institutions in American Journalism. Nestled within the traditionally liberal New York Times Sunday edition, the Wedding Announcements, with their limited space and high-social visibility, serve as a modern day social measuring stick for America's Elite. Those who are deemed "pretegious" enough by the Times's editorial board have their wedding broadcast to the Times's vast international readership, while those who are rejected most likely have to settle for some dreary inside page of their local newspaper. Over the years, as the New York Times has continued its tradition as the finest institution in American journalism, the Wedding Annoucements has turned into a who's who of American Matrimony, with a plethora of celebrity and high-profile marriages gracing its pages.
+      is one of the most interesting institutions in American Journalism. Nestled within the traditionally liberal New York Times Sunday edition; the Wedding Announcements, with their limited space and high-social visibility, serve as a modern day social measuring stick for America's elite. Those who are deemed "prestegious" enough by the Times's editorial board have their wedding broadcast to the Times's vast international readership, while those who are rejected most likely have to settle for some dreary inside page of their local newspaper. Over the years, as the New York Times has continued its tradition as the finest institution in American journalism, the Wedding Annoucements has turned into a who's who of American Matrimony, with a plethora of celebrity and high-profile marriages gracing its pages.
       </p>
       </TextBlock>
 
@@ -79,7 +79,7 @@ var AnalysisPage = React.createClass({
       sidebarToggleHandler={this.onSideBarToggle}
       key={"analysis-second"}>
       <p>
-      The cool thing about the collection of Wedding Announcements printed since 1981 is that their distribution is fairly even <SparkLineInline dataPath={"assets/data/article_dates.json"} />. This fact, when combined with the shockingly <Annotation content="<p>For example, look at the second paragraphs from two recent articles:</p><p>The bride, 33, will continue to use her name professionally. She is a lawyer in the law and policy section of the environment and natural resources division of the Justice Department in Washington. She graduated from Williams College in Williamstown, Mass., and received a law degree from New York University.</p><p>The bride, 39, will continue to use her name professionally. She is a family physician at the Harlem Health Center of the New York Hotel Trades Council. She graduated from the University of Michigan and received a medical degree from Nova Southeastern College of Osteopathic Medicine in Fort Lauderdale, Fla.</p>">consistent writing style</Annotation> of the Announcements, makes for a very interesting and robust dataset with very little "noise" or discrepencies. Following in the footsteps of <Annotation content="<p>Notable mentions include:</p><ul><li> <p>Todd Schneider's awesome <a href='http://toddwschneider.com/posts/when-harvard-met-sally-n-gram-analysis-of-the-new-york-times-weddings-section/'>n-gram analysis</a> of the Wedding Annoucements</p></li><li></li><p>The Atlantic Wire's <a href='http://www.thewire.com/entertainment/2011/12/odds-getting-new-york-times-wedding-section/45440/'>analysis</a> of your odds of getting into the wedding annoucements</p><li><li><p>Above the Law's <a href='http://abovethelaw.com/tag/legal-eagle-wedding-watch/'>Legal Eagle Wedding Watch</a></p></li></ul>">many others</Annotation>, I took an analytical approach to answering the universal question, “what do the worlds most socially conscious people think is important?”, and furthermore, how have the "important" characteristics which define America's Elite changed over past half-century.
+      The cool thing about the collection of Wedding Announcements printed since 1981 is that their distribution is fairly even <SparkLineInline dataPath={"assets/data/article_dates.json"} />. This fact, when combined with their shockingly <Annotation content="<p>For example, look at the second paragraphs from two recent articles:</p><p>The bride, 33, will continue to use her name professionally. She is a lawyer in the law and policy section of the environment and natural resources division of the Justice Department in Washington. She graduated from Williams College in Williamstown, Mass., and received a law degree from New York University.</p><p>The bride, 39, will continue to use her name professionally. She is a family physician at the Harlem Health Center of the New York Hotel Trades Council. She graduated from the University of Michigan and received a medical degree from Nova Southeastern College of Osteopathic Medicine in Fort Lauderdale, Fla.</p>">consistent writing style</Annotation>, makes for a very interesting and robust dataset with very little "noise" or discrepencies. Following in the footsteps of <Annotation content="<p>Notable mentions include:</p><ul><li> <p>Todd Schneider's awesome <a href='http://toddwschneider.com/posts/when-harvard-met-sally-n-gram-analysis-of-the-new-york-times-weddings-section/'>n-gram analysis</a> of the Wedding Annoucements</p></li><li></li><p>The Atlantic Wire's <a href='http://www.thewire.com/entertainment/2011/12/odds-getting-new-york-times-wedding-section/45440/'>analysis</a> of your odds of getting into the wedding annoucements</p><li><li><p>Above the Law's <a href='http://abovethelaw.com/tag/legal-eagle-wedding-watch/'>Legal Eagle Wedding Watch</a></p></li></ul>">many others</Annotation>, I took an analytical approach to answering the universal question, “what do the worlds most socially conscious people think is important?”, and furthermore, how have the "important" characteristics which define America's elite changed over past half-century.
       </p>
       </TextBlock>
 
@@ -104,7 +104,7 @@ var AnalysisPage = React.createClass({
       key={"names-first"}
       >
       <p>
-      When ranking the frequency of certain names in the Wedding Annooucements it is almost unsurpsising that the most common names are all anglo-saxon and very Christian in origin. With John, William, and Robert rounding out the top three most common names one would almost think that the Times' prefers grooms named after the <Annotation content="<p> In case you aren't quite brushed up on your English hisotry here's a handy <a href='http://en.wikipedia.org/wiki/List_of_English_monarchs'>wikipedia page</a>">English Monarchy!</Annotation>
+      When ranking the frequency of certain names in the Wedding Annoucements, it is almost unsurpsising that the most common names are all anglo-saxon and very Christian in origin. With John, William, and Robert rounding out the top three most common names one would almost think that the Times's editors prefer grooms named after the <Annotation content="<p> In case you aren't quite brushed up on your English hisotry here's a handy <a href='http://en.wikipedia.org/wiki/List_of_English_monarchs'>wikipedia page</a>">English Monarchy!</Annotation>
       </p>
       <p>
       We can dig a little deeper into this data and divide the most common names by their most common gender indentification. John’s and Ann’s all over the world can rejoice in knowing that, if all else fails, they have the highest (numerical) chance of getting their name into the wedding announcements!
@@ -130,7 +130,7 @@ var AnalysisPage = React.createClass({
       key={"schools-first"}
       >
       <p>
-      Another trend that is very interesting to observe are the relationships between the most prestigious schools in the Wedding Announcements. By using advanced <Annotation content="If you want to geek out about this stuff hit the circular button in the upper-righthand corner and you will be magically whisked away to a more in-depth technical analysis!!!">Natural Language Processing and Machine learning techniques</Annotation> we are able to reconstruct the discrete relationships between multiple characters in a single wedding announcement.
+      Another trend that is very interesting to observe is the relationships between the most prestigious schools in the Wedding Announcements. By using advanced <Annotation content="If you want to geek out about this stuff hit the circular button in the upper-righthand corner and you will be magically whisked away to a more in-depth technical analysis!!!">Natural Language Processing and Machine learning techniques,</Annotation> we are able to reconstruct the discrete relationships between multiple characters in a single wedding announcement.
       </p>
       <p>
       By exploring the patterns of "who married who" we are able to observe many interesting trends. Is the Harvard/Yale rivalry really that strong? Why is Stanford so choosy and Yale so liberal in which schools they marry?
@@ -156,7 +156,7 @@ var AnalysisPage = React.createClass({
       key={"schools-second"}
       >
       <p>
-      Building off of our last visualization it is also very interesting to observe the gender representation in unions from the Wedding Announcements. Each school is colored with it's most prevalent gender (blue for guys and pink for girls) if that school’s gender representation is in the upper 5% for all schools in this study. An  "edge" between schools is colored with the most common gender for that directed relationship, with the thickness corresponding to how frequently such a union occurs. Once again, only outstanding relationships between universities are highlighted.
+      Building off of our last visualization it is also very interesting to observe the gender distribution in unions from the Wedding Announcements. Each university is colored with it's most prevalent gender (blue for guys and pink for girls) if that school’s gender representation is in the upper 5% for all schools in this study. An  "edge" between schools is colored with the most common gender for that directed relationship, with the thickness corresponding to how frequently such a union occurs. Once again, only outstanding relationships between universities are highlighted.
       </p>
       </TextBlock>
 
@@ -187,13 +187,13 @@ var AnalysisPage = React.createClass({
       Every year the <Annotation content="<p><a href='http://www.barronspac.com/'>These guys</p>">independent organization Barrons</Annotation>ranks each American College and University on it's selectivity. This selectivity measure is largely based off the metrics of how many applicants the university receives in a given year versus how many applications are accepted by the university for its newest class. Using these rankings, Barrons categorizes schools into multiple categories, including “most competitive”, “highly competitive plus,” “highly competitive,” and "very competitive plus.”
       </p>
       <p>
-      Viewing the New York Times Wedding Announcements as a "prestigious institution" (with less "graduates" than Harvard since 1981) we can apply a similar statistical model to determine the relative "prestige" of numerous institutions. Relative frequency was used for this measure as complete numerical data of number of applications rejected is (obviously) not available.
+      Considering the New York Times Wedding Announcements as a "prestigious institution" (with less "graduates" than Harvard since 1981) we can apply a similar statistical model to determine the relative "prestige" of numerous institutions. Relative frequency was used for this measure as complete numerical data of number of applications rejected is (obviously) not available.
       </p>
       <p>
       Playing with the chart below we can observe that the "selectivity bands" determined by Barrons very closely mirror those determined by the Times. Is this coincidence? Which institutions surprise you?
       </p>
       <p style={{ "font-style": "italic" }}>
-      N.B. These statistics do not reflect unattainable measures such as the percentage of a college's graduates who applied to be listed in the Times' Wedding Announcements or live in the Greater New York City area.
+      N.B. These statistics do not reflect unattainable measures such as the percentage of a college's graduates who applied to be listed in the Times or live in the Greater New York City area.
       </p>
       </TextBlock>
 
@@ -220,7 +220,7 @@ var AnalysisPage = React.createClass({
       >
       <p>
 
-      It would be paltry to discuss the prestige of America’s elite universities without also giving a nod to their finest graduates; those with Latin distinctions. In the <Annotation content="<p>Even <a href='http://www.thecrimson.com/article/2005/4/21/honors-now-with-more-competition-the/'>Harvard</a> isn't immune to this plight.</p>">modern GPA crazed</Annotation> academic environment it is almost no surprise that the Times has a startlingly high number of its constituents representing our Nation’s academic elite.
+      It would be paltry to discuss the prestige of America’s elite universities without also giving a nod to their finest graduates; those with Latin distinctions. In the <Annotation content="<p>Even <a href='http://www.thecrimson.com/article/2005/4/21/honors-now-with-more-competition-the/'>Harvard</a> isn't immune to this plight.</p>">modern, GPA crazed,</Annotation> academic environment it is almost no surprise that the Times has a startlingly high number of its constituents representing our Nation’s academic elite.
       </p>
       </TextBlock>
 
@@ -239,12 +239,12 @@ var AnalysisPage = React.createClass({
       key={"grad-second"}
       >
       <p>
-      Notice the steady, and shockingly uniform, increases in Latin honors across all distinctions since 1990. This trend closely mirrors the <Annotation content="<p>Princeton has recieved <a href='http://www.nytimes.com/2010/01/31/education/31princeton.html'> a lot of flask</a> from it's studend body for trying to combat this epidemic</p>">steady creep</Annotation> of GPA’s across our nation’s lecture halls and seems to play into the same hand of many academics and institutions calling for stricter grading standards.
+      Notice the steady, and shockingly uniform, increases in Latin honors across all distinctions since 1990. This trend closely mirrors the <Annotation content="<p>Princeton has recieved <a href='http://www.nytimes.com/2010/01/31/education/31princeton.html'> a lot of flak</a> from it's studend body for trying to combat this epidemic</p>">steady creep</Annotation> of GPA’s across our nation’s lecture halls and seems to play into the same hand of many academics and institutions calling for stricter grading standards.
       </p>
       </TextBlock>
 
       <SectionHeader
-      title={'Is 30 really the new 20?'}
+      title={'30\s the new 20\\- Jay-Z'}
       size={'large'}
       isSidebarShown={this.state.isSidebarShown}
       />
@@ -274,7 +274,7 @@ var AnalysisPage = React.createClass({
       key={"age-second"}
       >
       <p>
-      It turns out so! In 1980 you were almost 4 times more likely to see a bride/groom pair in their early 20’s as you would in 2010. This sudden drop in young couples is mirrored by the meteoric rise of couples in their early 30’s, with those in their late 20’s hovering around the same general percentage over the years. I wonder what the <Annotation content="<p>Hova himself declares that '30 is the new 20' in his track <a href='http://genius.com/Jay-z-30-something-lyrics'>30 Something</a></p>">chances of Jay-Z</Annotation> sitting on the Times’s editorial board are…
+      It turns out so! In 1980 you were almost 4 times more likely to see a bride/groom pair in their early 20’s as you would in 2010. This sudden drop in young couples is mirrored by the meteoric rise of couples in their early 30’s, with those in their late 20’s hovering around the same general percentage over the years.
       </p>
       </TextBlock>
 
@@ -291,7 +291,7 @@ var AnalysisPage = React.createClass({
       key={"jobs-first"}
       >
       <p>
-      Rather unsurprisingly, the lives and careers of America’s elite are quite far from that of Wayne Campbell. It is almost cliché that the 9-5 days of America’s elite are still disproportionally dominated by traditional administrative and financial careers and titles such as “associate” and “manager.” Even with the <Annotation content="<a href='http://online.wsj.com/articles/SB10001424052702303661404579180152676790032'>A classic Wall Street Journal Article</a>">great deal of discussion</Annotation> surrounding the flocking of “millennials"” from finance jobs to those in the technology sector, the degree that more traditional business titles, such as associate and manager, still dominate those which are native to tech (such as "engineer") is striking.
+      No surprise, the lives and careers of those who make it into the Wedding Annoucements are quite far from that of the average joe. It is almost cliché that the 9-5 days of America’s elite are still disproportionally dominated by traditional administrative and financial careers and titles such as “associate” and “manager.” Even with the <Annotation content="<a href='http://online.wsj.com/articles/SB10001424052702303661404579180152676790032'>A classic Wall Street Journal Article</a>">great deal of discussion</Annotation> surrounding the flocking of “millennials"” from finance jobs to those in the technology sector, the degree that more traditional business titles, such as associate and manager, still dominate those which are native to tech (such as "engineer") is striking.
       </p>
       </TextBlock>
 
@@ -335,7 +335,7 @@ var AnalysisPage = React.createClass({
       key={"conclusion"}
       >
       <p style={{ "font-weight": "bold", "margin-top": "100px" }}>
-      There are infinitely more questions that still can be answered from this data. If you have any suggestions for further digging or would like to see more similar pieces please don’t hesitate to reach out!
+      There are still infinitely more questions that still can be answered from this data. If you have any suggestions for further digging or would like to see more similar pieces please don’t hesitate to reach out!
       </p>
       <p>
       - Brendan Ryan
