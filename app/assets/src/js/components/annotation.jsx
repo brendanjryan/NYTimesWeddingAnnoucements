@@ -23,7 +23,7 @@ var Annotation = React.createClass({
     // Button used as a hack to fix a bug in React-Bootstrap focus states
     return (
       <OverlayTrigger
-      trigger="focus"
+      trigger={["focus", "click"]}
       className="annotation"
       placement={_getTooltipPlacement()}
       positionTop={50}
@@ -42,14 +42,14 @@ var Annotation = React.createClass({
 });
 
 function _getTooltipPlacement() {
-  if (!_isBreakpoint('sm')) {
+  if (_isBreakpoint('sm')) {
     return "bottom";
   }
   return "right";
 }
 
 function _isBreakpoint(alias) {
-  return $('.device-' + alias).is(':visible');
+  return $( window ).width() < 600;
 }
 
 module.exports = Annotation;

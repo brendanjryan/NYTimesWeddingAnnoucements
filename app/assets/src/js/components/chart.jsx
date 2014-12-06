@@ -77,7 +77,7 @@ var Chart = React.createClass({
             {footer}
             </div>
       )
-      : <p className="warning"> Please view on a larger dievice to see charts </p>
+      : <p className="warning"> Please view on a larger device to see charts </p>
     ;
 
     return (
@@ -92,11 +92,11 @@ var Chart = React.createClass({
 });
 
 function _isBreakpoint(alias) {
-  return $('.device-' + alias).is(':visible');
+  return $( window ).width() < 600;
 }
 
 function _shouldShowChart() {
-  if (!_isBreakpoint('sm')) {
+  if (_isBreakpoint('sm')) {
     return false;
   }
   return true;
