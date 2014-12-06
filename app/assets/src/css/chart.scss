@@ -29,6 +29,14 @@
     box-shadow: 0 0 2.5px rgb(196, 196, 196) inset;
     background: rgb(238, 238, 238);
   }
+
+  .warning {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
+    background: $highlight;
+    padding: 25px 50px;
+  }
 }
 .chart-tooltip {
   display: none;

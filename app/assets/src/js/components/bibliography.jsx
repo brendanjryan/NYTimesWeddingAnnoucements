@@ -9,7 +9,6 @@ var Col = require('react-bootstrap').Col;
 var cx = React.addons.classSet;
 
 var Bibliography = React.createClass({
-   _DATAPATH: '/api/sources/',
 
    proptypes: {
     isSidebarShown: false
@@ -22,7 +21,7 @@ var Bibliography = React.createClass({
   },
 
   componentDidMount: function() {
-    $.get(this._DATAPATH, function(data) {
+    $.get(this.props.datapath, function(data) {
       if (this.isMounted()) {
         this.setState({'sources': data.sources});
       }

@@ -8,20 +8,21 @@ var Row = require('react-bootstrap').Row;
 var Chart = React.createClass({
 
   proptypes: {
-    chartId: React.PropTypes.string,
-    figureNum: React.PropTypes.number,
-    footer: React.PropTypes.string,
-    footerShown: React.PropTypes.bool,
     isSidebarShown: React.PropTypes.bool.isRequired,
     width: React.PropTypes.number.isRequired,
     height: React.PropTypes.number.isRequired,
     chartRenderer: React.PropTypes.func.isRequired,
     dataPath: React.PropTypes.string.isRequired,
+
+    chartId: React.PropTypes.string,
+    figureNum: React.PropTypes.number,
+    footer: React.PropTypes.string,
+    footerShown: React.PropTypes.bool,
     title: React.PropTypes.string
   },
 
   getDefaultProps: function() {
-    var mult = getMulti();
+    var mult = _getMulti();
     return {
       chartId: 'chart',
       figureNum: '',
@@ -33,15 +34,15 @@ var Chart = React.createClass({
     };
   },
 
-
-
   componentDidMount: function() {
-    this.props.chartRenderer.run(
-      '#' + this.props.chartId,
-      this.props.dataPath,
-      this.props.width,
-      this.props.height
+    if(_shouldShowChart()) {
+      this.props.chartRenderer.run(
+        '#' + this.props.chartId,
+        this.props.dataPath,
+        this.props.width,
+        this.props.height
       );
+    }
   },
 
   render: function() {
@@ -54,38 +55,55 @@ var Chart = React.createClass({
     this.props.footer
     ;
 
-    footer = this.props.footerShown ?
-    <p className='footer'>{footerText}</p> :
-    null;
+    footer = this.props.footerShown
+      ? <p className='footer'>{footerText}</p>
+      : null
+    ;
 
 
     var tooltip = this.props.tooltipId
-    ? <div
-    id={this.props.tooltipId} i
-    className={"chart-tooltip"}
-    />
-    : null
+      ? <div
+        id={this.props.tooltipId}
+        className={"chart-tooltip"}
+      />
+      : null
+    ;
+
+    var chart = _shouldShowChart()
+      ? (
+        <div>
+         <header>{this.props.title}</header>
+            <div id={id} ref="chart" />
+            {footer}
+            </div>
+      )
+      : <p className="warning"> Please view on a larger dievice to see charts </p>
     ;
 
     return (
       <Row className="chart">
-      <Col md={8} sm={8} xs={8} xsOffset={2} smOffset={2} mdOffset={2}>
-      <header>{this.props.title}</header>
-      <div id={id} />
-      {footer}
-      </Col>
-      {tooltip}
+        <Col md={8} sm={8} xs={8} xsOffset={2} smOffset={2} mdOffset={2}>
+        {chart}
+        </Col>
+        {tooltip}
       </Row>
-      );
+    );
 }
 });
 
-function isBreakpoint(alias) {
+function _isBreakpoint(alias) {
   return $('.device-' + alias).is(':visible');
 }
 
-function getMulti() {
-  if (isBreakpoint('sm') || isBreakpoint('xs')){
+function _shouldShowChart() {
+  if (!_isBreakpoint('sm')) {
+    return false;
+  }
+  return true;
+}
+
+function _getMulti() {
+  if (_isBreakpoint('sm') || _isBreakpoint('xs')){
     return 0.66667;
   }
   else return 0.5;

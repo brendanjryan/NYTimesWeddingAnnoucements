@@ -12,6 +12,7 @@ var CommentSidebar = React.createClass({
 
   proptypes: {
     isSidebarShown: React.PropTypes.bool.isRequired,
+
     key: React.PropTypes.string.isRequired,
     toggleHandler: React.PropTypes.func,
   },

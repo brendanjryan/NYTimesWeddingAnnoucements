@@ -1,7 +1,5 @@
 var React = require('react/addons');
-
 var Link = require('react-router').Link;
-
 var ToggleModeButton = React.createClass({
 
 

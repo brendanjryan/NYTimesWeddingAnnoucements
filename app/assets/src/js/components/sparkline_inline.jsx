@@ -24,11 +24,12 @@ var SparkLineInline = React.createClass({
   },
 
   componentDidMount: function() {
+    var that = this;
+
     if (!this.props.dataPath) {
       return;
     }
 
-    var that = this;
     d3.json(this.props.dataPath, function(values){
       if (that.props.dataKey) {
         var key = '' + that.props.dataKey;
@@ -40,7 +41,7 @@ var SparkLineInline = React.createClass({
 
       React.renderComponent(
         <SparkLine data={values} />, that.refs.mount.getDOMNode()
-        );
+      );
     });
   },
 

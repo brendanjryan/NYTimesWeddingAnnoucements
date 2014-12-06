@@ -7,19 +7,18 @@ var Button = require('react-bootstrap').Button;
 var Annotation = React.createClass({
   getDefaultProps: function() {
     return {
-      title: "Annotation Title",
-      content: "Annotation Content"
+      title: "",
+      content: ""
     };
   },
-  test: function() {
-    debugger;
-  },
+
   render: function() {
 
     var contentText = this.props.content.split('\n').map(function(item){
       return <p>{item}</p>
     });
 
+    // Button used as a hack to fix a bug in React-Bootstrap focus states
     return (
       <OverlayTrigger
       trigger="focus"

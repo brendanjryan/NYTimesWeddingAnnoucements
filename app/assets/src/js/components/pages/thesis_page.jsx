@@ -392,7 +392,7 @@ We hope that this study provides insight into the complexity and diversity off o
 
 
 
-<Bibliography />
+<Bibliography datapath={"/api/sources/"} />
 <this.props.activeRouteHandler/>
 </div>
 );
