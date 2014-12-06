@@ -244,7 +244,7 @@ var AnalysisPage = React.createClass({
       </TextBlock>
 
       <SectionHeader
-      title={'30\s the new 20\\- Jay-Z'}
+      title={'30\s the new 20 - Jay-Z'}
       size={'large'}
       isSidebarShown={this.state.isSidebarShown}
       />
