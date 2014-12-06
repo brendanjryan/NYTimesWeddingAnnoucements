@@ -68,7 +68,7 @@ var AnalysisPage = React.createClass({
       key={"analysis-first"}
       >
       <p>
-      The <Annotation content="<p>The best way to read these is in the print Sunday Edition of the Times but if saving trees is really your thing you can check them out <a href='http://www.nytimes.com/pages/fashion/weddings/index.html'>online</a> or on <a href='https://twitter.com/nytimesvows'>Twitter</a></p> ">New York Times Wedding Announcements,</Annotation> once referred to as
+      The New York Times Wedding <Annotation content="<p>The best way to read these is in the print Sunday Edition of the Times but if saving trees is really your thing you can check them out <a href='http://www.nytimes.com/pages/fashion/weddings/index.html'>online</a> or on <a href='https://twitter.com/nytimesvows'>Twitter</a></p> ">Announcements,</Annotation> once referred to as
       <Annotation content="<p>As per Sara Jessica Parker's Character on Sex and the City</p> <p><a href='http://www.satctranscripts.com/2008/08/sex-and-city-season-3-episode-3.html#.VHKSWJPF_ZV'>Transcript</a></p>">“the single woman’s sports page”</Annotation>
       is one of the most interesting institutions in American Journalism. Nestled within the traditionally liberal New York Times Sunday edition; the Wedding Announcements, with their limited space and high-social visibility, serve as a modern day social measuring stick for America's elite. Those who are deemed "prestegious" enough by the Times's editorial board have their wedding broadcast to the Times's vast international readership, while those who are rejected most likely have to settle for some dreary inside page of their local newspaper. Over the years, as the New York Times has continued its tradition as the finest institution in American journalism, the Wedding Annoucements section has turned into a who's who of American Matrimony, with a plethora of celebrity and high-profile marriages gracing its pages.
       </p>
@@ -130,7 +130,7 @@ var AnalysisPage = React.createClass({
       key={"schools-first"}
       >
       <p>
-      Another trend that is very interesting to observe is the relationships between the most prestigious schools in the Wedding Announcements. By using advanced <Annotation content="If you want to geek out about this stuff hit the circular button in the upper-righthand corner and you will be magically whisked away to a more in-depth technical analysis!!!">Natural Language Processing and Machine learning techniques,</Annotation> we are able to reconstruct the discrete relationships between multiple characters in a single wedding announcement.
+      Another trend that is very interesting to observe is the relationships between the most prestigious schools in the Wedding Announcements. By using advanced Natural Language Processing and Machine learning <Annotation content="If you want to geek out about this stuff hit the circular button in the upper-righthand corner and you will be magically whisked away to a more in-depth technical analysis!!!">techniques,</Annotation> we are able to reconstruct the discrete relationships between multiple characters in a single wedding announcement.
       </p>
       <p>
       By exploring the patterns of "who married who" we are able to observe many interesting trends. Is the Harvard/Yale rivalry really that strong? Why is Stanford so choosy and Yale so liberal in which schools they marry?
