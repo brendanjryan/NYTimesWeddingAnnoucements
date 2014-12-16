@@ -91,19 +91,19 @@ var Chart = React.createClass({
 }
 });
 
-function _isBreakpoint(alias) {
+function _isMobile(alias) {
   return $( window ).width() < 600;
 }
 
 function _shouldShowChart() {
-  if (_isBreakpoint('sm')) {
+  if (_isMobile()) {
     return false;
   }
   return true;
 }
 
 function _getMulti() {
-  if (_isBreakpoint('sm') || _isBreakpoint('xs')){
+  if (_isMobile()){
     return 0.66667;
   }
   else return 0.5;

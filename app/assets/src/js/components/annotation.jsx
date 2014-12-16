@@ -42,13 +42,13 @@ var Annotation = React.createClass({
 });
 
 function _getTooltipPlacement() {
-  if (_isBreakpoint('sm')) {
+  if (_isMobile()) {
     return "bottom";
   }
   return "right";
 }
 
-function _isBreakpoint(alias) {
+function _isMobile() {
   return $( window ).width() < 600;
 }
 
