@@ -1,6 +1,7 @@
 # manually added file
 node_modules/
-
+app/_data
+app/assets/data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
