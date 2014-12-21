@@ -56,11 +56,6 @@ var AnalysisPage = React.createClass({
         "An Analysis of The New York Times Wedding Announcements"
       }
       />
-      <ToggleModeButton
-      linkTarget={'thesis'}
-      linkText={"Read the Technical Paper"}
-      />
-
 
       <TextBlock
       isSidebarShown={this.state.isSidebarShown}
